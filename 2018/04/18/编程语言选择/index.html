@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="从大学期间教授的C、C++、Java，到自己接触的python、js，以及耳熟能详的PHP、C#、Ruby，甚至其它众多听过的没听过的语言。在此写这篇文章对这些主流的编程语言做一个对比，不是说哪个好哪个不好，更多的是总结下每一种都更多的用在哪些方面，以此来为未来的道路做一个参考。">
+<meta name="keywords" content="生活">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程语言选择">
+<meta property="og:url" content="https://github.com/shuzang/2018/04/18/编程语言选择/index.html">
+<meta property="og:site_name" content="捕风">
+<meta property="og:description" content="从大学期间教授的C、C++、Java，到自己接触的python、js，以及耳熟能详的PHP、C#、Ruby，甚至其它众多听过的没听过的语言。在此写这篇文章对这些主流的编程语言做一个对比，不是说哪个好哪个不好，更多的是总结下每一种都更多的用在哪些方面，以此来为未来的道路做一个参考。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/shuzang/image/raw/master/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%89%E6%8B%A9.jpg?raw=true">
+<meta property="og:image" content="https://github.com/shuzang/image/raw/master/TIOBE%20Index_2018.04.png?raw=true">
+<meta property="og:updated_time" content="2018-05-13T14:34:02.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编程语言选择">
+<meta name="twitter:description" content="从大学期间教授的C、C++、Java，到自己接触的python、js，以及耳熟能详的PHP、C#、Ruby，甚至其它众多听过的没听过的语言。在此写这篇文章对这些主流的编程语言做一个对比，不是说哪个好哪个不好，更多的是总结下每一种都更多的用在哪些方面，以此来为未来的道路做一个参考。">
+<meta name="twitter:image" content="https://github.com/shuzang/image/raw/master/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%89%E6%8B%A9.jpg?raw=true">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/shuzang/2018/04/18/编程语言选择/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>编程语言选择 | 捕风</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">捕风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独的孩子爱寂寞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/04/18/编程语言选择/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="书葬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="捕风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">编程语言选择
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-18 20:06:18" itemprop="dateCreated datePublished" datetime="2018-04-18T20:06:18+08:00">2018-04-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 22:34:02" itemprop="dateModified" datetime="2018-05-13T22:34:02+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/shuzang/image/raw/master/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%89%E6%8B%A9.jpg?raw=true" alt="编程语言选择"><br>　　从大学期间教授的C、C++、Java，到自己接触的python、js，以及耳熟能详的PHP、C#、Ruby，甚至其它众多听过的没听过的语言。在此写这篇文章对这些主流的编程语言做一个对比，不是说哪个好哪个不好，更多的是总结下每一种都更多的用在哪些方面，以此来为未来的道路做一个参考。<br><a id="more"></a></p>
+<h2 id="TIOBE编程语言排行榜"><a href="#TIOBE编程语言排行榜" class="headerlink" title="TIOBE编程语言排行榜"></a>TIOBE编程语言排行榜</h2><p>　　<a href="https://www.tiobe.com/tiobe-index//" target="_blank" rel="noopener">TIOBT编程语言排行榜</a>是编程语言流行趋势的一个指标,该排行每月更新一次。编程语言在排行榜上的位置是根据全世界范围内相应的有经验的工程师、课程和第三方供应商的数量而定。而谷歌、必应、维基、亚马逊、YouTube和百度等搜索引擎的搜索频次决定该语言的占比（Ratings）。另外，网站还特别强调，关于哪种语言是最好的，哪种语言的已完成代码最多和他们无关。<br>　　这个排行榜用来考察自己的编程技能是否还在时代潮流，也可以在开始一段新的学习或开发一个新系统时作为一个语言选择依据。2018年4月的排行榜如下：<br><img src="https://github.com/shuzang/image/raw/master/TIOBE%20Index_2018.04.png?raw=true" alt=""><br>我们就从这个排行榜开始讲起</p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h3 id="Java用来做什么"><a href="#Java用来做什么" class="headerlink" title="Java用来做什么"></a>Java用来做什么</h3><p>最广为人知的：安卓应用开发<br>其它：视频游戏开发、桌面GUI、Hadoop开发 </p>
+<h3 id="Java的优缺点"><a href="#Java的优缺点" class="headerlink" title="Java的优缺点"></a>Java的优缺点</h3><p>优点：使用人数最多，开发者需求量最大<br>缺点：内存占用很大；启动速度很慢</p>
+<h3 id="Java编写了"><a href="#Java编写了" class="headerlink" title="Java编写了"></a>Java编写了</h3><p>Gmail，Minecraft</p>
+<p><br></p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h3 id="C用来做什么"><a href="#C用来做什么" class="headerlink" title="C用来做什么"></a>C用来做什么</h3><p>开发固件或移动应用；操作系统开发；编写系统软件</p>
+<h3 id="C的优缺点"><a href="#C的优缺点" class="headerlink" title="C的优缺点"></a>C的优缺点</h3><p>优点：可移动性很高，可在不做改动或改动很小的情况下开发运行在不同平台的软件；C很小，可以嵌入几乎所有现代微型处理器，从冰箱到闹钟；因为几乎所有编程语言都由C实现，学会C就能使你方便的学会一切编程语言<br>缺点：没有运行时检查机制；不支持面向对象编程  </p>
+<h3 id="C编写了"><a href="#C编写了" class="headerlink" title="C编写了"></a>C编写了</h3><p>kindle，Linux，OpenGL</p>
+<p><br></p>
+<h2 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h2><h3 id="C-用来做什么"><a href="#C-用来做什么" class="headerlink" title="C++用来做什么"></a>C++用来做什么</h3><p>操作系统开发，搜索引擎开发等</p>
+<h3 id="C-的优缺点"><a href="#C-的优缺点" class="headerlink" title="C++的优缺点"></a>C++的优缺点</h3><p>优点：<br>缺点：学起来很困难；尺寸巨大，大部分功能相互影响是极其复杂的方式</p>
+<h3 id="C-编写了"><a href="#C-编写了" class="headerlink" title="C++编写了"></a>C++编写了</h3><p>Goole，Outlook</p>
+<p><br></p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><h3 id="Python用来做什么"><a href="#Python用来做什么" class="headerlink" title="Python用来做什么"></a>Python用来做什么</h3><p>网页开发，视频游戏开发，桌面GUI,“胶水语言”-把用其它语言制作的各种模块（尤其是C/C++）连结在一起，黑客语言</p>
+<h3 id="Python的优缺点"><a href="#Python的优缺点" class="headerlink" title="Python的优缺点"></a>Python的优缺点</h3><p>优点：最容易学习的语言；大量的库和函数；用于物联网，如树莓派平台<br>缺点：作为解释型语言，比编译型语言慢很多；在移动计算方面很强，很少有智能机应用由Python开发；是动态型，需要更多测试以及错误仅在运行时提示</p>
+<h3 id="Python编写了"><a href="#Python编写了" class="headerlink" title="Python编写了"></a>Python编写了</h3><p>Instagram，YouTube</p>
+<p><br></p>
+<h2 id="C-2"><a href="#C-2" class="headerlink" title="C#"></a>C#</h2><h3 id="C-用来做什么-1"><a href="#C-用来做什么-1" class="headerlink" title="C#用来做什么"></a>C#用来做什么</h3><p>Windows应用开发，商业应用开发</p>
+<h3 id="C-的优缺点-1"><a href="#C-的优缺点-1" class="headerlink" title="C#的优缺点"></a>C#的优缺点</h3><p>优点：完整的.NET库，提供接入大量功能和支持；基于C，所以学到的架构可以转移到其它语言如Java，PHP以及C++<br>缺点：因为集合了.NET，没有任何跨平台能力</p>
+<h3 id="C-编写了-1"><a href="#C-编写了-1" class="headerlink" title="C#编写了"></a>C#编写了</h3><p>stackoverflow，Evernote</p>
+<p><br></p>
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><h3 id="PHP用来做什么"><a href="#PHP用来做什么" class="headerlink" title="PHP用来做什么"></a>PHP用来做什么</h3><p>PHP时Web开发语言，广泛用在网站开发，API接口开发，服务器端开发，广告系统给开发，内部OA开发，移动后台开发，游戏开发</p>
+<h3 id="PHP的优缺点"><a href="#PHP的优缺点" class="headerlink" title="PHP的优缺点"></a>PHP的优缺点</h3><p>优点：容易上手；社群庞大，社区活跃，开发者遇到的多数问题都有前人的解决方案；对数据库友好<br>缺点：代码不美；速度比其它语言慢；错误处理不够周全，因为要支持大量旧版的功能</p>
+<h3 id="PHP编写了"><a href="#PHP编写了" class="headerlink" title="PHP编写了"></a>PHP编写了</h3><p>facebook，wordpress</p>
+<p><br></p>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="Javascript用来做什么"><a href="#Javascript用来做什么" class="headerlink" title="Javascript用来做什么"></a>Javascript用来做什么</h3><p>目前所有主流浏览器上唯一支持的脚本语言，可以做网站前端，后台，Web交互，游戏脚本等</p>
+<h3 id="Javascript的优缺点"><a href="#Javascript的优缺点" class="headerlink" title="Javascript的优缺点"></a>Javascript的优缺点</h3><p>优点：因为任何代码功能都能立刻运行，速度很快；学习和实施都相当简单<br>缺点：有时候会被恶意利用，不怎么安全；会被不同浏览器编译出不同结果</p>
+<p><br></p>
+<h2 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h2><h3 id="Ruby用来做什么"><a href="#Ruby用来做什么" class="headerlink" title="Ruby用来做什么"></a>Ruby用来做什么</h3><p>桌面GUI，网页应用，Web开发</p>
+<h3 id="Ruby的优缺点"><a href="#Ruby的优缺点" class="headerlink" title="Ruby的优缺点"></a>Ruby的优缺点</h3><p>优点：和Python一样好学；大量的扩展和库；社区庞大<br>缺点：速度慢；很难找到好的文档</p>
+<p><br></p>
+<h2 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h2><h3 id="Swift用来做什么"><a href="#Swift用来做什么" class="headerlink" title="Swift用来做什么"></a>Swift用来做什么</h3><p>与Object-C同用于IOS开发，这也是我为什么不单列Object-C的原因</p>
+<p><br></p>
+<h2 id="我的选择"><a href="#我的选择" class="headerlink" title="我的选择"></a>我的选择</h2><h3 id="已学过（按熟悉程度排名）"><a href="#已学过（按熟悉程度排名）" class="headerlink" title="已学过（按熟悉程度排名）"></a>已学过（按熟悉程度排名）</h3><ol>
+<li>C</li>
+<li>C++</li>
+<li>Java</li>
+<li>Python</li>
+</ol>
+<h3 id="未来重心（按重要性排名）"><a href="#未来重心（按重要性排名）" class="headerlink" title="未来重心（按重要性排名）"></a>未来重心（按重要性排名）</h3><ol>
+<li>C</li>
+<li>Python</li>
+<li>Javascript</li>
+</ol>
+<p><br></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/z4909801/article/details/56511220" target="_blank" rel="noopener">2016主流编程语言的详细对比</a><br><a href="http://baijiahao.baidu.com/s?id=1574780298772788&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">几种主流编程语言的优点和缺点比较</a><br><a href="https://www.zhihu.com/question/20806939" target="_blank" rel="noopener">各主流编程语言各自擅长什么场景，为什么？</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/生活/" rel="tag"><i class="fa fa-tag"></i> 生活</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/18/战争/" rel="next" title="战争">
+                <i class="fa fa-chevron-left"></i> 战争
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/04/19/程序员修炼之道-注重实效的哲学/" rel="prev" title="程序员修炼之道-注重实效的哲学">
+                程序员修炼之道-注重实效的哲学 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true"
+                alt="书葬" />
+            
+              <p class="site-author-name" itemprop="name">书葬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shuzang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nicelinks.site/" title="倾城之链" target="_blank">倾城之链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cupfox.com/" title="茶杯狐" target="_blank">茶杯狐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIOBE编程语言排行榜"><span class="nav-number">1.</span> <span class="nav-text">TIOBE编程语言排行榜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">2.</span> <span class="nav-text">Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java用来做什么"><span class="nav-number">2.1.</span> <span class="nav-text">Java用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">Java的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java编写了"><span class="nav-number">2.3.</span> <span class="nav-text">Java编写了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C用来做什么"><span class="nav-number">3.1.</span> <span class="nav-text">C用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C的优缺点"><span class="nav-number">3.2.</span> <span class="nav-text">C的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C编写了"><span class="nav-number">3.3.</span> <span class="nav-text">C编写了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-1"><span class="nav-number">4.</span> <span class="nav-text">C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-用来做什么"><span class="nav-number">4.1.</span> <span class="nav-text">C++用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-的优缺点"><span class="nav-number">4.2.</span> <span class="nav-text">C++的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-编写了"><span class="nav-number">4.3.</span> <span class="nav-text">C++编写了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">5.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python用来做什么"><span class="nav-number">5.1.</span> <span class="nav-text">Python用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python的优缺点"><span class="nav-number">5.2.</span> <span class="nav-text">Python的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python编写了"><span class="nav-number">5.3.</span> <span class="nav-text">Python编写了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-2"><span class="nav-number">6.</span> <span class="nav-text">C#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-用来做什么-1"><span class="nav-number">6.1.</span> <span class="nav-text">C#用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-的优缺点-1"><span class="nav-number">6.2.</span> <span class="nav-text">C#的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-编写了-1"><span class="nav-number">6.3.</span> <span class="nav-text">C#编写了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP"><span class="nav-number">7.</span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP用来做什么"><span class="nav-number">7.1.</span> <span class="nav-text">PHP用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的优缺点"><span class="nav-number">7.2.</span> <span class="nav-text">PHP的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP编写了"><span class="nav-number">7.3.</span> <span class="nav-text">PHP编写了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">8.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript用来做什么"><span class="nav-number">8.1.</span> <span class="nav-text">Javascript用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript的优缺点"><span class="nav-number">8.2.</span> <span class="nav-text">Javascript的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ruby"><span class="nav-number">9.</span> <span class="nav-text">Ruby</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby用来做什么"><span class="nav-number">9.1.</span> <span class="nav-text">Ruby用来做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby的优缺点"><span class="nav-number">9.2.</span> <span class="nav-text">Ruby的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swift"><span class="nav-number">10.</span> <span class="nav-text">Swift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift用来做什么"><span class="nav-number">10.1.</span> <span class="nav-text">Swift用来做什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的选择"><span class="nav-number">11.</span> <span class="nav-text">我的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#已学过（按熟悉程度排名）"><span class="nav-number">11.1.</span> <span class="nav-text">已学过（按熟悉程度排名）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未来重心（按重要性排名）"><span class="nav-number">11.2.</span> <span class="nav-text">未来重心（按重要性排名）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">12.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">书葬</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

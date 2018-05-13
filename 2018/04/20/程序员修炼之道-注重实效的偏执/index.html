@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="You Can’t Write Perfect Software    　　这刺痛了你？不应该。把它视为生活的公理，接受它，拥抱它，庆祝它。因为完美的软件不存在。在计算技术简短的历史中，没有一个人曾经写出过一个完美的软件。你也不大可能成为第一个。除非你把这作为事实接受下来，否则你最终会把时间和精力浪费在追逐不可能实现的梦想上。 　　那么，给定了这个让人压抑的现实，注重实效的程序员怎样把它转变为有利">
+<meta name="keywords" content="书籍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员修炼之道-注重实效的偏执">
+<meta property="og:url" content="https://github.com/shuzang/2018/04/20/程序员修炼之道-注重实效的偏执/index.html">
+<meta property="og:site_name" content="捕风">
+<meta property="og:description" content="You Can’t Write Perfect Software    　　这刺痛了你？不应该。把它视为生活的公理，接受它，拥抱它，庆祝它。因为完美的软件不存在。在计算技术简短的历史中，没有一个人曾经写出过一个完美的软件。你也不大可能成为第一个。除非你把这作为事实接受下来，否则你最终会把时间和精力浪费在追逐不可能实现的梦想上。 　　那么，给定了这个让人压抑的现实，注重实效的程序员怎样把它转变为有利">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-13T14:34:02.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员修炼之道-注重实效的偏执">
+<meta name="twitter:description" content="You Can’t Write Perfect Software    　　这刺痛了你？不应该。把它视为生活的公理，接受它，拥抱它，庆祝它。因为完美的软件不存在。在计算技术简短的历史中，没有一个人曾经写出过一个完美的软件。你也不大可能成为第一个。除非你把这作为事实接受下来，否则你最终会把时间和精力浪费在追逐不可能实现的梦想上。 　　那么，给定了这个让人压抑的现实，注重实效的程序员怎样把它转变为有利">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/shuzang/2018/04/20/程序员修炼之道-注重实效的偏执/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>程序员修炼之道-注重实效的偏执 | 捕风</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">捕风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独的孩子爱寂寞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/04/20/程序员修炼之道-注重实效的偏执/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="书葬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="捕风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">程序员修炼之道-注重实效的偏执
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-20 16:28:41" itemprop="dateCreated datePublished" datetime="2018-04-20T16:28:41+08:00">2018-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 22:34:02" itemprop="dateModified" datetime="2018-05-13T22:34:02+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note default"><p>You Can’t Write Perfect Software  </p></div> 
+<p>　　这刺痛了你？不应该。把它视为生活的公理，接受它，拥抱它，庆祝它。因为完美的软件不存在。在计算技术简短的历史中，没有一个人曾经写出过一个完美的软件。你也不大可能成为第一个。除非你把这作为事实接受下来，否则你最终会把时间和精力浪费在追逐不可能实现的梦想上。</p>
+<p>　　那么，给定了这个让人压抑的现实，注重实效的程序员怎样把它转变为有利条件？这正是这一章的话题。</p>
+<a id="more"></a>
+<p>　　每个人都知道只有他们自己是地球上的好司机。所有其他的人都等在那里要对他们不利，这些人乱冲停车标志、在车道之间摇来摆去、不作出转向指示、打电话、看报纸、总而言之就是不符合我们的标准。于是我们防卫性地开车。我们在麻烦发生之前小心谨慎、预判意外之事、从不让自己陷入无法解救自己的境地。</p>
+<p>　　编码的相似性相当明显。我们不断地与他人的代码接合——可能不符合我们的高标准的代码——并处理可能有效、也可能无效的输入。所以我们被教导说，要防卫性地编码。如果有任何疑问，我们就会验证给予我们的所有信息。我们使用断言检测坏数据。我们检查一致性，在数据库的列上施加约束，而且通常对自己感到相当满意。</p>
+<p>　　但注重实效的程序员会更进一步。他们连自己也不信任。知道没有人能编写完美的代码，包括自己，所以注重实效的程序员针对自己的错误进行防卫性的编码。我们将在“按合约设计（Design by Contract）”中描述第一种防卫措施：客户与供应者必须就权利与责任达成共识。</p>
+<p>　　在“死程序不说谎”中，我们想要确保在找出bug的过程中，不会造成任何破坏。所以我们设法经常检查各种事项，并在程序出问题时终止程序。</p>
+<p>　　“断言式编程”描述了一种沿途进行检查的轻松方法——编写主动校验你的假定的代码。</p>
+<p>　　与其他任何技术一样，异常如果没有得到适当使用，造成的危害可能比带来的好处更多。我们将在“何时使用异常”中讨论各种相关问题。</p>
+<p>　　随着你的程序变得更为动态，你会发现自己在用系统资源玩杂耍——内存、文件、设备，等等。在“怎样配平资源（How to Balance Resources）”中，我们将提出一些方法，确保你不会让其中任何一个球掉落下来。</p>
+<p>　　不完美的系统、荒谬的时间标度、可笑的工具、还有不可能实现的需求——在这样一个世界上，让我们安全“驾驶”。</p>
+<blockquote>
+<p>当每个人都确实要对你不利时，偏执就是一个好主意。<br>　　　　　　　　　　　　　　　　　　——Woody Allen</p>
+</blockquote>
+<p><br></p>
+<h2 id="按合约设计"><a href="#按合约设计" class="headerlink" title="按合约设计"></a>按合约设计</h2><blockquote>
+<p>没有什么比常识和坦率更让人感到惊讶。<br>　　——拉尔夫•沃尔多•爱默生，《散文集》</p>
+</blockquote>
+<p>　　与计算机系统打交道很困难。与人打交道更困难。但作为一个族类，我们花费在弄清楚人们交往的问题上的时间更长。在过去几千年中我们得出的一些解决办法也可应用于编写软件。确保坦率的最佳方案之一就是合约。</p>
+<p>　　合约既规定你的权利与责任，也规定对方的权利与责任。此外，还有关于任何一方没有遵守合约的后果的约定。</p>
+<p>　　或许你有一份雇用合约，规定了你的工作时数和你必须遵循的行为准则。作为回报，公司付给你薪水和其他津贴。双方都履行其义务，每个人都从中受益。</p>
+<p>　　全世界都——正式地或非正式地——采用这种理念帮助人们交往。我们能否采用同样的概念帮助软件模块进行交互？答案是肯定的。</p>
+<h3 id="DBC"><a href="#DBC" class="headerlink" title="DBC"></a>DBC</h3><p>　　Bertrand Meyer[Mey97b]为Eiffel语言发展了按合约设计的概念[25]。这是一种简单而强大的技术，它关注的是用文档记载（并约定）软件模块的权利与责任，以确保程序正确性。什么是正确的程序？不多不少，做它声明要做的事情的程序。用文档记载这样的声明，并进行校验，是按合约设计（简称DBC）的核心所在。</p>
+<p>　　软件系统中的每一个函数和方法都会做某件事情。在开始做某事之前，例程对世界的状态可能有某种期望，并且也可能有能力陈述系统结束时的状态。Meyer这样描述这些期望和陈述：</p>
+<ul>
+<li>前条件（precondition）。为了调用例程，必须为真的条件；例程的需求。在其前条件被违反时，例程决不应被调用。传递好数据是调用者的责任（见115页的方框）。</li>
+<li>后条件（postcondition）。例程保证会做的事情，例程完成时世界的状态。例程有后条件这一事实意味着它会结束：不允许有无限循环。</li>
+<li>类不变项（class invariant）。类确保从调用者的视角来看，该条件总是为真。在例程的内部处理过程中，不变项不一定会保持，但在例程退出、控制返回到调用者时，不变项必须为真（注意，类不能给出无限制的对参与不变项的任何数据成员的写访问）。</li>
+</ul>
+<p>让我们来看一个例程的合约，它把数据值插入惟一、有序的列表中。在iContract（用于Java的预处理器，可从[URL 17]获取）中，你可以这样指定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @invariant forall Node n in elements() |</span><br><span class="line">  *    n.prev() != null</span><br><span class="line">  *      implies</span><br><span class="line">  *         n.value().compare To(n.prev().value()) &gt; 0</span><br><span class="line">  */</span><br><span class="line">public class dbc_list &#123;</span><br><span class="line">  /**</span><br><span class="line">    * @pre contains(aNode) == false</span><br><span class="line">    * @post contains(aNode) == true</span><br><span class="line">    */</span><br><span class="line">  public void insertNode(final Node aNode) &#123;</span><br><span class="line">    // ...</span><br></pre></td></tr></table></figure></p>
+<p>　　这里我们所说的是，这个列表中的节点必须以升序排列。当你插入新节点时，它不能是已经存在的，我们还保证，在你插入某个节点后，你将能够找到它。</p>
+<p>　　你用目标编程语言（或许还有某些扩展）编写这些前条件、后条件以及不变项。例如，除了普通的Java构造体，iContract还提供了谓词逻辑操作符——forall、exists、还有implies。你的断言可以查询方法能够访问的任何对象的状态，但要确保查询没有任何副作用（参见124页）。</p>
+<blockquote>
+<p><strong>DBC与常量参数</strong><br>　　后条件常常要使用传入方法的参数来校验正确的行为。但如果允许例程改变传入的参数，你就有可能规避合约。Eiffel不允许这样的事情发生，但Java却允许。这里，我们使用Java关键字final指示我们的意图：参数在方法内不应被改变。这并非十分安全——子类有把参数重新声明为非final的自由。另外，你可以使用iContract语法variable@pre获取变量在进入方法时的初始值。</p>
+</blockquote>
+<p>这样，例程与任何潜在的调用者之间的合约可解读为：</p>
+<p><em>如果调用者满足了例程的所有前条件，例程应该保证在其完成时、所有后条件和不变项将为真</em>。</p>
+<p>　　如果任何一方没有履行合约的条款，（先前约定的）某种补偿措施就会启用——例如，引发异常或是终止程序。不管发生什么，不要误以为没能履行合约是bug。它不是某种决不应该发生的事情，这也就是为什么前条件不应被用于完成像用户输入验证这样的任务的原因。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Design with Contracts  </span><br><span class="line">通过合约进行设计</span><br></pre></td></tr></table></figure> 
+<p>　　在“正交性”（34页）中，我们建议编写“羞怯”的代码。这里，强调的重点是在“懒惰”的代码上：对在开始之前接受的东西要严格，而允诺返回的东西要尽可能少。记住，如果你的合约表明你将接受任何东西，并允诺返回整个世界，那你就有大量代码要写了！</p>
+<p>　　继承和多态是面向对象语言的基石，是合约可以真正闪耀的领域。假定你正在使用继承创建“是一种（is-a-kind-of）”关系，即一个类是另外一个类的“一种”。你或许会想要坚持Liskov替换原则（Lis88）：</p>
+<blockquote>
+<p>子类必须要能通过基类的接口使用，而使用者无须知道其区别。</p>
+</blockquote>
+<p>　　换句话说，你想要确保你创建的新子类型确实是基类型的“一种”——它支持同样的方法，这些方法有同样的含义。我们可以通过合约来做到这一点。要让合约自动应用于将来的每个子类，我们只须在基类中规定合约一次。子类可以（可选地）接受范围更广的输入，或是作出更强的保证。但它所接受的和所保证的至少与其父类一样多。</p>
+<p>　　例如，考虑Java基类java.awt.Component。你可以把AWT或Swing中的任何可视组件当作Component，而不用知道实际的子类是按钮、画布、菜单，还是别的什么。每个个别的组件都可以提供额外的、特殊的功能，但它必须至少提供Component定义的基本能力。但并没有什么能阻止你创建Component的一个子类型，提供名称正确、但所做事情却不正确的方法。你可以很容易地创建不进行绘制的paint方法，或是不设置字体的setFont方法。AWT没有用于抓住你没有履行合约的事实的合约。</p>
+<p>　　没有合约，编译器所能做的只是确保子类符合特定的方法型构（signature）。但如果我们适当设定基类合约，我们现在就能够确保将来任何子类都无法改变我们的方法的含义。例如，你可能想要这样为setFont建立合约，确保你设置的字体就是你得到的字体：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @pre  f != null</span><br><span class="line">  * @post getFont() == f</span><br><span class="line">  */</span><br><span class="line">  public void setFont(final Font f) &#123;</span><br><span class="line">   // ...</span><br></pre></td></tr></table></figure></p>
+<h3 id="实现DBC"><a href="#实现DBC" class="headerlink" title="实现DBC"></a>实现DBC</h3><p>　　使用DBC的最大好处也许是它迫使需求与保证的问题走到前台来。在设计时简单地列举输入域的范围是什么、边界条件是什么、例程允诺交付什么——或者，更重要的，它不允诺交付什么——是向着编写更好的软件的一次飞跃。不对这些事项作出陈述，你就回到了靠巧合编程（参见172页），那是许多项目开始、结束、失败的地方。</p>
+<p>　　如果语言不在代码中支持DBC，你也许就只能走这么远了——这并不太坏。毕竟，DBC是一种设计技术。即使没有自动检查，你也可以把合约作为注释放在代码中，并仍然能够得到非常实际的好处。至少，在遇到麻烦时，用注释表示的合约给了你一个着手的地方。</p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>　　尽管用文档记载这些假定是一个了不起的开始，让编译器为你检查你的合约，你能够获得大得多的好处。在有些语言中，你可以通过断言（参见断言式编程，122页）对此进行部分的模拟。为何只是部分的？你不能用断言做DBC能做的每一件事情吗？</p>
+<p>　　遗憾的是，答案是“不能”。首先，断言不能沿着继承层次向下遗传。这就意味着，如果你重新定义了某个具有合约的基类方法，实现该合约的断言不会被正确调用（除非你在新代码中手工复制它们）。在退出每个方法之前，你必须记得手工调用类不变项（以及所有的基类不变项）。根本的问题是合约不会自动实施。</p>
+<p>　　还有，不存在内建的“老”值概念。也就是，与存在于方法入口处的值相同的值。如果你使用断言实施合约，你必须给前条件增加代码，保存你想要在后条件中使用的任何信息。把它与iContract比较一下，其后条件可以引用“variable@pre”；或者与Eiffel比较一下，它支持“老表达式”。</p>
+<p>　　最后，runtime系统和库的设计不支持合约，所以它们的调用不会被检查。这是一个很大的损失，因为大多数问题常常是在你的代码和它使用的库之间的边界上检测到的（更详细的讨论，参见死程序不说谎，120页）。</p>
+<h3 id="语言支持"><a href="#语言支持" class="headerlink" title="语言支持"></a>语言支持</h3><p>　　有内建的DBC支持的语言（比如Eiffel和Sather[URL 12]）自动在编译器和runtime系统中检查前条件和后条件。在这样的情况下，你能获得最大的好处，因为所有的代码库（还有库函数）必须遵守它们的合约。</p>
+<p>　　但像C、C++和Java这样的更流行的语言呢？对于这些语言，有一些预处理器能够处理作为特殊注释嵌入在原始源码中的合约。预处理器会把这些注释展开成检验断言的代码。</p>
+<p>　　对于C和C++，你可以研究一下Nana[URL 18]。Nana不处理继承，但它却能以一种新颖的方式、使用调试器在运行时监控断言。</p>
+<p>　　对于Java，可以使用iContract[URL 17]。它读取（JavaDoc形式的）注释，生成新的包含了断言逻辑的源文件。</p>
+<p>　　预处理器没有内建设施那么好。把它们集成进你的项目可能会很杂乱，而且你使用的其他库没有合约。但它们仍然很有助益；当某个问题以这样的方式被发现时——特别是你本来决不会发现的问题——那几乎像是魔术。</p>
+<h3 id="DBC与早崩溃"><a href="#DBC与早崩溃" class="headerlink" title="DBC与早崩溃"></a>DBC与早崩溃</h3><p>　　DBC相当符合我们关于早崩溃的概念（参见“死程序不说谎”，120页）。假定你有一个计算平方根的方法（比如在Eiffel的DOUBLE类中）。它需要一个前条件，把参数域限制为正数。Eiffel的前条件通过关键字require声明，后条件通过ensure声明，所以你可以编写：</p>
+<pre><code>sqrt: DOUBLE is
+      -- Square root routine
+   require
+      sqrt_arg_must_be_positive: Current &gt;= 0;
+   --- ...
+   --- calculate square root here
+   --- ...
+   ensure
+      ((Result*Result) - Current).abs &lt;= epsilon*Current.abs;
+      -- Result should be within error tolerance
+   end;
+</code></pre><blockquote>
+<p><strong>谁负责？</strong><br>　　谁负责检查前条件，是调用者，还是被调用的例程？如果作为语言的一部分实现，答案是两者都不是：前条件是在调用者调用例程之后，但在进入例程自身之前，在幕后测试的。因而如果要对参数进行任何显式的检查，就必须由调用者来完成，因为例程自身永远也不会看到违反了其前条件的参数。（对于没有内建支持的语言，你需要用检查这些断言的“前言”（preamble）和/或“后文”（postamble）把被调用的例程括起来）<br>　　考虑一个程序，它从控制台读取数字，（通过调用sqrt）计算其平方根，并打印结果。sqrt函数有一个前条件——其参数不能为负。如果用户在控制台上输入负数，要由调用代码确保它不会被传给sqrt。该调用代码有许多选择：它可以终止，可以发出警告并读取另外的数，也可以把这个数变成正数，并在sqrt返回的结果后面附加一个“i”。无论其选择是什么，这都肯定不是sqrt的问题。<br>　　通过在sqrt例程的前条件中表示平方根函数的参数域，你把保证正确性的负担转交给了调用者——本应如此。随后你可以在知道了其输入会落在有效范围内的前提下，安全地设计sqrt例程。</p>
+</blockquote>
+<p>　　如果你用于计算平方根的算法失败了（或不在规定的错误容忍程度之内），你会得到一条错误消息，以及用于告诉你调用链的栈踪迹（stack trace）。</p>
+<p>　　如果你传给sqrt一个负参数，Eiffel runtime会打印错误“sqrt_arg_must_be_positive”，还有栈踪迹。这比像Java、C和C++等语言中的情况要好，在这些语言那里，把负数传给sqrt，返回的是特殊值NaN（Not a Number）。要等到你随后在程序中试图对NaN进行某种运算时，你才会得到让你吃惊的结果。</p>
+<p>　　通过早崩溃、在问题现场找到和诊断问题要容易得多。</p>
+<h3 id="不变项的其他用法"><a href="#不变项的其他用法" class="headerlink" title="不变项的其他用法"></a>不变项的其他用法</h3><p>　　到目前为止，我们已经讨论了适用于单个方法的前条件和后条件，以及应用于类中所有方法的不变项，但使用不变项还有其他一些有用的方式。</p>
+<h4 id="循环不变项"><a href="#循环不变项" class="headerlink" title="循环不变项"></a>循环不变项</h4><p>　　在复杂的循环上正确设定边界条件可能会很成问题。循环常有香蕉问题（我知道怎样拼写“banana”，但不知道何时停下来——“bananana…”）、篱笆桩错误（不知道该数桩还是该数空）、以及无处不在的“差一个”错误[URL 52]。</p>
+<p>　　在这些情况下，不变项可以有帮助：循环不变项是对循环的最终目标的陈述，但又进行了一般化，这样在循环执行之前和每次循环迭代时，它都是有效的。你可以把它视为一种微型合约。经典的例子是找出数组中的最大值的例程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int m = arr[0];   // example assumes arr.length &gt; 0</span><br><span class="line">int i = 1;</span><br><span class="line">// Loop invariant: m = max(arr[0:i-1])</span><br><span class="line">while (i &lt; arr.length) &#123;</span><br><span class="line">  m = Math.max(m, arr[i]);</span><br><span class="line">  i = i + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　（arr[m:n]是便捷表示法，意为数组从下标m到n的部分。）不变项在循环运行之前必须为真，循环的主体必须确保它在循环执行时保持为真。这样我们就知道不变项在循环终止时也保持不变，因而我们的结果是有效的。循环不变项可被显式地编写成断言，但作为设计和文档工具，它们也很有用。</p>
+<h4 id="语义不变项"><a href="#语义不变项" class="headerlink" title="语义不变项"></a>语义不变项</h4><p>　　你可以使用语义不变项（semantic invariant）表达不可违反的需求，一种“哲学合约”。</p>
+<p>　　我们曾经编写过一个借记卡交易交换程序。一个主要的需求是借记卡用户的同一笔交易不能被两次记录到账户中。换句话说，不管发生何种方式的失败，结果都应该是：不处理交易，而不是处理重复的交易。</p>
+<p>　　这个简单的法则，直接由需求驱动，被证明非常有助于处理复杂的错误恢复情况，并且可以在许多领域中指导详细的设计和实现。</p>
+<p>　　一定不要把固定的需求、不可违反的法则与那些仅仅是政策（policiy）的东西混为一谈，后者可能会随着新的管理制度的出台而改变。这就是我们为什么要使用术语“语义不变项”的原因——它必须是事物的确切含义的中心，而不受反复无常的政策的支配（后者是更为动态的商业规则的用途所在）。</p>
+<p>　　当你发现合格的需求时，确保让它成为你制作的无论什么文档的一个众所周知的部分——无论它是一式三份签署的需求文档中的圆点列表，还是只是每个人都能看到的公共白板上的重要通知。设法清晰、无歧义地陈述它。例如，在借记卡的例子中，我们可以写：</p>
+<p><strong>出错时要偏向消费者</strong></p>
+<p>　　这是清楚、简洁、无歧义的陈述，适用于系统的许多不同的区域。它是我们与系统的所有用户之间的合约，是我们对行为的保证。</p>
+<h3 id="动态合约与代理"><a href="#动态合约与代理" class="headerlink" title="动态合约与代理"></a>动态合约与代理</h3><p>　　直到现在为止，我们一直把合约作为固定的、不可改变的规范加以谈论。但在自治代理（autonomous agent）的领域中，情况并不一定是这样。按照“自治”的定义，代理有拒绝它们不想接受的请求的自由——“我无法提供那个，但如果你给我这个，那么我可以提供另外的某样东西。”</p>
+<p>　　无疑，任何依赖于代理技术的系统对合约协商的依赖都是至关紧要的——即使它们是动态生成的。</p>
+<p>　　设想一下，通过足够的“能够互相磋商合约、以实现某个目标”的组件和代理，我们也许就能解决软件生产率危机：让软件为我们解决它。</p>
+<p>　　但如果我们不能手工使用合约，我们也无法自动使用它们。所以下次你设计软件时，也要设计它的合约。</p>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>思考这样的问题：如果DBC如此强大，它为何没有得到更广泛的使用？制定合约困难吗？它是否会让你思考你本来想先放在一边的问题？它迫使你思考吗？显然，这是一个危险的工具！</li>
+</ul>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ol>
+<li><p>好合约有什么特征？任何人都可以增加前条件和后条件，但那是否会给你带来任何好处？更糟糕的是，它们实际上带来的坏处是否会大过好处？对于下面的以及练习15和16中的例子，确定所规定的合约是好、是坏、还是很糟糕，并解释为什么。<br>　　首先，让我们看一个Eiffel例子。我们有一个用于把STRING添加到双向链接的循环链表中的例程（别忘了前条件用require标注，后条件用ensure标注）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- Add an item to a doubly linked list,</span><br><span class="line">-- and return the newly created NODE.</span><br><span class="line">add_item (item : STRING) : NODE is</span><br><span class="line">   require</span><br><span class="line">      item /= Void                  -- &apos;/=&apos; is &apos;not equal&apos;.</span><br><span class="line">   deferred -- Abstract base class.</span><br><span class="line">   ensure</span><br><span class="line">      result.next.previous = result -- Check the newly</span><br><span class="line">      result.previous.next = result -- added node&apos;s links.</span><br><span class="line">      find_item(item) = result      -- Should find it.</span><br><span class="line">   End</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下面，让我们试一试一个Java的例子——与练习14中的例子有点类似。insertNumber把整数插入有序列表中。前条件和后条件的标注方式与iContract（参见[URL 17]）一样。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private int data[];</span><br><span class="line">/**</span><br><span class="line">  * @post data[index-1] &lt; data[index] &amp;&amp;</span><br><span class="line">  *       data[index] == aValue</span><br><span class="line">  */</span><br><span class="line">public Node insertNumber (final int aValue)</span><br><span class="line">&#123;</span><br><span class="line">  int index = findPlaceToInsert(aValue);</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下面的代码段来自Java的栈类。这是好合约吗？　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @pre anItem != null   // Require real data</span><br><span class="line">  * @post pop() == anItem // Verify that it&apos;s</span><br><span class="line">  *                       // on the stack</span><br><span class="line">  */</span><br><span class="line">public void push(final String anItem)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DBC的经典例子（如练习14-16中的例子）给出的是某种ADT（Abstract Data Type）的实现——栈或队列就是典型的例子。但并没有多少人真的会编写这种低级的类。<br>　　所以，这个练习的题目是，设计一个厨用搅拌机接口。它最终将是一个基于Web、适用于Internet、CORBA化的搅拌机，但现在我们只需要一个接口来控制它。它有十挡速率设置（0表示关机）。你不能在它空的时候进行操作，而且你只能一挡一挡地改变速率（也就是说，可以从0到1，从1到2，但不能从0到2）。<br>　　下面是各个方法。增加适当的前条件、后条件和不变项。　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int getSpeed()</span><br><span class="line">void setSpeed(int x)</span><br><span class="line">boolean isFull()</span><br><span class="line">void fill()</span><br><span class="line">void empty()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在0, 5, 10, 15, …,100序列中有多少个数？　</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="死程序不说谎"><a href="#死程序不说谎" class="headerlink" title="死程序不说谎"></a>死程序不说谎</h2><p>　　你是否注意到，有时别人在你自己意识到之前就能觉察到你的事情出了问题。别人的代码也是一样。如果我们的某个程序开始出错，有时库例程会最先抓住它。一个“迷途的”指针也许已经致使我们用无意义的内容覆写了某个文件句柄。对read的下一次调用将会抓住它。或许缓冲区越界已经把我们要用于检测分配多少内存的计数器变成了垃圾。也许我们对malloc的调用将会失败。数百万条之前的某个逻辑错误意味着某个case语句的选择开关不再是预期的1、2或3。我们将会命中default情况（这是为什么每个case/switch语句都需要有default子句的原因之一——我们想要知道何时发生了“不可能”的事情）。</p>
+<p>　　我们很容易掉进“它不可能发生”这样一种心理状态。我们中的大多数人编写的代码都不检查文件是否能成功关闭，或者某个跟踪语句是否已按照我们的预期写出。而如果所有的事情都能如我们所愿，我们很可能就不需要那么做——这些代码在任何正常的条件都不会失败。但我们是在防卫性地编程，我们在程序的其他部分中查找破坏堆栈的“淘气指针”，我们在检查确实加载了共享库的正确版本。</p>
+<p>　　所有的错误都能为你提供信息。你可以让自己相信错误不可能发生，并选择忽略它。但与此相反，注重实效的程序员告诉自己，如果有一个错误，就说明非常、非常糟糕的事情已经发生了。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Crash Early  </span><br><span class="line">早崩溃</span><br></pre></td></tr></table></figure> 
+<h3 id="要崩溃，不要破坏（trash）"><a href="#要崩溃，不要破坏（trash）" class="headerlink" title="要崩溃，不要破坏（trash）"></a>要崩溃，不要破坏（trash）</h3><p>　　尽早检测问题的好处之一是你可以更早崩溃。而有许多时候，让你的程序崩溃是你的最佳选择。其他的办法可以是继续执行、把坏数据写到某个极其重要的数据库或是命令洗衣机进入其第二十次连续的转动周期。</p>
+<p>　　Java语言和库已经采用了这一哲学。当意料之外的某件事情在runtime系统中发生时，它会抛出RuntimeException。如果没有被捕捉，这个异常就会渗透到程序的顶部，致使其中止，并显示栈踪迹。</p>
+<p>　　你可以在别的语言中做相同的事情。如果没有异常机制，或是你的库不抛出异常，那么就确保你自己对错误进行了处理。在C语言中，对于这一目的，宏可能非常有用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#define CHECK(LINE, EXPECTED)            \</span><br><span class="line">  &#123; int rc = LINE;                         \</span><br><span class="line">    if (rc != EXPECTED)                         \</span><br><span class="line">        ut_abort(__FILE__, __LINE__, #LINE,  rc, EXPECTED); &#125;</span><br><span class="line">void ut_abort(char *file, int ln, char *line, int rc, int exp) &#123;</span><br><span class="line">  fprintf(stderr, &quot;%s line %d\n&apos;%s&apos;: expected %d, got %d\n&quot;,</span><br><span class="line">                  file, ln, line, exp, rc);</span><br><span class="line">  exit(1);</span><br><span class="line">&#125;</span><br><span class="line">　　然后你可以这样包装决不应该失败的调用：</span><br><span class="line">CHECK(stat(&quot;/tmp&quot;, &amp;stat_buff), 0);</span><br><span class="line">　　如果它失败了，你就会得到写到stderr的消息：</span><br><span class="line">source.c line 19</span><br><span class="line">&apos;stat(&quot;/tmp&quot;, &amp;stat_buff)&apos;: expected 0, got -1</span><br></pre></td></tr></table></figure></p>
+<p>　　显然，有时简单地退出运行中的程序并不合适。你申请的资源可能没有释放，或者你可能要写出日志消息，清理打开的事务，或与其他进程交互。我们在“何时使用异常”（125页）中讨论的技术在此能对你有帮助。但是，基本的原则是一样的——当你的代码发现，某件被认为不可能发生的事情已经发生时，你的程序就不再有存活能力。从此时开始，它所做的任何事情都会变得可疑，所以要尽快终止它。死程序带来的危害通常比有疾患的程序要小得多。</p>
+<p><br></p>
+<h2 id="断言式编程"><a href="#断言式编程" class="headerlink" title="断言式编程"></a>断言式编程</h2><blockquote>
+<p>在自责中有一种满足感。当我们责备自己时，会觉得再没人有权责备我们。<br>　　　　　　　　　　　　——奥斯卡•王尔德：《多里安•格雷的画像》</p>
+</blockquote>
+<p>　　每一个程序员似乎都必须在其职业生涯的早期记住一段曼特罗（mantra）。它是计算技术的基本原则，是我们学着应用于需求、设计、代码、注释——也就是我们所做的每一件事情——的核心信仰。那就是：</p>
+<p><strong>这决不会发生……</strong></p>
+<p>　　“这些代码不会被用上30年，所以用两位数字表示日期没问题。”“这个应用决不会在国外使用，那么为什么要使其国际化？”“count不可能为负。”“这个printf不可能失败。”</p>
+<p>　　我们不要这样自我欺骗，特别是在编码时。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If It Can’t Happen, Use Assertions to Ensure That It Won’t  </span><br><span class="line">如果它不可能发生，用断言确保它不会发生</span><br></pre></td></tr></table></figure> 
+<p>　　无论何时你发现自己在思考“但那当然不可能发生”，增加代码检查它。最容易的办法是使用断言。在大多数C和C++实现中，你都能找到某种形式的检查布尔条件的assert或_assert宏。这些宏是无价的财富。如果传入你的过程的指针决不应该是NULL，那么就检查它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void writeString(char *string) &#123;</span><br><span class="line">    assert(string != NULL);</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
+<p>　　对于算法的操作，断言也是有用的检查。也许你编写了一个聪明的排序算法。检查它是否能工作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; num_entries-1; i++) &#123;</span><br><span class="line">    assert(sorted[i] &lt;= sorted[i+1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　当然，传给断言的条件不应该有副作用（参见124页的方框）。还要记住断言可能会在编译时被关闭——决不要把必须执行的代码放在assert中。</p>
+<p>　　不要用断言代替真正的错误处理。断言检查的是决不应该发生的事情：你不会想编写这样的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">printf(&quot;Enter &apos;Y&apos; or &apos;N&apos;: &quot;);</span><br><span class="line">ch = getchar();</span><br><span class="line">assert((ch == &apos;Y&apos;) || (ch == &apos;N&apos;));    /* bad idea! */</span><br></pre></td></tr></table></figure></p>
+<p>　　而且，提供给你的assert宏会在断言失败时调用exit，并不意味着你编写的版本就应该这么做。如果你需要释放资源，就让断言失败生成异常、longjump到某个退出点、或是调用错误处理器。要确保你在终止前的几毫秒内执行的代码不依赖最初触发断言失败的信息。</p>
+<h3 id="让断言开着"><a href="#让断言开着" class="headerlink" title="让断言开着"></a>让断言开着</h3><p>　　有一个由编写编译器和语言环境的人传播的、关于断言的常见误解。就是像这样的说法：</p>
+<p>　　断言给代码增加了一些开销。因为它们检查的是决不应该发生的事情，所以只会由代码中的bug触发。一旦代码经过了测试并发布出去，它们就不再需要存在，应该被关闭，以使代码运行得更快。断言是一种调试设施。</p>
+<p>　　这里有两个明显错误的假定。首先，他们假定测试能找到所有的bug。现实的情况是，对于任何复杂的程序，你甚至不大可能测试你的代码执行路径的排列数的极小一部分（参见“无情的测试”，245页）。其次，乐观主义者们忘记了你的程序运行在一个危险的世界上。在测试过程中，老鼠可能不会噬咬通信电缆、某个玩游戏的人不会耗尽内存、日志文件不会塞满硬盘。这些事情可能会在你的程序运行在实际工作环境中时发生。你的第一条防线是检查任何可能的错误，第二条防线是使用断言设法检测你疏漏的错误。</p>
+<p>　　在你把程序交付使用时关闭断言就像是因为你曾经成功过，就不用保护网去走钢丝。那样做有极大的价值，但却难以获得人身保险。</p>
+<p>　　即使你确实有性能问题，也只关闭那些真的有很大影响的断言。上面的排序例子</p>
+<blockquote>
+<p><strong>断言与副作用</strong><br>　　如果我们增加的错误检测代码实际上却制造了新的错误，那是一件让人尴尬的事情。如果对条件的计算有副作用，这样的事情可能会在使用断言时发生。例如，在Java中，像下面这样编写代码，不是个好主意：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while (iter.hasmoreElements () &#123;</span><br><span class="line">  Test.ASSERT(iter.nextElements() != null);</span><br><span class="line">  object obj = iter.nextElement();</span><br><span class="line">  // ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>　　ASSERT中的.nextElement()调用有副作用：它会让迭代器越过正在读取的元素，这样循环就会只处理集合中的一半元素。这样编写代码会更好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while (iter.hasmoreElements()) &#123;</span><br><span class="line">  object obj = iter.nextElement();</span><br><span class="line">  Test.ASSERT(obj != null);</span><br><span class="line">  //....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　这个问题是一种“海森堡虫子”（Heisenbug）——调试改变了被调试系统的行为（参见[URL 52]）。</p>
+<p>也许是你的应用的关键部分，也许需要很快才行。增加检查意味着又一次通过数据，这可能让人不能接受。让那个检查成为可选的，但让其余的留下来。</p>
+<h3 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h3><ol>
+<li><p>一次快速的真实性检查。下面这些“不可能”的事情中，那些可能发生？</p>
+<ul>
+<li>一个月少于28天</li>
+<li>stat(“.”, &amp;sb) == -1 （也就是，无法访问当前目录）</li>
+<li>在C++里：a = 2; b = 3; if (a + b != 5) exit(1);</li>
+<li>内角和不等于180°的三角形。</li>
+<li>没有60秒的一分钟</li>
+<li>在Java中：(a + 1) &lt;= a</li>
+</ul>
+</li>
+<li><p>为Java开发一个简单的断言检查类。</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="何时使用异常"><a href="#何时使用异常" class="headerlink" title="何时使用异常"></a>何时使用异常</h2><p>　　在“死程序不说谎”（120页）中，我们提出，检查每一个可能的错误——特别是意料之外的错误——是一种良好的实践。但是，在实践中这可能会把我们引向相当丑陋的代码；你的程序的正常逻辑最后可能会被错误处理完全遮蔽，如果你赞成“例程必须有单个return语句”的编程学派（我们不赞成），情况就更是如此。我们见过看上去像这样的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">retcode = OK;</span><br><span class="line">if (socket.read(name) != OK) &#123;</span><br><span class="line">  retcode = BAD_READ;</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">  processName(name);</span><br><span class="line">  if (socket.read(address) != OK) &#123;</span><br><span class="line">    retcode = BAD_READ;</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    processAddress(address);</span><br><span class="line">    if (socket.read(telNo) != OK) &#123;</span><br><span class="line">      retcode = BAD_READ;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">      // etc, etc...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return retcode;</span><br></pre></td></tr></table></figure></p>
+<p>　　幸运的是，如果编程语言支持异常，你可以通过更为简洁的方式重写这段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">retcode = OK;</span><br><span class="line">try &#123;</span><br><span class="line">  socket.read(name);</span><br><span class="line">  process(name);</span><br><span class="line">  socket.read(address);</span><br><span class="line">  processAddress(address);</span><br><span class="line">  socket.read(telNo);</span><br><span class="line">  // etc, etc...</span><br><span class="line">&#125;</span><br><span class="line">catch (IOException e) &#123;</span><br><span class="line">  retcode = BAD_READ;</span><br><span class="line">  Logger.log(&quot;Error reading individual: &quot; + e.getMessage());</span><br><span class="line">&#125;</span><br><span class="line">return retcode;</span><br></pre></td></tr></table></figure></p>
+<p>　　现在正常的控制流很清晰，所有的错误处理都移到了一处。</p>
+<h3 id="什么是异常情况"><a href="#什么是异常情况" class="headerlink" title="什么是异常情况"></a>什么是异常情况</h3><p>　　关于异常的问题之一是知道何时使用它们。我们相信，异常很少应作为程序的正常流程的一部分使用；异常应保留给意外事件。假定某个未被抓住的异常会终止你的程序，问问你自己：“如果我移走所有的异常处理器，这些代码是否仍然能运行？”如果答案是“否”，那么异常也许就正在被用在非异常的情形中。</p>
+<p>　　例如，如果你的代码试图打开一个文件进行读取，而该文件并不存在，应该引发异常吗？</p>
+<p>　　我们的回答是：“这取决于实际情况。”如果文件应该在那里，那么引发异常就有正当理由。某件意外之事发生了——你期望其存在的文件好像消失了。另一方面，如果你不清楚该文件是否应该存在，那么你找不到它看来就不是异常情况，错误返回就是合适的。</p>
+<p>　　让我们看一看第一种情况的一个例子。下面的代码打开文件/etc/passwd，这个文件在所有的UNIX系统上都应该存在。如果它失败了，它会把FileNotFoundException传给它的调用者。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void open_passwd() throws FileNotFoundException &#123;</span><br><span class="line">  // This may throw FileNotFoundException...</span><br><span class="line">  ipstream = new FileInputStream(&quot;/etc/passwd&quot;);</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　但是，第二种情况可能涉及打开用户在命令行上指定的文件。这里引发异常没有正当理由，代码看起来也不同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public boolean open_user_file(String name)</span><br><span class="line">  throws FileNotFoundException &#123;</span><br><span class="line">  File f = new File(name);</span><br><span class="line">  if (!f.exists()) &#123;</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">  ipstream = new FileInputStream(f);</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　注意FileInputStream调用仍有可能生成异常，这个例程会把它传递出去。但是，这个异常只在真正异常的情形下才生成；只是试图打开不存在的文件将生成传统的错误返回。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Use Exceptions for Exceptional Problems  </span><br><span class="line">将异常用于异常的问题</span><br></pre></td></tr></table></figure>  
+<p>　　我们为何要提出这种使用异常的途径？嗯，异常表示即时的、非局部的控制转移——这是一种级联的（cascading）goto。那些把异常用作其正常处理的一部分的程序，将遭受到经典的意大利面条式代码的所有可读性和可维护性问题的折磨。这些程序破坏了封装：通过异常处理，例程和它们的调用者被更紧密地耦合在一起。</p>
+<h3 id="错误处理器是另一种选择"><a href="#错误处理器是另一种选择" class="headerlink" title="错误处理器是另一种选择"></a>错误处理器是另一种选择</h3><p>　　错误处理器是检测到错误时调用的例程。你可以登记一个例程处理特定范畴的错误。处理器会在其中一种错误发生时被调用。</p>
+<p>　　有时你可能想要使用错误处理器，或者用于替代异常，或者与异常一起使用。显然，如果你使用像C这样不支持异常的语言，这是你的很少几个选择之一（参见下一页的“挑战”）。但是，有时错误处理器甚至也可用于拥有良好的内建异常处理方案的语言（比如Java）。</p>
+<p>　　考虑一个客户－服务器应用的实现，它使用了Java的Remote Method Invocation（RMI）设施。因为RMI的实现方式，每个对远地例程的调用都必须准备处理RemoteException。增加代码处理这些异常可能会变得让人厌烦，并且意味着我们难以编写既能与本地例程、也能与远地例程一起工作的代码。一种绕开这一问题的可能方法是把你的远地对象包装在非远地的类中。这个类随即实现一个错误处理器接口，允许客户代码登记一个在检测到远地异常时调用的例程。</p>
+<h3 id="挑战-1"><a href="#挑战-1" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>不支持异常的语言常常拥有一些其他的非局部控制转移机制（例如，C拥有longjmp/setjmp）。考虑一下怎样使用这些设施实现某种仿造的异常机制。其好处和危险是什么？你需要采取什么特殊步骤确保资源不被遗弃？在你编写的所有C代码中使用这种解决方案有意义吗？</li>
+</ul>
+<h3 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h3><ol>
+<li>在设计一个新的容器类时，你确定可能有以下错误情况：　<ul>
+<li>add例程中的新元素没有内存可用</li>
+<li>在fetch例程中找不到所请求的数据项</li>
+<li>传给add例程的是null指针<br>应怎样处理每种情况？应该生成错误、引发异常、还是忽略该情况？</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="怎样配平资源"><a href="#怎样配平资源" class="headerlink" title="怎样配平资源"></a>怎样配平资源</h2><blockquote>
+<p>“我把你带进这个世界，”我的父亲会说：“我也可以把你赶出去。那没有我影响。我要再造另一个你。”<br>　　　　　　　　　　　　　　　　　　　　　　——Bill Cosby，Fatherhood</p>
+</blockquote>
+<p>　　只要在编程，我们都要管理资源：内存、事务、线程、文件、定时器——所有数量有限的事物。大多数时候，资源使用遵循一种可预测的模式：你分配资源、使用它，然后解除其分配。</p>
+<p>　　但是，对于资源分配和解除分配的处理，许多开发者没有始终如一的计划。所以让我们提出一个简单的提示：</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Finish What You Start  </span><br><span class="line">要有始有终</span><br></pre></td></tr></table></figure> 
+<p>　　在大多数情况下这条提示都很容易应用。它只是意味着，分配某项资源的例程或对象应该负责解除该资源的分配。让我们通过一个糟糕的代码例子来看一看该提示的应用方式——这是一个打开文件、从中读取消费者信息、更新某个字段、然后写回结果的应用。我们除去了其中的错误处理代码，以让例子更清晰：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void readCustomer(const char *fName, Customer *cRec) &#123;</span><br><span class="line">  cFile = fopen(fName, &quot;r+&quot;);</span><br><span class="line">  fread(cRec, sizeof(*cRec), 1, cFile);</span><br><span class="line">&#125;</span><br><span class="line">void writeCustomer(Customer *cRec) &#123;</span><br><span class="line">  rewind(cFile);</span><br><span class="line">  fwrite (cRec, sizeof(*cRec), 1, cFile);</span><br><span class="line">  fclose(cFile);</span><br><span class="line">&#125;</span><br><span class="line">void updateCustomer(const char *fName, double newBalance) &#123;</span><br><span class="line">  Customer cRec;</span><br><span class="line">  readCustomer(fName, &amp;cRec);</span><br><span class="line">  cRec.balance = newBalance;</span><br><span class="line">  writeCustomer(&amp;cRec);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　初看上去，例程updateCustomer相当好。它似乎实现了我们所需的逻辑——读取记录，更新余额，写回记录。但是，这样的整洁掩盖了一个重大的问题。例程readCustomer和writeCustomer紧密地耦合在一起[27]——它们共享全局变量cFile。readCustomer打开文件，并把文件指针存储在cFile中，而writeCustomer使用所存储的指针在其结束时关闭文件。这个全局变量甚至没有出现在updateCustomer例程中。</p>
+<p>　　这为什么不好？让我们考虑一下，不走运的维护程序员被告知规范发生了变化——余额只应在新的值不为负时更新。她进入源码，改动updateCustomer：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void updateCustomer(const char *fName, double newBalance) &#123;</span><br><span class="line">  Customer cRec;</span><br><span class="line">  readCustomer(fName, &amp;cRec);</span><br><span class="line">  if (newBalance &gt;= 0.0) &#123;</span><br><span class="line">    cRec.balance = newBalance;</span><br><span class="line">    writeCustomer(&amp;cRec);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　在测试时一切似乎都很好。但是，当代码投入实际工作，若干小时后它就崩溃了，抱怨说打开的文件太多。因为writeCustomer在有些情形下不会被调用，文件也就不会被关闭。</p>
+<p>　　这个问题的一个非常糟糕的解决方案是在updateCustomer中对该特殊情况进行处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void updateCustomer(const char *fName, double newBalance) &#123;</span><br><span class="line">  Customer cRec;</span><br><span class="line">  readCustomer(fName, &amp;cRec);</span><br><span class="line">  if (newBalance &gt;= 0.0) &#123;</span><br><span class="line">    cRec.balance = newBalance;</span><br><span class="line">    writeCustomer(&amp;cRec);</span><br><span class="line">  &#125;</span><br><span class="line">  else</span><br><span class="line">    fclose(cFile);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　这可以修正问题——不管新的余额是多少，文件现在都会被关闭——但这样的修正意味着三个例程通过全局的cFile耦合在一起。我们在掉进陷阱，如果我们继续沿着这一方向前进，事情就会开始迅速变糟。</p>
+<p>　　要有始有终这一提示告诉我们，分配资源的例程也应该释放它。通过稍稍重构代码，我们可以在此应用该提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void readCustomer(FILE *cFile, Customer *cRec) &#123;</span><br><span class="line">  fread(cRec, sizeof(*cRec), 1, cFile);</span><br><span class="line">&#125;</span><br><span class="line">void writeCustomer(FILE *cFile, Customer *cRec) &#123;</span><br><span class="line">  rewind(cFile);</span><br><span class="line">  fwrite(cRec, sizeof(*cRec), 1, cFile);</span><br><span class="line">&#125;</span><br><span class="line">void updateCustomer(const char *fName, double newBalance) &#123;</span><br><span class="line">  FILE *cFile;</span><br><span class="line">  Customer cRec;</span><br><span class="line">  cFile = fopen(fName, &quot;r+&quot;);         // &gt;---</span><br><span class="line">  readCustomer(cFile, &amp;cRec);        //     /</span><br><span class="line">  if (newBalance &gt;= 0.0) &#123;           //     /</span><br><span class="line">    cRec.balance = newBalance;       //     /</span><br><span class="line">    writeCustomer(cFile, &amp;cRec);     //     /</span><br><span class="line">  &#125;                                       //     /</span><br><span class="line">  fclose(cFile);                        // &lt;---</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　现在updateCustomer例程承担了关于该文件的所有责任。它打开文件并（有始有终地）在退出前关闭它。例程配平了对文件的使用：打开和关闭在同一个地方，而且显然每一次打开都有对应的关闭。重构还移除了丑陋的全局变量。</p>
+<h3 id="嵌套的分配"><a href="#嵌套的分配" class="headerlink" title="嵌套的分配"></a>嵌套的分配</h3><p>　　对于一次需要不只一个资源的例程，可以对资源分配的基本模式进行扩展。有两个另外的建议：</p>
+<ol>
+<li>以与资源分配的次序相反的次序解除资源的分配。这样，如果一个资源含有对另一个资源的引用，你就不会造成资源被遗弃。</li>
+<li>在代码的不同地方分配同一组资源时，总是以相同的次序分配它们。这将降低发生死锁的可能性。（如果进程A申请了resource1，并正要申请resource2，而进程B申请了resource2，并试图获得resource1，这两个进程就会永远等待下去。）</li>
+</ol>
+<p>不管我们在使用的是何种资源——事务、内存、文件、线程、窗口——基本的模式都适用：</p>
+<p>   无论是谁分配的资源，它都应该负责解除该资源的分配。但是，在有些语言中，我们可以进一步发展这个概念。</p>
+<h3 id="对象与异常"><a href="#对象与异常" class="headerlink" title="对象与异常"></a>对象与异常</h3><p>　　分配与解除分配的对称让人想起类的构造器与析构器。类代表某个资源，构造器给予你该资源类型的特定对象，而析构器将其从你的作用域中移除。</p>
+<p>　　如果你是在用面向对象语言编程，你可能会发现把资源封装在类中很有用。每次你需要特定的资源类型时，你就实例化这个类的一个对象。当对象出作用域或是被垃圾收集器回收时，对象的析构器就会解除所包装资源的分配。</p>
+<h3 id="配平与异常"><a href="#配平与异常" class="headerlink" title="配平与异常"></a>配平与异常</h3><p>　　支持异常的语言可能会使解除资源的分配很棘手。如果有异常被抛出，你怎样保证在发生异常之前分配的所有资源都得到清理？答案在一定程度上取决于语言。</p>
+<h4 id="在C-异常机制下配平资源"><a href="#在C-异常机制下配平资源" class="headerlink" title="在C++异常机制下配平资源"></a>在C++异常机制下配平资源</h4><p>　　C++支持try…catch异常机制。遗憾的是，这意味着在退出某个捕捉异常、并随即将其重新抛出的例程时，总是至少有两条可能的路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void doSomething(void) &#123;</span><br><span class="line">  Node *n = new Node;</span><br><span class="line">  try &#123;</span><br><span class="line">    // do something</span><br><span class="line">  &#125;</span><br><span class="line">  catch (...) &#123;</span><br><span class="line">    delete n;</span><br><span class="line">    throw;</span><br><span class="line">  &#125;</span><br><span class="line">  delete n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　注意我们创建的节点是在两个地方释放的——一次是在例程正常的退出路径上，一次是在异常处理器中。这显然违反了DRY原则，可能会发生维护问题。</p>
+<p>　　但是，我们可以对C++的语义加以利用。局部对象在从包含它们的块中退出时会被自动销毁。这给了我们一些选择。如果情况允许，我们可以把“n”从指针改变为栈上实际的Node对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void doSomething1(void) &#123;</span><br><span class="line">  Node n;</span><br><span class="line">  try &#123;</span><br><span class="line">    // do something</span><br><span class="line">  &#125;</span><br><span class="line">  catch (...) &#123;</span><br><span class="line">    throw;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　在这里，不管是否抛出异常，我们都依靠C++自动处理Node对象的析构。</p>
+<p>　　如果不可能不使用指针，可以通过在另一个类中包装资源（在这个例子中，资源是一个Node指针）获得同样的效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// Wrapper class for Node resources</span><br><span class="line">class NodeResource &#123;</span><br><span class="line">  Node *n;</span><br><span class="line"> public:</span><br><span class="line">  NodeResource() &#123; n = new Node; &#125;</span><br><span class="line">  ~NodeResource() &#123; delete n; &#125;</span><br><span class="line">  Node *operator-&gt;() &#123; return n; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">void doSomething2(void) &#123;</span><br><span class="line">  NodeResource n;</span><br><span class="line">  try &#123;</span><br><span class="line">    // do something</span><br><span class="line">  &#125;</span><br><span class="line">  catch (...) &#123;</span><br><span class="line">    throw;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　现在包装类NodeResource确保了在其对象被销毁时，相应的节点也会被销毁。为了方便起见，包装提供了解除引用操作符-&gt;，这样它的使用者可以直接访问所包含的Node对象中的字段。</p>
+<p>　　因为这一技术是如此有用，标准C++库提供了模板类auto_ptr，能自动包装动态分配的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void doSomething3(void) &#123;</span><br><span class="line">  auto_ptr&lt;Node&gt; p (new Node);</span><br><span class="line">  // Access the Node as p-&gt;...</span><br><span class="line">  // Node automatically deleted at end</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="在Java中配平资源"><a href="#在Java中配平资源" class="headerlink" title="在Java中配平资源"></a>在Java中配平资源</h4><p>　　与C++不同，Java实现的是自动对象析构的一种“懒惰”形式。未被引用的对象被认为是垃圾收集的候选者，如果垃圾收集器回收它们，它们的finalize方法就会被调用。尽管这为开发者提供了便利，他们不再须要为大多数内存泄漏承受指责，但同时也使得实现C++方式的资源清理变得很困难。幸运的是，Java语言的设计者考虑周详地增加了一种语言特性进行补偿：finally子句。当try块含有finally子句时，如果try块中有任何语句被执行，该子句中的代码就保证会被执行。是否有异常抛出没有影响（即或try块中的代码执行了return语句）——finally子句中的代码都将会运行。这意味着我们可以通过这样的代码配平我们的资源使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void doSomething() throws IOException &#123;</span><br><span class="line">  File tmpFile = new File(tmpFileName);</span><br><span class="line">  FileWriter tmp = new FileWriter(tmpFile);</span><br><span class="line">  try &#123;</span><br><span class="line">    // do some work</span><br><span class="line">  &#125;</span><br><span class="line">  finally &#123;</span><br><span class="line">    tmpFile.delete();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　该例程使用了一个临时文件，不管例程怎样退出，我们都要删除该文件。finally块使得我们能够简洁地表达这一意图。</p>
+<h3 id="当你无法配平资源时"><a href="#当你无法配平资源时" class="headerlink" title="当你无法配平资源时"></a>当你无法配平资源时</h3><p>　　有时基本的资源分配模式并不合适。这通常会出现在使用动态数据结构的程序中。一个例程将分配一块内存区，并把它链接进某个更大的数据结构中，这块内存可能会在那里呆上一段时间。</p>
+<p>　　这里的诀窍是为内存分配设立一个语义不变项。你须要决定谁为某个聚集数据结构（aggregate data structure）中的数据负责。当你解除顶层结构的分配时会发生什么？你有三个主要选择：</p>
+<ol>
+<li><p>顶层结构还负责释放它包含的任何子结构。这些结构随即递归地删除它们包含的数据，等等。</p>
+</li>
+<li><p>只是解除顶层结构的分配。它指向的（没有在别处引用的）任何结构都会被遗弃。</p>
+</li>
+<li><p>如果顶层结构含有任何子结构，它就拒绝解除自身的分配。</p>
+</li>
+</ol>
+<p>这里的选择取决于每个数据结构自身的情形。但是，对于每个结构，你都须明确做出选择，并始终如一地实现你的选择。在像C这样的过程语言中实现其中的任何选择都可能会成问题：数据结构自身不是主动的。在这样的情形下，我们的偏好是为每个重要结构编写一个模块，为该结构提供分配和解除分配设施（这个模块也可以提供像调试打印、序列化、解序列化和遍历挂钩这样的设施）。</p>
+<p>　　最后，如果追踪资源很棘手，你可以通过在动态分配的对象上实现一种引用计数方案，编写自己有限的自动垃圾回收机制。More Effective C++[Mey96]一书专设了一节讨论这一话题。</p>
+<h3 id="检查配平"><a href="#检查配平" class="headerlink" title="检查配平"></a>检查配平</h3><p>　　因为注重实效的程序员谁也不信任，包括我们自己，所以我们觉得，构建代码、对资源确实得到了适当释放进行实际检查，这总是一个好主意。对于大多数应用，这通常意味着为每种资源类型编写包装，并使用这些包装追踪所有的分配和解除分配。在你的代码中的特定地方，程序逻辑将要求资源处在特定的状态中：使用包装对此进行检查。</p>
+<p>　　例如，一个长期运行的、对请求进行服务的程序，很可能会在其主处理循环的顶部的某个地方等待下一个请求到达。这是确定自从上次循环执行以来，资源使用未曾增长的好地方。</p>
+<p>　　在一个更低、但用处并非更少的层面上，你可以投资购买能检查运行中的程序的内存泄漏情况（及其他情况）的工具。Purify（ <a href="http://www.rational.com" target="_blank" rel="noopener">www.rational.com</a> ）和Insure++（ <a href="http://www.parasoft.com" target="_blank" rel="noopener">www.parasoft.com</a> ）是两种流行的选择。</p>
+<h3 id="挑战-2"><a href="#挑战-2" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>尽管没有什么途径能够确保你总是释放资源，某些设计技术，如果能够始终如一地加以应用，将能对你有所帮助。在上文中我们讨论了为重要数据结构设立语义不变项可以怎样引导内存解除分配决策。考虑一下，“按合约设计”（109页）可以怎样帮助你提炼这个想法。</li>
+</ul>
+<h3 id="练习-3"><a href="#练习-3" class="headerlink" title="练习"></a>练习</h3><ol>
+<li><p>有些C和C++开发者故意在解除了某个指针引用的内存的分配之后，把该指针设为NULL。这为什么是个好主意？　</p>
+</li>
+<li><p>有些Java开发者故意在使用完某个对象之后，把该对象变量设为NULL，这为什么是个好主意?　</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="其它章节"><a href="#其它章节" class="headerlink" title="其它章节"></a>其它章节</h2><p>没有word版了，剩下大概一半的内容只能以后看了，书籍以及上传到了<a href="https://github.com/shuzang/books">books</a>仓库了里</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/书籍/" rel="tag"><i class="fa fa-tag"></i> 书籍</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/20/程序员修炼之道-基本工具/" rel="next" title="程序员修炼之道-基本工具">
+                <i class="fa fa-chevron-left"></i> 程序员修炼之道-基本工具
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/04/20/git学习-背景/" rel="prev" title="git学习-背景">
+                git学习-背景 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true"
+                alt="书葬" />
+            
+              <p class="site-author-name" itemprop="name">书葬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shuzang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nicelinks.site/" title="倾城之链" target="_blank">倾城之链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cupfox.com/" title="茶杯狐" target="_blank">茶杯狐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#按合约设计"><span class="nav-number">1.</span> <span class="nav-text">按合约设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DBC"><span class="nav-number">1.1.</span> <span class="nav-text">DBC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现DBC"><span class="nav-number">1.2.</span> <span class="nav-text">实现DBC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#断言"><span class="nav-number">1.3.</span> <span class="nav-text">断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言支持"><span class="nav-number">1.4.</span> <span class="nav-text">语言支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBC与早崩溃"><span class="nav-number">1.5.</span> <span class="nav-text">DBC与早崩溃</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不变项的其他用法"><span class="nav-number">1.6.</span> <span class="nav-text">不变项的其他用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环不变项"><span class="nav-number">1.6.1.</span> <span class="nav-text">循环不变项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语义不变项"><span class="nav-number">1.6.2.</span> <span class="nav-text">语义不变项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态合约与代理"><span class="nav-number">1.7.</span> <span class="nav-text">动态合约与代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战"><span class="nav-number">1.8.</span> <span class="nav-text">挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">1.9.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#死程序不说谎"><span class="nav-number">2.</span> <span class="nav-text">死程序不说谎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要崩溃，不要破坏（trash）"><span class="nav-number">2.1.</span> <span class="nav-text">要崩溃，不要破坏（trash）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断言式编程"><span class="nav-number">3.</span> <span class="nav-text">断言式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#让断言开着"><span class="nav-number">3.1.</span> <span class="nav-text">让断言开着</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-1"><span class="nav-number">3.2.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时使用异常"><span class="nav-number">4.</span> <span class="nav-text">何时使用异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是异常情况"><span class="nav-number">4.1.</span> <span class="nav-text">什么是异常情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理器是另一种选择"><span class="nav-number">4.2.</span> <span class="nav-text">错误处理器是另一种选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-1"><span class="nav-number">4.3.</span> <span class="nav-text">挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-2"><span class="nav-number">4.4.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样配平资源"><span class="nav-number">5.</span> <span class="nav-text">怎样配平资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套的分配"><span class="nav-number">5.1.</span> <span class="nav-text">嵌套的分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象与异常"><span class="nav-number">5.2.</span> <span class="nav-text">对象与异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配平与异常"><span class="nav-number">5.3.</span> <span class="nav-text">配平与异常</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在C-异常机制下配平资源"><span class="nav-number">5.3.1.</span> <span class="nav-text">在C++异常机制下配平资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Java中配平资源"><span class="nav-number">5.3.2.</span> <span class="nav-text">在Java中配平资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当你无法配平资源时"><span class="nav-number">5.4.</span> <span class="nav-text">当你无法配平资源时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查配平"><span class="nav-number">5.5.</span> <span class="nav-text">检查配平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-2"><span class="nav-number">5.6.</span> <span class="nav-text">挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-3"><span class="nav-number">5.7.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它章节"><span class="nav-number">6.</span> <span class="nav-text">其它章节</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">书葬</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

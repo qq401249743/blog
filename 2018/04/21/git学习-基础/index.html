@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="仓库和文件repository，中文名叫仓库，我的理解就是一个文件夹，里面放了同属一个项目的所有文件 创建一个仓库 在本地其实就是创建目录的命令,我在/home/shuzang目录下创建gittest文件夹 $ mkdir gittest  进入创建的文件夹，使用 git init 命令把该目录变成git的仓库 $ cd gittest $ git init 提示    初始化空的Git仓库于/h">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习-基础">
+<meta property="og:url" content="https://github.com/shuzang/2018/04/21/git学习-基础/index.html">
+<meta property="og:site_name" content="捕风">
+<meta property="og:description" content="仓库和文件repository，中文名叫仓库，我的理解就是一个文件夹，里面放了同属一个项目的所有文件 创建一个仓库 在本地其实就是创建目录的命令,我在/home/shuzang目录下创建gittest文件夹 $ mkdir gittest  进入创建的文件夹，使用 git init 命令把该目录变成git的仓库 $ cd gittest $ git init 提示    初始化空的Git仓库于/h">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/shuzang/image/raw/master/git%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E8%AF%B4%E6%98%8E.png?raw=true">
+<meta property="og:updated_time" content="2018-05-13T14:41:48.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git学习-基础">
+<meta name="twitter:description" content="仓库和文件repository，中文名叫仓库，我的理解就是一个文件夹，里面放了同属一个项目的所有文件 创建一个仓库 在本地其实就是创建目录的命令,我在/home/shuzang目录下创建gittest文件夹 $ mkdir gittest  进入创建的文件夹，使用 git init 命令把该目录变成git的仓库 $ cd gittest $ git init 提示    初始化空的Git仓库于/h">
+<meta name="twitter:image" content="https://github.com/shuzang/image/raw/master/git%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E8%AF%B4%E6%98%8E.png?raw=true">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/shuzang/2018/04/21/git学习-基础/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>git学习-基础 | 捕风</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">捕风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独的孩子爱寂寞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/04/21/git学习-基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="书葬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="捕风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git学习-基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-21 22:14:50" itemprop="dateCreated datePublished" datetime="2018-04-21T22:14:50+08:00">2018-04-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 22:41:48" itemprop="dateModified" datetime="2018-05-13T22:41:48+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="仓库和文件"><a href="#仓库和文件" class="headerlink" title="仓库和文件"></a>仓库和文件</h2><p>repository，中文名叫仓库，我的理解就是一个文件夹，里面放了同属一个项目的所有文件</p>
+<h3 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h3><ol>
+<li><p>在本地其实就是创建目录的命令,我在<code>/home/shuzang</code>目录下创建<code>gittest</code>文件夹</p>
+<pre><code>$ mkdir gittest
+</code></pre></li>
+<li><p>进入创建的文件夹，使用 <code>git init</code> 命令把该目录变成git的仓库</p>
+<pre><code>$ cd gittest
+$ git init
+</code></pre><p>提示  </p>
+<blockquote>
+<p>初始化空的Git仓库于/home/shuzang/gittest/.git/</p>
+</blockquote>
+</li>
+<li><p>然后仓库就建好了，该目录下会多一个<code>.git</code>文件夹，默认是隐藏的，用来跟踪管理仓库。使用<code>ls -a</code>命令可以看到该文件夹，默认隐藏说明它很重要，里面的文件改动的话很容易导致仓库损坏</p>
+<a id="more"></a>
+</li>
+</ol>
+<h3 id="在仓库中添加文件"><a href="#在仓库中添加文件" class="headerlink" title="在仓库中添加文件"></a>在仓库中添加文件</h3><ol>
+<li><p>文件类型  </p>
+<ul>
+<li>对txt文档、代码等文件类型，版本控制系统可记录每次的改动</li>
+<li>对图片、视频等文件类型，版本控制系统只能管理，不能记录改动，最多只能记录大小变化  </li>
+</ul>
+<p><strong>注</strong>：word实质是二进制格式，所以同样没法跟踪改动</p>
+</li>
+<li><p>首先新建一个txt文件并放在gittest目录下</p>
+<pre><code>$ cd gittest
+$ touch hellogit.txt
+</code></pre><p>打开该文件并对其进行编辑</p>
+<pre><code>$ vim hellogit.txt
+</code></pre></li>
+<li><p>编辑完成后，用<code>git add</code>命令将该文件添加到仓库</p>
+<pre><code>$ git add  hellogit.txt
+</code></pre><p>用git  commit命令将文件提交到仓库</p>
+<pre><code>$ git commit -m &quot;message&quot;
+</code></pre><p>message为备注信息，是该次提交的说明，一般情况是描述此次修改的</p>
+<p>命令执行完后的提示说：<br>1）提交到了主分支（master)，备注信息为“wrote a txt document”<br>2）改动了一个文件（hellogit.txt），加了三行内容(注意那个+号)<br>3）最后一行中100代表regular file，644代表文件权限，具体解释我也找不到官方文档了，自己搜吧  </p>
+</li>
+<li><p>另外执行分add和commit两步的原因是commit可以将之前add的所有文件一起提交，如</p>
+<pre><code>$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m &quot;add 3 files&quot;
+</code></pre><p>另外，可以使用如下命令一次性将所有修改添加到暂存区</p>
+<pre><code>$ git add .
+</code></pre><p>更多关于<code>git add</code>命令的说明参见<a href="https://www.yiibai.com/git/git_add.html" target="_blank" rel="noopener">git add命令说明</a></p>
+</li>
+</ol>
+<h3 id="对文件进行修改"><a href="#对文件进行修改" class="headerlink" title="对文件进行修改"></a>对文件进行修改</h3><p>还记得我们的初衷吗，所以，对文件修改再提交是一个会经常重复的工作<br>首先我们将hellogit.txt文件的内容进行第二次修改<br>用 git status 命令查看仓库当前状态</p>
+<pre><code>$ git status
+</code></pre><p>提示内容包括</p>
+<ul>
+<li>位于哪个分支</li>
+<li>修改了哪个文件</li>
+<li>“修改尚未加入提交”</li>
+</ul>
+<p>如果我们还想看到具体做了哪些修改，用<code>git  diff</code>命令，diff就是diffenence，所以<code>git diff</code>的意思就是查看不同</p>
+<pre><code>$ git diff hellogit.txt
+</code></pre><p>提示中说明了我们在第一行加了一个”distributed”单词，把第三行两个单词中间的空格和最后的叹号去掉了<br>此时我们确认了做的修改是我们心里所想的，就可以再次提交了</p>
+<pre><code>$ git add hellogit.txt
+$ git status
+$ git commit -m &quot;第二次修改&quot;
+$ git status
+</code></pre><p>提交过程中可以每一步都使用<code>git status</code>命令查看当前状态，最后commit提交完的状态提示为：</p>
+<blockquote>
+<p>位于分支master<br>无文件要提交，干净的工作区</p>
+</blockquote>
+<p>此时就放心了，每次修改完或者要离开工作岗位的时候提交一次，就像游戏存档，离开之前或者重要关卡前存档，失败的时候就能读档重来，这里修改出错也可以从上一次的commit重来</p>
+<p><br></p>
+<h2 id="历史版本"><a href="#历史版本" class="headerlink" title="历史版本"></a>历史版本</h2><p>修改的次数会逐渐变多，随着时间的流逝，我们完全不会记得每次修改了哪些内容，当然，git的出现就是为了帮我们解决这个问题，所以理所当然的会有查看历史版本的能力，以及回退到某个版本的能力</p>
+<h3 id="查看历史版本"><a href="#查看历史版本" class="headerlink" title="查看历史版本"></a>查看历史版本</h3><p>使用 <code>git log</code> 命令可以查看历史改动</p>
+<pre><code>$ git log
+</code></pre><p>提示内容是按从近到远的顺序把所有改动列举一遍，包括用户名、邮箱、修改日期，当时添加的message信息，不想看名称、邮箱和日期可以使用参数简化显示，如下：</p>
+<pre><code>$ git log --pretty=oneline
+</code></pre><p>也可以用以下命令查看参数使用方式</p>
+<pre><code>$  git  log --help
+</code></pre><p>提示内容中每次修改最前面的一串长字符是版本号（commit  id），用十六进制表示，用来代表我们每次修改的版本</p>
+<h3 id="回退（读档）"><a href="#回退（读档）" class="headerlink" title="回退（读档）"></a>回退（读档）</h3><p>首先，在git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上版本数多的时候写<code>^</code>写不过来，所以写成<code>HEAD~number</code>，如往上100个版本就是<code>HEAD-100</code><br>回退命令为<code>git reset</code>，比如，回退到上一个版本</p>
+<pre><code>$ git  reset --hard HEAD^
+</code></pre><p>然后我们就看到真的变回去了，如果记下了版本号，我们还可以再跳回最后一个修改版本，也就是说，我们突然不想回退了，或者退多了</p>
+<pre><code>$ git reset  --hard  2fee
+</code></pre><p><code>2fee</code>为其版本号，但版本号没必要写全，因为它的作用是为了区分各版本，所以只要找到第一个不相同的那位，写到那里就行了，查看文件，果然回来了<br>版本跳转快速的原因是<code>HEAD</code>只是一个指向当前版本的指针，跳转版本的时候也仅仅移动指针<br>同样存在还有忘了版本号的情况，但git同样提供了<code>git reflog</code>命令记录每次<code>HEAD</code>指针移动</p>
+<pre><code>$ git reflog
+</code></pre><p>该命令会显示每次修改版本的版本号</p>
+<p><br></p>
+<h2 id="暂存区和工作区"><a href="#暂存区和工作区" class="headerlink" title="暂存区和工作区"></a>暂存区和工作区</h2><p>工作区就是电脑里能看到的目录，比如我们的gittest文件夹<br>该文件夹里的隐藏目录.git则不属于工作区，它是版本库<br>版本库里有暂存区，还有自动创建的第一个分支master，以及指向master的一个指针叫HEAD<br><img src="https://github.com/shuzang/image/raw/master/git%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E8%AF%B4%E6%98%8E.png?raw=true" alt="暂存区和工作区"><br><code>git add</code>实际上是把文件修改添加到暂存区；<br><code>git commit</code>实际上是把暂存区的所有内容提交到当前分支</p>
+<h3 id="丢弃修改"><a href="#丢弃修改" class="headerlink" title="丢弃修改"></a>丢弃修改</h3><p><strong>场景1</strong>：当改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，使用命令</p>
+<pre><code>$ git checkout -- file。
+</code></pre><p><strong>场景2</strong>：当不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令</p>
+<pre><code>$ git reset HEAD file
+</code></pre><p>回到场景1，第二步按场景1操作。</p>
+<p>已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库</p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>一般情况，是直接在文件夹中用rm命令删除，但这样工作区和版本库就不一致了</p>
+<pre><code>$ rm hellogit.txt
+$ git status
+</code></pre><p>此时有两种情况，一种是删错了，可以直接用命令恢复</p>
+<pre><code>$ git checkout --gittest
+</code></pre><p>另一种情况是确实要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code></p>
+<pre><code>$ git rm hellogit.txt
+$ git commit -m &quot;remove hellogit.txt&quot;
+$ git status
+</code></pre><p><br></p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>使用github提供的免费远程仓库，由于本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：</p>
+<h3 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h3><p>在用户主目录下，看看有没有<code>.ssh</code>(默认隐藏)目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开终端，创建SSH Key：</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;
+</code></pre><p>需要把邮件地址换成自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。</p>
+<p>如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
+<h3 id="登陆GitHub，"><a href="#登陆GitHub，" class="headerlink" title="登陆GitHub，"></a>登陆GitHub，</h3><p>点击右上角头像，打开</p>
+<blockquote>
+<p>Settings——&gt;SSH and GPG Keys——&gt;New SSH Key</p>
+</blockquote>
+<p>填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容<br>然后点击<code>Add SSH key</code>就行了</p>
+<p>GitHub需要SSH Key识别出你推送的提交确实是你推送的，而不是别人冒充的。当然，GitHub允许添加多个Key。假定有若干电脑，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
+<p><br></p>
+<h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><p>首先在github创建一个<strong>同名仓库</strong>,创建完成后跳转界面给我们提供了三个选择</p>
+<ul>
+<li>…or create a new repository on the command line</li>
+<li>…or push an existing repository from the command line</li>
+<li>…or import code from another repository</li>
+</ul>
+<p>现在要做的当然是把本地已存在的gittest仓库关联到github喽，关联其实是有SSH和https两种方式的，这里我们用SSH，我第一次因为没注意用了一次https，但可以使用下面的命令删除，再重新关联</p>
+<pre><code>$ git remote rm origin
+</code></pre><p>正式的关联和推送到远程仓库的命令如下</p>
+<pre><code>$ git remote add origin git@github.com:DestinyJLD/gittest.git
+$ git push -u origin master
+</code></pre><p>提示</p>
+<blockquote>
+<p>分支master设置为跟踪来自origin的远程分支master</p>
+</blockquote>
+<p>转到网页github可以看到gittest仓库和本地仓库里的文件一样了</p>
+<p>以后再把本地推送到远程仓库，就可以直接用如下命令</p>
+<pre><code>$ git push origin master
+</code></pre><p><br></p>
+<h2 id="从远程仓库克隆到本地"><a href="#从远程仓库克隆到本地" class="headerlink" title="从远程仓库克隆到本地"></a>从远程仓库克隆到本地</h2><p><code>git  clone</code>命令，如果是下载某个指定分支的内容，命令为</p>
+<pre><code>$ git clone -b 分支名 仓库地址
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/21/单词-04.21/" rel="next" title="4月21日-单词">
+                <i class="fa fa-chevron-left"></i> 4月21日-单词
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/04/22/单词-04.22/" rel="prev" title="4月22日-单词">
+                4月22日-单词 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true"
+                alt="书葬" />
+            
+              <p class="site-author-name" itemprop="name">书葬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shuzang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nicelinks.site/" title="倾城之链" target="_blank">倾城之链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cupfox.com/" title="茶杯狐" target="_blank">茶杯狐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#仓库和文件"><span class="nav-number">1.</span> <span class="nav-text">仓库和文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个仓库"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在仓库中添加文件"><span class="nav-number">1.2.</span> <span class="nav-text">在仓库中添加文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对文件进行修改"><span class="nav-number">1.3.</span> <span class="nav-text">对文件进行修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史版本"><span class="nav-number">2.</span> <span class="nav-text">历史版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看历史版本"><span class="nav-number">2.1.</span> <span class="nav-text">查看历史版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回退（读档）"><span class="nav-number">2.2.</span> <span class="nav-text">回退（读档）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂存区和工作区"><span class="nav-number">3.</span> <span class="nav-text">暂存区和工作区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#丢弃修改"><span class="nav-number">3.1.</span> <span class="nav-text">丢弃修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件"><span class="nav-number">3.2.</span> <span class="nav-text">删除文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库"><span class="nav-number">4.</span> <span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建SSH-Key"><span class="nav-number">4.1.</span> <span class="nav-text">创建SSH Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登陆GitHub，"><span class="nav-number">4.2.</span> <span class="nav-text">登陆GitHub，</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程仓库"><span class="nav-number">5.</span> <span class="nav-text">添加远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程仓库克隆到本地"><span class="nav-number">6.</span> <span class="nav-text">从远程仓库克隆到本地</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">书葬</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

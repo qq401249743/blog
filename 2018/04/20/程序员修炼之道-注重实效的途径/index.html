@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="有些提示和诀窍可应用于软件开发的所有层面，有些想法几乎是公理，有些过程实际上普遍适用。但是，人们几乎没有为这些途径建立这样的文档，你很可能会发现，它们作为零散的段落写在关于设计、项目管理或编码的讨论中。 　　在这一章里，我们将要把这些想法和过程集中在一起。头两节，“重复的危害”与“正交性”，密切相关。前者提醒你，不要在系统各处对知识进行重复，后者提醒你，不要把任何一项知识分散在多个系统组件中。">
+<meta name="keywords" content="书籍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员修炼之道-注重实效的途径">
+<meta property="og:url" content="https://github.com/shuzang/2018/04/20/程序员修炼之道-注重实效的途径/index.html">
+<meta property="og:site_name" content="捕风">
+<meta property="og:description" content="有些提示和诀窍可应用于软件开发的所有层面，有些想法几乎是公理，有些过程实际上普遍适用。但是，人们几乎没有为这些途径建立这样的文档，你很可能会发现，它们作为零散的段落写在关于设计、项目管理或编码的讨论中。 　　在这一章里，我们将要把这些想法和过程集中在一起。头两节，“重复的危害”与“正交性”，密切相关。前者提醒你，不要在系统各处对知识进行重复，后者提醒你，不要把任何一项知识分散在多个系统组件中。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/shuzang/image/raw/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93/%E5%85%B8%E5%9E%8B%E7%9A%84%E5%B1%82%E6%AC%A1%E5%9B%BE.png?raw=true">
+<meta property="og:updated_time" content="2018-05-13T14:34:02.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员修炼之道-注重实效的途径">
+<meta name="twitter:description" content="有些提示和诀窍可应用于软件开发的所有层面，有些想法几乎是公理，有些过程实际上普遍适用。但是，人们几乎没有为这些途径建立这样的文档，你很可能会发现，它们作为零散的段落写在关于设计、项目管理或编码的讨论中。 　　在这一章里，我们将要把这些想法和过程集中在一起。头两节，“重复的危害”与“正交性”，密切相关。前者提醒你，不要在系统各处对知识进行重复，后者提醒你，不要把任何一项知识分散在多个系统组件中。">
+<meta name="twitter:image" content="https://github.com/shuzang/image/raw/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93/%E5%85%B8%E5%9E%8B%E7%9A%84%E5%B1%82%E6%AC%A1%E5%9B%BE.png?raw=true">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/shuzang/2018/04/20/程序员修炼之道-注重实效的途径/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>程序员修炼之道-注重实效的途径 | 捕风</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">捕风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独的孩子爱寂寞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/04/20/程序员修炼之道-注重实效的途径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="书葬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="捕风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">程序员修炼之道-注重实效的途径
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-20 10:20:10" itemprop="dateCreated datePublished" datetime="2018-04-20T10:20:10+08:00">2018-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 22:34:02" itemprop="dateModified" datetime="2018-05-13T22:34:02+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　有些提示和诀窍可应用于软件开发的所有层面，有些想法几乎是公理，有些过程实际上普遍适用。但是，人们几乎没有为这些途径建立这样的文档，你很可能会发现，它们作为零散的段落写在关于设计、项目管理或编码的讨论中。</p>
+<p>　　在这一章里，我们将要把这些想法和过程集中在一起。头两节，“重复的危害”与“正交性”，密切相关。前者提醒你，不要在系统各处对知识进行重复，后者提醒你，不要把任何一项知识分散在多个系统组件中。</p>
+<p>　　随着变化的步伐加快，我们越来越难以让应用跟上变化。在“可撤消性”中，我们将考察有助于使你的项目与其不断变化的环境绝缘的一些技术。</p>
+<p>　　接下来的两节也是相关的。在“曳光弹”中，我们将讨论一种开发方式，能让你同时搜集需求、测试设计、并实现代码。这听起来太好，不可能是真的？的确如此：曳光弹开发并非总是可以应用。“原型与便笺”将告诉你，在曳光弹开发不适用的情况下，怎样使用原型来测试架构、算法、接口以及各种想法。</p>
+<p>　　随着计算机科学慢慢成熟，设计者正在制作越来越高级的语言。尽管能够接受“让它这样”（make it so）指令的编译器还没有发明出来，在“领域语言”中我们给出了一些适度的建议，你可以自行加以实施。</p>
+<p>　　最后，我们都是在一个时间和资源有限的世界上工作。如果你善于估计出事情需要多长时间完成，你就能更好地在两者都很匮乏的情况下生存下去（并让你的老板更高兴）。我们将在“估算”中涵盖这一主题。</p>
+<p>　　在开发过程中牢记这些基本原则，你就将能编写更快、更好、更强健的代码。你甚至可以让这看起来很容易。<br><a id="more"></a></p>
+<p><br></p>
+<h2 id="重复的危害"><a href="#重复的危害" class="headerlink" title="重复的危害"></a>重复的危害</h2><p>　　给予计算机两项自相矛盾的知识，是James T. Kirk舰长（出自Star Trek，“星际迷航”——译注）喜欢用来使四处劫掠的人工智能生命失效的方法。遗憾的是，同样的原则也能有效地使你的代码失效。</p>
+<p>　　作为程序员，我们收集、组织、维护和利用知识。我们在规范中记载知识、在运行的代码中使其活跃起来并将其用于提供测试过程中所需的检查。</p>
+<p>　　遗憾的是，知识并不稳定。它变化——常常很快。你对需求的理解可能会随着与客户的会谈而发生变化。政府改变规章制度，有些商业逻辑过时了。测试也许表明所选择的算法无法工作。所有这些不稳定都意味着我们要把很大一部分时间花在维护上，重新组织和表达我们的系统中的知识。</p>
+<p>　　大多数人都以为维护是在应用发布时开始的，维护就意味着修正bug和增强特性。我们认为这些人错了。程序员须持续不断地维护。我们的理解逐日变化。当我们设计或编码时，出现了新的需求。环境或许变了。不管原因是什么，维护都不是时有时无的活动，而是整个开发过程中的例行事务。</p>
+<p>　　当我们进行维护时，我们必须找到并改变事物的表示——那些嵌在应用中的知识胶囊。问题是，在我们开发的规范、过程和程序中很容易重复表述知识，而当我们这样做时，我们是在向维护的噩梦发出邀请——在应用发布之前就会开始的噩梦。</p>
+<p>　　我们觉得，可靠地开发软件、并让我们的开发更易于理解和维护的惟一途径，是遵循我们称之为DRY的原则：</p>
+<p><strong>系统中的每一项知识都必须具有单一、无歧义、权威的表示</strong>。</p>
+<p>　　我们为何称其为DRY？</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DRY – Don’t Repeat Yourself  </span><br><span class="line">不要重复你自己</span><br></pre></td></tr></table></figure> 
+<p>　　与此不同的做法是在两个或更多地方表达同一事物。如果你改变其中一处，你必须记得改变其他各处。或者，就像那些异形计算机，你的程序将因为自相矛盾而被迫屈服。这不是你是否能记住的问题，而是你何时忘记的问题。</p>
+<p>　　你会发现DRY原则在全书中一再出现，并且常常出现在与编码无关的语境中。我们觉得，这是<strong>注重实效的程序员</strong>的工具箱里最重要的工具之一。</p>
+<p>　　在这一节我们将概述重复的问题，并提出对此加以处理的一般策略。</p>
+<h3 id="重复是怎样发生的"><a href="#重复是怎样发生的" class="headerlink" title="重复是怎样发生的"></a>重复是怎样发生的</h3><p>　　我们所见到的大多数重复都可归入下列范畴：</p>
+<ul>
+<li><p><strong>强加的重复（imposed duplication）</strong>。开发者觉得他们无可选择——环境似乎要求重复。</p>
+</li>
+<li><p><strong>无意的重复（inadvertent duplication）</strong>。开发者没有意识到他们在重复信息。</p>
+</li>
+<li><p><strong>无耐性的重复（impatient duplication）</strong>。开发者偷懒，他们重复，因为那样似乎更容易。</p>
+</li>
+<li><p><strong>开发者之间的重复（interdeveloper duplication）</strong>。同一团队（或不同团队）的几个人重复了同样的信息。</p>
+</li>
+</ul>
+<p>让我们更详细地看一看这四个以“i ”开头的重复。</p>
+<h3 id="强加的重复"><a href="#强加的重复" class="headerlink" title="强加的重复"></a>强加的重复</h3><p>　　有时，重复似乎是强加给我们的。项目标准可能要求建立含有重复信息的文档，或是重复代码中的信息的文档。多个目标平台各自需要自己的编程语言、库以及开发环境，这会使我们重复共有的定义和过程。编程语言自身要求某些重复信息的结构。我们都在我们觉得无力避免重复的情形下工作过。然而也有一些方法，可用于把一项知识存放在一处，以遵守DRY原则，同时也让我们的生活更容易一点。这里有一些这样的技术：</p>
+<p><strong>信息的多种表示</strong>。在编码一级，我们常常需要以不同的形式表示同一信息。我们也许在编写客户－服务器应用，在客户和服务器端使用了不同的语言，并且需要在两端都表示某种共有的结构。我们或许需要一个类，其属性是某个数据库表的schema（模型、方案）的镜像。你也许在撰写一本书，其中包括的程序片段，也正是你要编译并测试的程序。</p>
+<p>　　发挥一点聪明才智，你通常能够消除重复的需要。答案常常是编写简单的过滤器或代码生成器。可以在每次构建（build）软件时，使用简单的代码生成器，根据公共的元数据表示构建多种语言下的结构（示例参见图3.4，106页）。可以根据在线数据库schema、或是最初用于构建schema的元数据，自动生成类定义。本书中摘录的代码，由预处理器在我们每次对文本进行格式化时插入。诀窍是让该过程成为主动的，这不能是一次性转换，否则我们就会退回到重复数据的情况。</p>
+<p><strong>代码中的文档</strong>。程序员被教导说，要给代码加上注释：好代码有许多注释。遗憾的是，没有人教给他们，代码为什么需要注释：糟糕的代码才需要许多注释。</p>
+<p>　　DRY法则告诉我们，要把低级的知识放在代码中，它属于那里；把注释保留给其他的高级说明。否则，我们就是在重复知识，而每一次改变都意味着既要改变代码，也要改变注释。注释将不可避免地变得过时，而不可信任的注释比完全没有注释更糟（关于注释的更多信息，参见全都是写，248页）。</p>
+<p><strong>文档与代码</strong>。你撰写文档，然后编写代码。有些东西变了，你修订文档、更新代码。文档和代码都含有同一知识的表示。而我们都知道，在最紧张的时候——最后期限在逼近，重要的客户在喊叫——我们往往会推迟文档的更新。</p>
+<p>　　Dave曾经参与过一个国际电报交换机项目的开发。很容易理解，客户要求提供详尽的测试规范，并要求软件在每次交付时都通过所有测试。为了确保测试准确地反映规范，开发团队用程序方式、根据文档本身生成这些测试。当客户修订他们的规范时，测试套件会自动改变。有一次团队向客户证明了，该过程很健全，生成验收测试在典型情况下只需要几秒种。</p>
+<p><strong>语言问题</strong>。许多语言会在源码中强加可观的重复。如果语言使模块的接口与其实现分离，就常常会出现这样的情况。C与C++有头文件，在其中重复了被导出变量、函数和（C++的）类的名称和类型信息。Object Pascal甚至会在同一文件里重复这些信息。如果你使用远地过程调用或CORBA[URL 29]，你将会在接口规范与实现它的代码之间重复接口信息。</p>
+<p>　　没有什么简单的技术可用于克服语言的这些需求。尽管有些开发环境通过自动生成头文件、隐藏了对头文件的需要，而Object Pascal允许你缩写重复的函数声明，你通常仍受制于给予你的东西。至少对于大多数与语言有关的问题，与实现不一致的头文件将会产生某种形式的编译或链接错误。你仍会弄错事情，但至少，你将在很早的时候就得到通知。</p>
+<p>　　再思考一下头文件和实现文件中的注释。绝对没有理由在这两种文件之间重复函数或类头注释（header comment）。应该用头文件记载接口问题，用实现文件记载代码的使用者无须了解的实际细节。</p>
+<h3 id="无意的重复"><a href="#无意的重复" class="headerlink" title="无意的重复"></a>无意的重复</h3><p>　　有时，重复来自设计中的错误。</p>
+<p>　　让我们看一个来自配送行业的例子。假定我们的分析揭示，一辆卡车有车型、牌照号、司机及其他一些属性。与此类似，发运路线的属性包括路线、卡车和司机。基于这一理解，我们编写了一些类。</p>
+<p>　　但如果Sally打电话请病假、我们必须改换司机，事情又会怎样呢？Truck和DeliverRoute都包含有司机。我们改变哪一个？显然这样的重复很糟糕。根据底层的商业模型对其进行规范化（normalize）——卡车的底层属性集真的应包含司机？路线呢？又或许我们需要第三种对象，把司机、卡车及路线结合在一起。不管最终的解决方案是什么，我们都应避免这种不规范的数据。</p>
+<p>　　当我们拥有多个互相依赖的数据元素时，会出现一种不那么显而易见的不规范数据。让我们看一个表示线段的类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Line &#123;</span><br><span class="line"> public:</span><br><span class="line">  Point  start;</span><br><span class="line">  Point  end;</span><br><span class="line">  double length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>　　第一眼看上去，这个类似乎是合理的。线段显然有起点和终点，并总是有长度（即使长度为零）。但这里有重复。长度是由起点和终点决定的：改变其中一个，长度就会变化。最好是让长度成为计算字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Line &#123;</span><br><span class="line"> public:</span><br><span class="line">  Point  start;</span><br><span class="line">  Point  end;</span><br><span class="line">  double length() &#123; return start.distanceTo(end); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>　　在以后的开发过程中，你可以因为性能原因而选择违反DRY原则。这经常会发生在你需要缓存数据，以避免重复昂贵的操作时。其诀窍是使影响局部化。对DRY原则的违反没有暴露给外界：只有类中的方法需要注意“保持行为良好”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Line &#123;</span><br><span class="line"> private:</span><br><span class="line">  bool  changed;</span><br><span class="line">  double length;</span><br><span class="line">  Point  start;</span><br><span class="line">  Point  end; </span><br><span class="line"> public:</span><br><span class="line">  void setStart(Point p) &#123; start = p; changed = true; &#125;</span><br><span class="line">  void setEnd(Point p)   &#123; end   = p; changed = true; &#125;</span><br><span class="line">  Point getStart(void)   &#123; return start; &#125;</span><br><span class="line">  Point getEnd(void)     &#123; return end;   &#125;</span><br><span class="line">  double getLength() &#123;</span><br><span class="line">    if (changed) &#123;</span><br><span class="line">      length  = start.distanceTo(end);</span><br><span class="line">      changed = false;</span><br><span class="line">    &#125;</span><br><span class="line">    return length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>　　这个例子还说明了像Java和C++这样的面向对象语言的一个重要问题。在可能的情况下，应该总是用访问器（accessor）函数读写对象的属性。这将使未来增加功能（比如缓存）变得更容易。</p>
+<h3 id="无耐性的重复"><a href="#无耐性的重复" class="headerlink" title="无耐性的重复"></a>无耐性的重复</h3><p>　　每个项目都有时间压力——这是能够驱使我们中间最优秀的人走捷径的力量。需要与你写过的一个例程相似的例程？你会受到诱惑，去拷贝原来的代码，并做出一些改动。需要一个表示最大点数的值？如果我改动头文件，整个项目就得重新构建。也许我应该在这里使用直接的数字（literal number），这里，还有这里，需要一个与Java runtime中的某个类相似的类？源码在那里（你有使用许可），那么为什么不拷贝它、并做出你所需的改动呢？</p>
+<p>　　如果你觉得受到诱惑，想一想古老的格言：“欲速则不达”。你现在也许可以节省几秒钟，但以后却可能损失几小时。想一想围绕着Y2K惨败的种种问题。其中许多问题是由开发者的懒惰造成的：他们没有参数化日期字段的尺寸，或是实现集中的日期服务库。</p>
+<p>　　无耐性的重复是一种容易检测和处理的重复形式，但那需要你接受训练，并愿意为避免以后的痛苦而预先花一些时间。</p>
+<h3 id="开发者之间的重复"><a href="#开发者之间的重复" class="headerlink" title="开发者之间的重复"></a>开发者之间的重复</h3><p>　　另一方面，或许是最难检测和处理的重复发生在项目的不同开发者之间。整个功能集都可能在无意中被重复，而这些重复可能几年里都不会被发现，从而导致各种维护问题。我们亲耳听说过，美国某个州在对政府的计算机系统进行Y2K问题检查时，审计者发现有超出10,000个程序，每一个都有自己的社会保障号验证代码。</p>
+<p>　　在高层，可以通过清晰的设计、强有力的技术项目领导（参见288页“注重实效的团队”一节中的内容）、以及在设计中进行得到了充分理解的责任划分，对这个问题加以处理。但是，在模块层，问题更加隐蔽。不能划入某个明显的责任区域的常用功能和数据可能会被实现许多次。</p>
+<p>　　我们觉得，处理这个问题的最佳方式是鼓励开发者相互进行主动的交流。设置论坛，用以讨论常见问题（在过去的一些项目中，我们设置了私有的Usenet新闻组，用于让开发者交换意见，进行提问。这提供了一种不受打扰的交流方式——甚至跨越多个站点——同时又保留了所有言论的永久历史）。让某个团队成员担任项目资料管理员，其工作是促进知识的交流。在源码树中指定一个中央区域，用于存放实用例程和脚本。一定要阅读他人的源码与文档，不管是非正式的，还是进行代码复查。你不是在窥探——你是在向他们学习。而且要记住，访问是互惠的——不要因为别人钻研（乱钻？）你的代码而苦恼。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Make It Easy to Reuse  </span><br><span class="line">让复用变得容易</span><br></pre></td></tr></table></figure> 
+<p>　　你所要做的是营造一种环境，在其中要找到并复用已有的东西，比自己编写更容易。如果不容易，大家就不会去复用。而如果不进行复用，你们就会有重复知识的风险。</p>
+<p><br></p>
+<h2 id="正交性"><a href="#正交性" class="headerlink" title="正交性"></a>正交性</h2><p>　　如果你想要制作易于设计、构建、测试及扩展的系统，正交性是一个十分关键的概念，但是，正交性的概念很少被直接讲授，而常常是你学习的各种其他方法和技术的隐含特性。这是一个错误。一旦你学会了直接应用正交性原则，你将发现，你制作的系统的质量立刻就得到了提高。</p>
+<h3 id="什么是正交性"><a href="#什么是正交性" class="headerlink" title="什么是正交性"></a>什么是正交性</h3><p>　　“正交性”是从几何学中借来的术语。如果两条直线相交成直角，它们就是正交的，比如坐标轴。用向量术语说，这两条直线互不依赖。沿着某一条直线移动，你投影到另一条直线上的位置不变。</p>
+<p>　　在计算技术中，该术语用于表示某种不相依赖性或是解耦性。如果两个或更多事物中的一个发生变化，不会影响其他事物，这些事物就是正交的。在设计良好的系统中，数据库代码与用户界面是正交的：你可以改动界面，而不影响数据库；更换数据库，而不用改动界面。</p>
+<p>　　在我们考察正交系统的好处之前，让我们先看一看非正交系统。</p>
+<h3 id="非正交系统"><a href="#非正交系统" class="headerlink" title="非正交系统"></a>非正交系统</h3><p>　　你正乘坐直升机游览科罗拉多大峡谷，驾驶员——他显然犯了一个错误，在吃鱼，他的午餐——突然呻吟起来，晕了过去。幸运的是，他把你留在了离地面100英尺的地方。你推断，升降杆控制总升力，所以轻轻将其压低可以让直升机平缓降向地面。然而，当你这样做时，却发现生活并非那么简单。直升机的鼻子向下，开始向左盘旋下降。突然间你发现，你驾驶的这个系统，所有的控制输入都有次级效应。压低左手的操作杆，你需要补偿性地向后移动右手柄，并踩右踏板。但这些改变中的每一项都会再次影响所有其他的控制。突然间，你在用一个让人难以置信的复杂系统玩杂耍，其中每一项改变都会影响所有其他的输入。你的工作负担异常巨大：你的手脚在不停地移动，试图平衡所有交互影响的力量。</p>
+<p>　　直升机的各个控制器断然不是正交的。<br><strong>注</strong>：直升机有四种基本控制器。转向杆是你握在右手中的手柄，移动它，直升机就会向着相应的方向移动；你的左手握着升降杆，抬起它，你就能增加所有浆叶的倾斜度，产生升力；在升降杆的末端是油门；最后，你还有两个脚踏板，用于改变尾翼的推力大小，从而让直升机转向。</p>
+<h3 id="正交的好处"><a href="#正交的好处" class="headerlink" title="正交的好处"></a>正交的好处</h3><p>　　如直升机的例子所阐明的，非正交系统的改变与控制更复杂是其固有的性质。当任何系统的各组件互相高度依赖时，就不再有局部修正（local fix）这样的事情。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Eliminate Effects Between Unrelated Things</span><br><span class="line">消除无关事物之间的影响</span><br></pre></td></tr></table></figure> 
+<p>　　我们想要设计自足（self-contained）的组件：独立，具有单一、良好定义的目的（Yourdon和Constantine称之为内聚（cohesion）[YC86]）。如果组件是相互隔离的，你就知道你能够改变其中之一，而不用担心其余组件。只要你不改变组件的外部接口，你就可以放心：你不会造成波及整个系统的问题。</p>
+<p>　　如果你编写正交的系统，你得到两个主要好处：提高生产率与降低风险。</p>
+<h4 id="提高生产率"><a href="#提高生产率" class="headerlink" title="提高生产率"></a>提高生产率</h4><ul>
+<li><p>改动得以局部化，所以开发时间和测试时间得以降低。与编写单个的大块代码相比，编写多个相对较小的、自足的组件更为容易。你可以设计、编写简单的组件，对其进行单元测试，然后把它们忘掉——当你增加新代码时，无须不断改动已有的代码。</p>
+</li>
+<li><p>正交的途径还能够促进复用。如果组件具有明确而具体的、良好定义的责任，就可以用其最初的实现者未曾想象过的方式，把它们与新组件组合在一起。</p>
+</li>
+<li><p>如果你对正交的组件进行组合，生产率会有相当微妙的提高。假定某个组件做M件事情，而另一个组件做N件事情。如果它们是正交的，而你把它们组合在一起，结果就能做M x N件事情。但是，如果这两个组件是非正交的，它们就会重叠，结果能做的事情就更少。通过组合正交的组件，你的每一份努力都能得到更多的功能。</p>
+</li>
+</ul>
+<h4 id="降低风险"><a href="#降低风险" class="headerlink" title="降低风险"></a>降低风险</h4><p>　　正交的途径能降低任何开发中固有的风险。 </p>
+<ul>
+<li><p>有问题的代码区域被隔离开来。如果某个模块有毛病，它不大可能把病症扩散到系统的其余部分。要把它切掉，换成健康的新模块也更容易。</p>
+</li>
+<li><p>所得系统更健壮。对特定区域做出小的改动与修正，你所导致的任何问题都将局限在该区域中。</p>
+</li>
+<li><p>正交系统很可能能得到更好的测试，因为设计测试、并针对其组件运行测试更容易。</p>
+</li>
+<li><p>你不会与特定的供应商、产品、或是平台紧绑在一起，因为与这些第三方组件的接口将被隔离在全部开发的较小部分中。</p>
+</li>
+</ul>
+<p>让我们看一看在工作中应用正交原则的几种方式。</p>
+<h3 id="项目团队"><a href="#项目团队" class="headerlink" title="项目团队"></a>项目团队</h3><p>　　你是否注意到，有些项目团队很有效率，每个人都知道要做什么，并全力做出贡献，而另一些团队的成员却老是在争吵，而且好像无法避免互相妨碍？</p>
+<p>　　这常常是一个正交性问题。如果团队的组织有许多重叠，各个成员就会对责任感到困惑。每一次改动都需要整个团队开一次会，因为他们中的任何一个人都可能受到影响。</p>
+<p>　　怎样把团队划分为责任得到了良好定义的小组，并使重叠降至最低呢？没有简单的答案。这部分地取决于项目本身，以及你对可能变动的区域的分析。这还取决于你可以得到的人员。我们的偏好是从使基础设施与应用分离开始。每个主要的基础设施组件（数据库、通信接口、中间件层，等等）有自己的子团队。如果应用功能的划分显而易见，那就照此划分。然后我们考察我们现有的（或计划有的）人员，并对分组进行相应的调整。</p>
+<p>　　你可以对项目团队的正交性进行非正式的衡量。只要看一看，在讨论每个所需改动时需要涉及多少人。人数越多，团队的正交性就越差。显然，正交的团队效率也更高（尽管如此，我们也鼓励子团队不断地相互交流）。</p>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>　　大多数开发者都熟知需要设计正交的系统，尽管他们可能会使用像模块化、基于组件、或是分层这样的术语描述该过程。系统应该由一组相互协作的模块组成，每个模块都实现不依赖于其他模块的功能。有时，这些组件被组织为多个层次，每层提供一级抽象。这种分层的途径是设计正交系统的强大方式。因为每层都只使用在其下面的层次提供的抽象，在改动底层实现、而又不影响其他代码方面，你拥有极大的灵活性。分层也降低了模块间依赖关系失控的风险。你将常常看到像图2.1这样的图表示的层次关系。<br><img src="https://github.com/shuzang/image/raw/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93/%E5%85%B8%E5%9E%8B%E7%9A%84%E5%B1%82%E6%AC%A1%E5%9B%BE.png?raw=true" alt="图2.1 典型的层次图"></p>
+<p>　　对于正交设计，有一种简单的测试方法。一旦设计好组件，问问你自己：如果我显著地改变某个特定功能背后的需求，有多少模块会受影响？在正交系统中，答案应该是“一个”。但在现实中，这显然是天真的，除非你非常幸运，否则大多数实际的需求变动都会影响系统中的多个功能。但是，如果你根据功能分析变动，每个功能的变动在理论上仍然应该只影响一个模块。移动GUI面板上的按钮，不应该要求改动数据库schema。增加语境敏感的帮助，也不应该改动记账子系统。</p>
+<p>　　让我们考虑一个用于监视和控制供暖设备的复杂系统。原来的需求要求提供图形用户界面，但后来需求被改为要增加语音应答系统，用按键电话控制设备。在正交地设计的系统中，你只需要改变那些与用户界面有关联的模块，让它们对此加以处理：控制设备的底层逻辑保持不变。事实上，如果你仔细设计你的系统结构，你应该能够用同一个底层代码库支持这两种界面。157页的“它只是视图”将讨论怎样使用模型－视图－控制器（MVC）范型编写解耦的代码，该范型在这里的情况下也能很好地工作。</p>
+<p>　　还要问问你自己，你的设计在多大程度上解除了与现实世界中的的变化的耦合？你在把电话号码当作顾客标识符吗？如果电话公司重新分配了区号，会怎么样？不要依赖你无法控制的事物属性。</p>
+<h3 id="工具箱与库"><a href="#工具箱与库" class="headerlink" title="工具箱与库"></a>工具箱与库</h3><p>　　在你引入第三方工具箱和库时，要注意保持系统的正交性。要明智地选择技术。</p>
+<p>　　我们曾经参加过一个项目，在其中需要一段Java代码，既运行在本地的服务器机器上，又运行在远地的客户机器上。要把类按这样的方式分布，可以选用RMI或CORBA。如果用RMI实现类的远地访问，对类中的远地方法的每一次调用都可能会抛出异常；这意味着，一个幼稚的实现可能会要求我们，无论何时使用远地类，都要对异常进行处理。在这里，使用RMI显然不是正交的：调用远地类的代码应该不用知道这些类的位置。另一种方法——使用CORBA——就没有施加这样的限制：我们可以编写不知道我们类的位置的代码。</p>
+<p>　　在引入某个工具箱时（甚或是来自你们团队其他成员的库），问问你自己，它是否会迫使你对代码进行不必要的改动。如果对象持久模型（object persistence scheme）是透明的，那么它就是正交的。如果它要求你以一种特殊的方式创建或访问对象，那么它就不是正交的。让这样的细节与代码隔离具有额外的好处：它使得你在以后更容易更换供应商。</p>
+<p>　　Enterprise Java Beans（EJB）系统是正交性的一个有趣例子。在大多数面向事务的系统中，应用代码必须描述每个事务的开始与结束。在EJB中，该信息是作为元数据，在任何代码之外，以声明的方式表示的。同一应用代码不用修改，就可以运行在不同的EJB事务环境中。这很可能是将来许多环境的模型。</p>
+<p>　　正交性的另一个有趣的变体是面向方面编程（Aspect-Oriented Programming，AOP），这是Xerox Parc的一个研究项目（[KLM+97]与[URL 49]）。AOP让你在一个地方表达本来会分散在源码各处的某种行为。例如，日志消息通常是在源码各处、通过显式地调用某个日志函数生成的。通过AOP，你把日志功能正交地实现到要进行日志记录的代码中。使用AOP的Java版本，你可以通过编写aspect、在进入类Fred的任何方法时写日志消息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">aspect Trace &#123;</span><br><span class="line">  advise * Fred.*(..) &#123;</span><br><span class="line">    static before &#123;</span><br><span class="line">      Log.write(&quot;-&gt; Entering &quot; + thisJoinPoint.methodName);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　如果你把这个方面编织（weave）进你的代码，就会生成追踪消息。否则，你就不会看到任何消息。不管怎样，你原来的源码都没有变化。</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>　　每次你编写代码，都有降低应用正交性的风险。除非你不仅时刻监视你正在做的事情，也时刻监视应用的更大语境，否则，你就有可能无意中重复其他模块的功能，或是两次表示已有的知识。</p>
+<p>　　你可以将若干技术用于维持正交性：</p>
+<ul>
+<li><p>让你的代码保持解耦。编写“羞怯”的代码——也就是不会没有必要地向其他模块暴露任何事情、也不依赖其他模块的实现的模块。试一试我们将在183页的“解耦与得墨忒耳法则”中讨论的得墨忒耳法则（Law of Demeter）[LH89]。如果你需要改变对象的状态，让这个对象替你去做。这样，你的代码就会保持与其他代码的实现的隔离，并增加你保持正交的机会。</p>
+</li>
+<li><p>避免使用全局数据。每当你的代码引用全局数据时，它都把自己与共享该数据的其他组件绑在了一起。即使你只想对全局数据进行读取，也可能会带来麻烦（例如，如果你突然需要把代码改为多线程的）。一般而言，如果你把所需的任何语境（context）显式地传入模块，你的代码就会更易于理解和维护。在面向对象应用中，语境常常作为参数传给对象的构造器。换句话说，你可以创建含有语境的结构，并传递指向这些结构的引用。</p>
+</li>
+</ul>
+<p>　　《设计模式》[GHJV95]一书中的Singleton（单体）模式是确保特定类的对象只有一个实例的一种途径。许多人把这些singleton对象用作某种全局变量（特别是在除此而外不支持全局概念的语言中，比如Java）。使用singleton要小心——它们可能造成不必要的关联。</p>
+<ul>
+<li>避免编写相似的函数。你常常会遇到看起来全都很像的一组函数——它们也许在开始和结束处共享公共的代码，中间的算法却各有不同。重复的代码是结构问题的一种症状。要了解更好的实现，参见《设计模式》一书中的Strategy（策略）模式。</li>
+</ul>
+<p>养成不断地批判对待自己的代码的习惯。寻找任何重新进行组织、以改善其结构和正交性的机会。这个过程叫做重构（refactoring），它非常重要，所以我们专门写了一节加以讨论（见“重构”，184页）</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>　　正交地设计和实现的系统也更易于测试，因为系统的各组件间的交互是形式化的和有限的，更多的系统测试可以在单个的模块级进行。这是好消息，因为与集成测试（integration testing）相比，模块级（或单元）测试要更容易规定和进行得多。事实上，我们建议让每个模块都拥有自己的、内建在代码中的单元测试，并让这些测试作为常规构建过程的一部分自动运行（参见“易于测试的代码”，189页）。</p>
+<p>　　构建单元测试本身是对正交性的一项有趣测试。要构建和链接某个单元测试，都需要什么？只是为了编译或链接某个测试，你是否就必须把系统其余的很大一部分拽进来？如果是这样，你已经发现了一个没有很好地解除与系统其余部分耦合的模块。</p>
+<p>　　修正bug也是评估整个系统的正交性的好时候。当你遇到问题时，评估修正的局部化程度。</p>
+<p>　　你是否只改动了一个模块，或者改动分散在整个系统的各个地方？当你做出改动时，它修正了所有问题，还是又神秘地出现了其他问题？这是开始运用自动化的好机会。如果你使用了源码控制系统（在阅读了86页的“源码控制”之后，你会使用的），当你在测试之后、把代码签回（check the code back）时，标记所做的bug修正。随后你可以运行月报，分析每个bug修正所影响的源文件数目的变化趋势。</p>
+<h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>　　也许会让人惊讶，正交性也适用于文档。其坐标轴是内容和表现形式。对于真正正交的文档，你应该能显著地改变外观，而不用改变内容。现代的字处理器提供了样式表和宏，能够对你有帮助（参见“全都是写”，248页）。</p>
+<h3 id="认同正交性"><a href="#认同正交性" class="headerlink" title="认同正交性"></a>认同正交性</h3><p>　　正交性与27页介绍的DRY原则紧密相关。运用DRY原则，你是在寻求使系统中的重复降至最小；运用正交性原则，你可降低系统的各组件间的相互依赖。这样说也许有点笨拙，但如果你紧密结合DRY原则、运用正交性原则，你将会发现你开发的系统会变得更为灵活、更易于理解、并且更易于调试、测试和维护。</p>
+<p>　　如果你参加了一个项目，大家都在不顾一切地做出改动，而每一处改动似乎都会造成别的东西出错，回想一下直升机的噩梦。项目很可能没有进行正交的设计和编码。是重构的时候了。</p>
+<p>　　另外，如果你是直升机驾驶员，不要吃鱼……</p>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li><p>考虑常在Windows系统上见到的面向GUI的大型工具和在shell提示下使用的短小、但却可以组合的命令行实用工具。哪一种更为正交，为什么？如果正好按其设计用途加以应用，哪一种更易于使用？哪一种更易于与其他工具组合、以满足新的要求？</p>
+</li>
+<li><p>C++支持多重继承，而Java允许类实现多重接口。使用这些设施对正交性有何影响？使用多重继承与使用多重接口的影响是否有不同？使用委托（delegation）与使用继承之间是否有不同？</p>
+</li>
+</ul>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ol>
+<li><p>你在编写一个叫做Split的类，其用途是把输入行拆分为字段。下面的两个Java类的型构（signature）中，哪一个是更为正交的设计？　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Split1 &#123;</span><br><span class="line">  public Split1(InputStreamReader rdr) &#123; ...</span><br><span class="line">  public void readNextLine() throws IOException &#123; ...</span><br><span class="line">  public int numFields() &#123; ...</span><br><span class="line">  public String getField(int fieldNo) &#123; ...</span><br><span class="line">&#125;</span><br><span class="line">class Split2 &#123;</span><br><span class="line">  public Split2(String line) &#123; ...</span><br><span class="line">  public int numFields()     &#123; ...</span><br><span class="line">  public String getField(int fieldNo) &#123; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非模态对话框或模态对话框，哪一个能带来更为正交的设计？ </p>
+</li>
+<li><p>过程语言与对象技术的情况又如何？哪一种能产生更为正交的系统？ </p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="可撤消性"><a href="#可撤消性" class="headerlink" title="可撤消性"></a>可撤消性</h2><blockquote>
+<p>如果某个想法是你惟一的想法，再没有什么比这更危险的事情了。<br>　　　　　　　　　　　　　——Emil-Auguste Chartier, Propos sur la religion, 1938</p>
+</blockquote>
+<p>　　工程师们喜欢问题有简单、单一的解决方案。与论述法国大革命的无数起因的一篇模糊、热烈的文章相比，允许你怀着极大的自信宣称x = 2的数学测验要让人觉得舒服得多。管理人员往往与工程师趣味相投：单一、容易的答案正好可以放在电子表格和项目计划中。</p>
+<p>　　现实世界能够合作就好了！遗憾的是，今天x是2，明天也许就需要是5，下周则是3。没有什么永远不变——而如果你严重依赖某一事实，你几乎可以确定它将会变化。</p>
+<p>　　要实现某种东西，总有不止一种方式，而且通常有不止一家供应商可以提供第三方产品。如果你参与的项目被短视的、认为只有一种实现方式的观念所牵绊，你也许就会遇到让人不悦的意外之事。许多项目团队会被迫在未来展现之时睁开眼睛：</p>
+<blockquote>
+<p>“但你说过我们要使用XYZ数据库！我们的项目已经完成了85%的编码工作。我们现在不能改变了！”程序员抗议道。“对不起，但我们公司决定进行标准化，改用PDQ数据库——所有项目。这超出了我的职权范围。我们必须重新编码。周末所有人都要加班，直到另行通知为止。”</p>
+</blockquote>
+<p>　　变动不一定会这么严苛，甚至也不会这么迫在眉睫。但随着时间的流逝，随着你的项目取得进展，你也许会发现自己陷在无法立足的处境里。随着每一项关键决策的做出，项目团队受到越来越小的目标的约束——现实的更窄小的版本，选择的余地越来越小。</p>
+<p>　　在许多关键决策做出之后，目标会变得如此之小，以至于如果它动一下，或是风改变方向，或是东京的蝴蝶扇动翅膀，你都会错过目标。而且你可能会偏出很远。</p>
+<p>　　问题在于，关键决策不容易撤消。</p>
+<p>　　一旦你决定使用这家供应商的数据库、那种架构模式、或是特定的部署模型（例如，客户－服务器 vs. 单机），除非付出极大的代价，否则你就将受制于一个无法撤消的动作进程（course of action）。</p>
+<h3 id="可撤消性-1"><a href="#可撤消性-1" class="headerlink" title="可撤消性"></a>可撤消性</h3><p>　　我们让本书的许多话题相互配合，以制作灵活、有适应能力的软件。通过遵循它们的建议——特别是DRY原则（26页）、解耦（138页）以及元数据的使用（144页）——我们不必做出许多关键的、不可逆转的决策。这是一件好事情，因为我们并非总能在一开始就做出最好的决策。我们采用了某种技术，却发现我们雇不到足够的具有必需技能的人。我们刚刚选定某个第三方供应商，他们就被竞争者收购了。与我们开发软件的速度相比，需求、用户以及硬件变得更快。</p>
+<p>　　假定在项目初期，你决定使用供应商A提供的关系数据库。过了很久，在性能测试过程中，你发现数据库简直太慢了，而供应商B提供的对象数据库更快。对于大多数传统项目，你不会有什么运气。大多数时候，对第三方产品的调用都缠绕在代码各处。但如果你真的已经把数据库的概念抽象出来——抽象到数据库只是把持久（persistence）作为服务提供出来的程度——你就会拥有“中流换马（change horses in midstream）”的灵活性。</p>
+<p>　　与此类似，假定项目最初采用的是客户－服务器模型，但随即，在开发的后期，市场部门认为服务器对于某些客户过于昂贵，他们想要单机版。对你来说，那会有多困难？因为这只是一个部署问题，所以不应该要很多天。如果所需时间更长，那么你就没有考虑过可撤消性。另外一个方向甚至更有趣。如果需要以客户－服务器或n层方式部署你正在开发的单机产品，事情又会怎样？那也不应该很困难。</p>
+<p>　　错误在于假定决策是浇铸在石头上的——同时还在于没有为可能出现的意外事件做准备。要把决策视为是写在沙滩上的，而不要把它们刻在石头上。大浪随时可能到来，把它们抹去。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">There Are No Final Decisions  </span><br><span class="line">不存在最终决策</span><br></pre></td></tr></table></figure> 
+<h3 id="灵活的架构"><a href="#灵活的架构" class="headerlink" title="灵活的架构"></a>灵活的架构</h3><p>　　有许多人会设法保持代码的灵活性，而你还需要考虑维持架构、部署及供应商集成等领域的灵活性。</p>
+<p>　　像CORBA这样的技术可以帮助把项目的某些部分与开发语言或平台的变化隔离开来。Java在该平台上的性能不能满足要求？重新用C++编写客户代码，其他没有什么需要改变。用C++编写的规则引擎不够灵活？换到Smalltalk版本。采用CORBA架构，你只须改动替换的组件：其他组件应该不会受影响。</p>
+<p>　　你正在开发UNIX软件？哪一种？你是否处理了所有可移植性问题？你正在为某个特定版本的Windows做开发？哪一种——3.1、95、98、NT、CE、或是2000？支持其他版本有多难？如果你让决策保持软和与柔韧，事情就完全不困难。如果在代码中有着糟糕的封装、高度耦合以及硬编码的逻辑或参数，事情也许就是不可能的。</p>
+<p>　　不确定市场部门想怎样部署系统？预先考虑这个问题，你可以支持单机、客户－服务器、或n层模型——只需要改变配置文件。我们就写过一些这么做的程序。</p>
+<p>　　通常，你可以把第三方产品隐藏在定义良好的抽象接口后面。事实上，在我们做过的任何项目中，我们都总能够这么做。但假定你无法那么彻底地隔离它，如果你必须大量地把某些语句分散在整个代码中，该怎么办？把该需求放入元数据，并且使用某种自动机制——比如Aspect（参见39页）或Perl——把必需的语句插入代码自身中。无论你使用的是何种机制，让它可撤消。如果某样东西是自动添加的，它也可以被自动去掉。</p>
+<p>　　没有人知道未来会怎样，尤其是我们！所以要让你的代码学会“摇滚”：可以“摇”就“摇”，必须“滚”就“滚”。</p>
+<h3 id="挑战-1"><a href="#挑战-1" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>让我们通过“薛定谔的猫”学一点量子力学。假定在一个封闭的盒子里有一只猫，还有一个放射性粒子。这个粒子正好有50%的机会裂变成两个粒子。如果发生了裂变，猫就会被杀死；如果没有，猫就不会有事。那么，猫是死是活？根据薛定谔的理论，正确的答案是“都是”。每当有两种可能结果的亚核反应发生时，宇宙就会被克隆。在其中一个宇宙中，事件发生；在另一个宇宙中，事件不发生。猫在一个宇宙中是活的，在另一个宇宙中是死的。只有当你打开盒子，你才知道你在哪一个宇宙里。<br>　　怪不得为未来编码很困难。<br>　　但想一想，代码沿着与装满薛定谔的猫的盒子一样的路线演化：每一项决策都会导致不同版本的未来。你的代码能支持多少种可能的未来？哪一种未来更有可能发生？到时支持它们有多困难？<br>　　你敢打开盒子吗？</li>
+</ul>
+<p><br></p>
+<h2 id="曳光弹"><a href="#曳光弹" class="headerlink" title="曳光弹"></a>曳光弹</h2><blockquote>
+<p>预备、开火、瞄准……</p>
+</blockquote>
+<p>　　在黑暗中用机枪射击有两种方式。你可以找出目标的确切位置（射程、仰角及方位）。你可以确定环境状况（温度、湿度、气压、风，等等）。你可以确定你使用的弹药筒和子弹的精确规格，以及它们与你使用的机枪的交互作用。然后你可以用计算表或射击计算机计算枪管的确切方向及仰角。如果每一样东西都严格按照规定的方式工作，你的计算表正确无误，而且环境没有发生变化，你的子弹应该能落在距目标不远的地方。</p>
+<p>　　或者，你可以使用曳光弹。</p>
+<p>　　曳光弹与常规弹药交错着装在弹药带上。发射时，曳光弹中的磷点燃，在枪与它们击中的地方之间留下一条烟火般的踪迹。如果曳光弹击中目标，那么常规子弹也会击中目标。</p>
+<p>　　并不让人惊奇的是，曳光弹比费力计算更可取。反馈是即时的，而且因为它们工作在与真正的弹药相同的环境中，外部影响得以降至最低。</p>
+<p>　　这个类比也许有点暴力，但它适用于新的项目，特别是当你构建从未构建过的东西时。与枪手一样，你也设法在黑暗中击中目标。因为你的用户从未见过这样的系统，他们的需求可能会含糊不清。因为你在使用不熟悉的算法、技术、语言或库，你面对着大量未知的事物。同时，因为完成项目需要时间，在很大程度上你能够确知，你的工作环境将在你完成之前发生变化。</p>
+<p>　　经典的做法是把系统定死。制作大量文档，逐一列出每项需求、确定所有未知因素、并限定环境。根据死的计算射击。预先进行一次大量计算，然后射击并企望击中目标。</p>
+<p>　　然而，注重实效的程序员往往更喜欢使用曳光弹。</p>
+<h3 id="在黑暗中发光的代码"><a href="#在黑暗中发光的代码" class="headerlink" title="在黑暗中发光的代码"></a>在黑暗中发光的代码</h3><p>　　曳光弹行之有效，是因为它们与真正的子弹在相同的环境、相同的约束下工作。它们快速飞向目标，所以枪手可以得到即时的反馈。同时，从实践的角度看，这样的解决方案也更便宜。</p>
+<p>　　为了在代码中获得同样的效果，我们要找到某种东西，让我们能快速、直观和可重复地从需求出发，满足最终系统的某个方面要求。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Use Tracer Bullets to Find the Target  </span><br><span class="line">用曳光弹找到目标</span><br></pre></td></tr></table></figure> 
+<p>　　有一次，我们接受了一个复杂的客户－服务器数据库营销项目。其部分需求是要能够指定并执行临时查询。服务器是一系列专用的关系数据库。用Object Pascal编写的客户GUI使用一组C库提供给服务器的接口。在转换为优化的SQL之前，用户的查询以类似Lisp的表示方式存储在服务器上；转换直到执行前才进行。有许多未知因素和许多不同的环境，没有人清楚地知道GUI应该怎样工作。</p>
+<p>　　这是使用曳光代码的好机会。我们开发了前端框架、用于表示查询的库以及用于把所存储的查询转换为具体数据库的查询的结构。随后我们把它们集中在一起，并检查它们是否能工作。使用最初构建的系统，我们所能做的只是提交一个查询，列出某个表中的所有行，但它证明了UI能够与库交谈，库能够对查询进行序列化和解序列化，而服务器能够根据结果生成SQL。在接下来的几个月里，我们逐渐充实这个基本结构，通过并行地扩大曳光代码的各个组件增加新的功能。当UI增加了新的查询类型时，库随之成长，而我们也使SQL生成变得更为成熟。</p>
+<p>　　曳光代码并非用过就扔的代码：你编写它，是为了保留它。它含有任何一段产品代码都拥有的完整的错误检查、结构、文档、以及自查。它只不过功能不全而已。但是，一旦你在系统的各组件间实现了端到端（end-to-end）的连接，你就可以检查你离目标还有多远，并在必要的情况下进行调整。一旦你完全瞄准，增加功能将是一件容易的事情。</p>
+<p>　　曳光开发与项目永不会结束的理念是一致的：总有改动需要完成，总有功能需要增加。这是一个渐进的过程。</p>
+<p>　　另一种传统做法是一种繁重的工程方法：把代码划分为模块，在真空中对模块进行编码。把模块组合成子配件（subassembly），再对子配件进行组合，直到有一天你拥有完整的应用为止。直到那时，才能把应用作为一个整体呈现给用户，并进行测试。</p>
+<p>　　曳光代码方法有许多优点：</p>
+<ul>
+<li><p><strong>用户能够及早看到能工作的东西</strong>。如果你成功地就你在做的事情与用户进行了交流（参见“极大的期望”，255页），用户就会知道他们看到的是还未完成的东西。他们不会因为缺少功能而失望；他们将因为看到了系统的某种可见的进展而欣喜陶醉。他们还会随着项目的进展做出贡献，增加他们的“买入”。同样是这些用户，他们很可能也会告诉你，每一轮“射击”距离目标有多接近。</p>
+</li>
+<li><p><strong>开发者构建了一个他们能在其中工作的结构</strong>。最令人畏缩的纸是什么也没有写的白纸。如果你已经找出应用的所有端到端的交互，并把它们体现在代码里，你的团队就无须再无中生有。这让每个人都变得更有生产力，同时又促进了一致性。</p>
+</li>
+<li><p><strong>你有了一个集成平台</strong>。随着系统端到端地连接起来，你拥有了一个环境，一旦新的代码段通过了单元测试，你就可以将其加入该环境中。你将每天进行集成（常常是一天进行多次），而不是尝试进行大爆炸式的集成。每一个新改动的影响都更为显而易见，而交互也更为有限，于是调试和测试将变得更快、更准确。</p>
+</li>
+<li><p><strong>你有了可用于演示的东西</strong>。项目出资人与高级官员往往会在最不方便的时候来看演示。有了曳光代码，你总有东西可以拿给他们看。</p>
+</li>
+<li><p><strong>你将更能够感觉到工作进展</strong>。在曳光代码开发中，开发者一个一个地处理用例（use case）。做完一个，再做下一个。评测性能、并向用户演示你的进展，变得容易了许多。因为每一项个别的开发都更小，你也避免了创建这样的整体式代码块：一周又一周，其完成度一直是95%。</p>
+</li>
+</ul>
+<h3 id="曳光弹并非总能击中目标"><a href="#曳光弹并非总能击中目标" class="headerlink" title="曳光弹并非总能击中目标"></a>曳光弹并非总能击中目标</h3><p>　　曳光弹告诉你击中的是什么。那不一定总是目标。于是你调整准星，直到完全击中目标为止。这正是要点所在。</p>
+<p>　　曳光代码也是如此。你在不能100%确定该去往何处的情形下使用这项技术。如果最初的几次尝试错过了目标——用户说：“那不是我的意思”，你需要的数据在你需要它时不可用，或是性能好像有问题——你不应感到惊奇。找出怎样改变已有的东西、让其更接近目标的办法，并且为你使用了一种简约的开发方法而感到高兴。小段代码的惯性也小——要改变它更容易、更迅速。你能够搜集关于你的应用的反馈，而且与其他任何方法相比，你能够花费较少代价、更为迅速地生成新的、更为准确的版本。同时，因为每个主要的应用组件都已表现在你的曳光代码中，用户可以确信，他们所看到的东西具有现实基础，不仅仅是纸上的规范。</p>
+<h3 id="曳光代码-vs-原型制作"><a href="#曳光代码-vs-原型制作" class="headerlink" title="曳光代码 vs. 原型制作"></a>曳光代码 vs. 原型制作</h3><p>　　你也许会想，这种曳光代码的概念就是原型制作，只不过有一个更富“进攻性”的名字。它们有区别。使用原型，你是要探究最终系统的某些具体的方面。使用真正的原型，在对概念进行了试验之后，你会把你捆扎在一起的无论什么东西扔掉，并根据你学到的经验教训重新适当地进行编码。</p>
+<p>　　例如，假定你在制作一个应用，其用途是帮助运货人确定怎样把不规则的箱子装入集装箱。除了考虑其他一些问题，你还需要设计直观的用户界面，而你用于确定最优装箱方式的算法非常复杂。</p>
+<p>　　你可以在GUI工具中为最终用户制作一个用户界面原型。你的代码只能让界面响应用户操作。一旦用户对界面布局表示同意，你可以把它扔掉，用目标语言重新对其进行编码，并在其后加上商业逻辑。与此类似，你可以为实际进行装箱的算法制作原型。你可以用像Perl这样的宽松的高级语言编写功能测试，并用更接近机器的某种语言编写低级的性能测试。无论如何，一旦你做出决策，你都会重新开始在其最终环境中为算法编写代码，与现实世界接合。这就是原型制作，它非常有用。</p>
+<p>　　曳光代码方法处理的是不同的问题。你需要知道应用怎样结合成一个整体。你想要向用户演示，实际的交互是怎样工作的，同时你还想要给出一个架构骨架，开发者可以在其上增加代码。在这样的情况下，你可以构造一段曳光代码，其中含有一个极其简单的集装箱装箱算法实现（也许是像“先来先服务”这样的算法）和一个简单、但却能工作的用户界面。一旦你把应用中的所有组件都组合在一起，你就拥有了一个可以向你的用户和开发者演示的框架。接下来的时间里，你给这个框架增加新功能，完成预留了接口的例程。但框架仍保持完整，而你也知道，系统将会继续按照你第一次的曳光代码完成时的方式工作。</p>
+<p>　　其间的区别很重要，足以让我们再重复一次。原型制作生成用过就扔的代码。曳光代码虽然简约，但却是完整的，并且构成了最终系统的骨架的一部分。你可以把原型制作视为在第一发曳光弹发射之前进行的侦察和情报搜集工作。</p>
+<p><br></p>
+<h2 id="原型与便笺"><a href="#原型与便笺" class="headerlink" title="原型与便笺"></a>原型与便笺</h2><p>　　许多不同的行业都使用原型试验具体的想法：与完全的制作相比，制作原型要便宜得多。例如，轿车制造商可以制造某种新车设计的许多不同的原型，每一种的设计目的都是要测试轿车的某个具体的方面——空气动力学、样式、结构特征，等等。也许会制造一个粘土模型，用于风洞测试，也许会为工艺部门制造一个轻木和胶带模型，等等。有些轿车公司更进一步，在计算机上进行大量的建模工作，从而进一步降低了开销。以这样的方式，可以试验危险或不确定的元件，而不用实际进行真实的制造。</p>
+<p>　　我们以同样的方式构建软件原型，并且原因也一样——为了分析和揭示风险，并以大大降低的代价、为修正提供机会。与轿车制造商一样，我们可以把原型用于测试项目的一个或多个具体方面。</p>
+<p>　　我们往往以为原型要以代码为基础，但它们并不总是非如此不可。与轿车制造商一样，我们可以用不同的材料构建原型。要为像工作流和应用逻辑这样的动态事物制作原型，便笺（post-it note）就非常好。用户界面的原型则可以是白板上的图形、或是用绘图程序或界面构建器绘制的无功能的模型。</p>
+<p>　　原型的设计目的就是回答一些问题，所以与投入使用的产品应用相比，它们的开发要便宜得多、快捷得多。其代码可以忽略不重要的细节——在此刻对你不重要，但对后来的用户可能非常重要。例如，如果你在制作GUI原型，你不会因不正确的结果或数据而遭到指责。而另一方面，如果你只是在研究计算或性能方面的问题，你也不会因为相当糟糕的GUI而遭到指责；甚至也可以完全不要GUI。</p>
+<p>　　但如果你发现自己处在不能放弃细节的环境中，就需要问自己，是否真的在构建原型。或许曳光弹开发方式更适合这种情况（参见“曳光弹”，48页）。</p>
+<h3 id="应制作原型的事物"><a href="#应制作原型的事物" class="headerlink" title="应制作原型的事物"></a>应制作原型的事物</h3><p>　　你可以选择通过原型来研究什么样的事物呢？任何带有风险的事物。以前没有试过的事物，或是对于最终系统极端关键的事物。任何未被证明的、实验性的、或有疑问的事物。任何让你觉得不舒服的事物。你可以为下列事物制作原型：</p>
+<ul>
+<li>架构</li>
+<li>已有系统中的新功能</li>
+<li>外部数据的结构或内容</li>
+<li>第三方工具或组件</li>
+<li>性能问题</li>
+<li>用户界面设计</li>
+</ul>
+<p>原型制作是一种学习经验。其价值并不在于所产生的代码，而在于所学到的经验教训。那才是原型制作的要点所在。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Prototype to Learn  </span><br><span class="line">为了学习而制作原型</span><br></pre></td></tr></table></figure> 
+<h3 id="怎样使用原型"><a href="#怎样使用原型" class="headerlink" title="怎样使用原型"></a>怎样使用原型</h3><p>　　在构建原型时，你可以忽略哪些细节？</p>
+<ul>
+<li><p>正确性。你也许可以在适当的地方使用虚设的数据。</p>
+</li>
+<li><p>完整性。原型也许只能在非常有限的意义上工作，也许只有一项预先选择的输入数据和一个菜单项。</p>
+</li>
+<li><p>健壮性。错误检查很可能不完整，或是完全没有。如果你偏离预定路径，原型就可能崩溃，并在“烟火般的灿烂显示中焚毁”。这没有关系。</p>
+</li>
+<li><p>风格。在纸上承认这一点让人痛苦，但原型代码可能没有多少注释或文档。根据使用原型的经验，你也许会撰写出大量文档，但关于原型系统自身的内容相对而言却非常少。</p>
+</li>
+</ul>
+<p>因为原型应该遮盖细节，并聚焦于所考虑系统的某些具体方面，你可以用非常高级的语言实现原型——比项目的其余部分更高级（也许是像Perl、Python或Tcl这样的语言）。高级的脚本语言能让你推迟考虑许多细节（包括指定数据类型），并且仍然能制作出能工作的（即使不完整或速度慢）代码。如果你需要制作用户界面的原型，可研究像Tcl/Tk、Visual Basic、Powerbuilder或Delphi这样的工具。</p>
+<p>　　作为能把低级的部分组合在一起的“胶合剂”，脚本语言工作良好。在Windows下，Visual Basic可以把COM控件胶合在一起。更一般地说，你可以使用像Perl和Python这样的语言，把低级的C库绑在一起——无论是手工进行，还是通过工具自动进行，比如可以自由获取的SWIG[URL 28]。采用这种方法，你可以快速地把现有组件装配进新的配置，从而了解它们的工作情况。</p>
+<h3 id="制作架构原型"><a href="#制作架构原型" class="headerlink" title="制作架构原型"></a>制作架构原型</h3><p>　　许多原型被构造出来，是要为在考虑之下的整个系统建模。与曳光弹不同，在原型系统中，单个模块不需要能行使特定的功能。事实上，要制作架构原型，你甚至不一定需要进行编码——你可以用便笺或索引卡片、在白板上制作原型。你寻求的是了解系统怎样结合成为一个整体，并推迟考虑细节。下面是一些你可以在架构原型中寻求解答的具体问题：</p>
+<ul>
+<li>主要组件的责任是否得到了良好定义？是否适当？</li>
+<li>主要组件间的协作是否得到了良好定义？</li>
+<li>耦合是否得以最小化？</li>
+<li>你能否确定重复的潜在来源？</li>
+<li>接口定义和各项约束是否可接受？</li>
+<li>每个模块在执行过程中是否能访问到其所需的数据？是否能在需要时进行访问？</li>
+</ul>
+<p>根据我们制作原型的经验，最后一项往往会产生最让人惊讶和最有价值的结果。</p>
+<h3 id="怎样“不”使用原型"><a href="#怎样“不”使用原型" class="headerlink" title="怎样“不”使用原型"></a>怎样“不”使用原型</h3><p>　　在你着手制作任何基于代码的原型之前，先确定每个人都理解你正在编写用过就扔的代码。对于不知道那只是原型的人，原型可能会具有欺骗性的吸引力。你必须非常清楚地说明，这些代码是用过就扔的，它们不完整，也不可能完整。</p>
+<p>　　别人很容易被演示原型外表的完整性误导，而如果你没有设定正确的期望值，项目出资人或管理部门可能会坚持要部署原型（或其后裔）。提醒他们，你可以用轻木和胶带制造一辆了不起的新车原型，但你却不会在高峰时间的车流中驾驶它。</p>
+<p>　　如果你觉得在你所在的环境或文化中，原型代码的目的很有可能被误解，你也许最好还是采用曳光弹方法。你最后将得到一个坚实的框架，为将来的开发奠定基础。</p>
+<p>　　适当地使用原型，可以帮助你在开发周期的早期确定和改正潜在的问题点——在此时改正错误既便宜、又容易——从而为你节省大量时间、金钱，并大大减轻你遭受的痛苦和折磨。</p>
+<h3 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h3><ul>
+<li>市场部门想要坐下来和你一起讨论一些网页的设计问题。他们想用可点击的图像进行页面导航，但却不能确定该用什么图像模型——也许是轿车、电话或是房子。你有一些目标网页和内容；他们想要看到一些原型。哦，随便说一下，你只有15分钟。你可以使用什么样的工具？　</li>
+</ul>
+<p><br></p>
+<h2 id="领域语言"><a href="#领域语言" class="headerlink" title="领域语言"></a>领域语言</h2><blockquote>
+<p>语言的界限就是一个人的世界的界限。<br>　　——维特根斯坦</p>
+</blockquote>
+<p>　　计算机语言会影响你思考问题的方式，以及你看待交流的方式。每种语言都含有一系列特性——比如静态类型与动态类型、早期绑定与迟后绑定、继承模型（单、多或无）这样的时髦话语——所有这些特性都在提示或遮蔽特定的解决方案。头脑里想着Lisp设计的解决方案将会产生与基于C风格的思考方式而设计的解决方案不同的结果，反之亦然。与此相反——我们认为这更重要——问题领域的语言也可能会提示出编程方案。</p>
+<p>　　我们总是设法使用应用领域的语汇来编写代码（参见210页的需求之坑，我们在那里提出要使用项目词汇表）。在某些情况下，我们可以更进一层，采用领域的语汇、语法、语义——语言——实际进行编程。</p>
+<p>　　当你听取某个提议中的系统的用户说明情况时，他们也许能确切地告诉你，系统应怎样工作：</p>
+<p>　　在一组X.25线路上侦听由ABC规程12.3定义的交易，把它们转译成XYZ公司的43B格式，在卫星上行链路上重新传输，并存储起来，供将来分析使用。</p>
+<p>　　如果用户有一些这样的做了良好限定的陈述，你可以发明一种为应用领域进行了适当剪裁的小型语言，确切地表达他们的需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">From X25LINE1 (Format=ABC123) &#123;</span><br><span class="line">  Put TELSTAR1 (Format=XYZ43B);</span><br><span class="line">  Store DB;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　该语言无须是可执行的。一开始，它可以只是用于捕捉用户需求的一种方式——一种规范。但是，你可能想要更进一步，实际实现该语言。你的规范变成了可执行代码。</p>
+<p>　　在你编写完应用之后，用户给了你一项新需求：不应存储余额为负的交易，而应以原来的格式在X.25线路上发送回去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">From X25LINE1 (Format=ABC123) &#123;</span><br><span class="line">  if (ABC123.balance &lt; 0) &#123;</span><br><span class="line">    Put X25LINE1 (Format=ABC123);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    Put TELSTAR1 (Format=XYZ43B);</span><br><span class="line">    Store DB;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　很容易，不是吗？有了适当的支持，你可以用大大接近应用领域的方式进行编程。我们并不是在建议让你的最终用户用这些语言实际编程。相反，你给了自己一个工具，能够让你更靠近他们的领域工作。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">Program Close to the Problem domain  </span><br><span class="line">靠近问题领域编程</span><br></pre></td></tr></table></figure> 
+<p>　　无论是用于配置和控制应用程序的简单语言，还是用于指定规则或过程的更为复杂的语言，我们认为，你都应该考虑让你的项目更靠近问题领域。通过在更高的抽象层面上编码，你获得了专心解决领域问题的自由，并且可以忽略琐碎的实现细节。</p>
+<p>　　记住，应用有许多用户。有最终用户，他们了解商业规则和所需输出；也有次级用户：操作人员、配置与测试管理人员、支持与维护程序员，还有将来的开发者。他们都有各自的问题领域，而你可以为他们所有人生成小型环境和语言。</p>
+<blockquote>
+<p><strong>具体领域的错误</strong></p>
+</blockquote>
+<p>　　如果你是在问题领域中编写程序，你也可以通过用户可以理解的术语进行具体领域的验证，或是报告问题。以上一页我们的交换应用为例，假定用户拼错了格式名：</p>
+<blockquote>
+<pre><code>From X25LINE1 (Format=AB123)
+</code></pre></blockquote>
+<blockquote>
+<p>　　如果这发生在某种标准的、通用的编程语言中，你可能会收到一条标准的、通用的错误消息：</p>
+</blockquote>
+<blockquote>
+<pre><code>Syntax error: undeclared identifier
+</code></pre></blockquote>
+<blockquote>
+<p>　　但使用小型语言，你却能够使用该领域的语汇发出错误消息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;AB123&quot; is not a format. known formats are ABC123,</span><br><span class="line">	XYZ43B, PDQB, and 42.</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="实现小型语言"><a href="#实现小型语言" class="headerlink" title="实现小型语言"></a>实现小型语言</h3><p>　　在最简单的情况下，小型语言可以采用面向行的、易于解析的格式。在实践中，与其他任何格式相比，我们很可能会更多地使用这样的格式。只要使用switch语句、或是使用像Perl这样的脚本语言中的正则表达式，就能够对其进行解析。281页上练习5的解答给出了一种用C编写的简单实现。</p>
+<p>　　你还可以用更为正式的语法，实现更为复杂的语言。这里的诀窍是首先使用像BNF这样的表示法定义语法。一旦规定了文法，要将其转换为解析器生成器（parser generator）的输入语法通常就非常简单了。C和C++程序员多年来一直在使用yacc（或其可自由获取的实现，bison[URL 27]）。在Lex and Yacc[LMB92]一书中详细地讲述了这些程序。Java程序员可以选用javaCC，可在[URL 26]处获取该程序。282页上练习7的解答给出了一个用bison编写的解析器。如其所示，一旦你了解了语法，编写简单的小型语言实在没有多少工作要做。</p>
+<p>　　要实现小型语言还有另一种途径：扩展已有的语言。例如，你可以把应用级功能与Python[URL 9]集成在一起，编写像这样的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">record = X25LINE1.get(format=ABC123)</span><br><span class="line">if (record.balance &lt; 0):</span><br><span class="line">        X25LINE1.put(record, format=ABC123)</span><br><span class="line">else:</span><br><span class="line">        TELSTAR1.put(record, format=XYZ43B)</span><br><span class="line">        DB.store(record)</span><br></pre></td></tr></table></figure></p>
+<h3 id="数据语言与命令语言"><a href="#数据语言与命令语言" class="headerlink" title="数据语言与命令语言"></a>数据语言与命令语言</h3><p>　　可以通过两种不同的方式使用你实现的语言。</p>
+<p>　　数据语言产生某种形式的数据结构给应用使用。这些语言常用于表示配置信息。</p>
+<p>　　例如，sendmail程序在世界各地被用于在Internet上转发电子邮件。它具有许多杰出的特性和优点，由一个上千行的配置文件控制，用sendmail自己的配置语言编写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Mlocal, P=/usr/bin/procmail,</span><br><span class="line">        F=lsDFMAw5 :/|@qSPfhn9,</span><br><span class="line">        S=10/30, R=20/40,</span><br><span class="line">        T=DNS/RFC822/X-Unix,</span><br><span class="line">        A=procmail -Y -a $h -d $u</span><br></pre></td></tr></table></figure></p>
+<p>　　显然，可读性不是sendmail的强项。</p>
+<p>　　多年以来，Microsoft一直在使用一种可以描述菜单、widget（窗口小部件）、对话框及其他Windows资源的数据语言。这比sendmail的配置文件要易读得多，但其使用方式却完全一样——我们编译它，以生成数据结构。</p>
+<p>　　命令语言更进了一步。在这种情况下，语言被实际执行，所以可以包含语句、控制结构、以及类似的东西（比如58页上的脚本）。</p>
+<p>　　你也可以使用自己的命令语言来使程序易于维护。例如，也许用户要求你把来自某个遗留应用的信息集成进你的新GUI开发中。要完成这一任务，常用的方法是“刮屏”（screen scraping）：你的应用连接到主机应用，就好像它是正常的使用人员；发出键击，并“阅读”取回的响应。你可以使用一种小型语言来把这样的交互编写成脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">locate prompt &quot;SSN:&quot;</span><br><span class="line">type &quot;%s&quot; social_security_number</span><br><span class="line">type enter</span><br><span class="line">waitfor keyboardunlock</span><br><span class="line">if text_at(10,14) is &quot;INVALID SSN&quot; return bad_ssn</span><br><span class="line">if text_at(10,14) is &quot;DUPLICATE SSN&quot; return dup_ssn</span><br><span class="line"># etc...</span><br></pre></td></tr></table></figure></p>
+<p>　　当应用确定是时候输入社会保障号时，它调用解释器执行这个脚本，后者随即对事务进行控制。如果解释器是嵌入在应用中的，两者甚至可以直接共享数据（例如，通过回调机制）。</p>
+<p>　　这里你是在维护程序员（maintenace programmer）的领域中编程。当主机应用发生变化、字段移往别处时，程序员只需更新你的高级描述，而不用钻入C代码的各种细节中。</p>
+<h3 id="独立语言与嵌入式语言"><a href="#独立语言与嵌入式语言" class="headerlink" title="独立语言与嵌入式语言"></a>独立语言与嵌入式语言</h3><p>　　要发挥作用，小型语言无须由应用直接使用。许多时候，我们可以使用规范语言创建各种由程序自身编译、读入或用于其他用途的制品（包括元数据。参见元程序设计，144页）。</p>
+<p>　　例如，在100页我们将描述一个系统，在其中我们使用Perl、根据原始的schema规范生成大量衍生物。我们发明了一种用于表示数据库schema的通用语言，然后生成我们所需的所有形式——SQL、C、网页、XML，等等。应用不直接使用规范，但它依赖于根据规范产生的输出。</p>
+<p>　　把高级命令语言直接嵌入你的应用是一种常见做法，这样，它们就会在你的代码运行时执行。这显然是一种强大的能力；通过改变应用读取的脚本，你可以改变应用的行为，却完全不用编译。这可以显著地简化动态的应用领域中的维护工作。</p>
+<h3 id="易于开发还是易于维护"><a href="#易于开发还是易于维护" class="headerlink" title="易于开发还是易于维护"></a>易于开发还是易于维护</h3><p>　　我们已经看到若干不同的文法，范围从简单的面向行的格式到更为复杂的、看起来像真正的语言的文法。既然实现更为复杂的文法需要额外的努力，你又为何要这样做呢？</p>
+<p>　　权衡要素是可扩展性与维护。尽管解析“真正的”语言所需的代码可能更难编写，但它却容易被人理解得多，并且将来用新特性和新功能进行扩展也要容易得多。太简单的语言也许容易解析，但却可能晦涩难懂——很像是60页上的sendmail例子。</p>
+<p>　　考虑到大多数应用都会超过预期的使用期限，你可能最好咬紧牙关，先就采用更复杂、可读性更好的语言。最初的努力将在降低支持与维护费用方面得到许多倍的回报。</p>
+<h3 id="挑战-2"><a href="#挑战-2" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li><p>你目前的项目的某些需求是否能以具体领域的语言表示？是否有可能编写编译器或转译器，生成大多数所需代码？</p>
+</li>
+<li><p>如果你决定采用小型语言作为更接近问题领域的编程方式，你就是接受了，实现它们需要一些努力。你能否找到一些途径，通过它们把你为某个项目开发的框架复用于其他项目？</p>
+</li>
+</ul>
+<h2 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h2><ol>
+<li>我们想实现一种小型语言，用于控制一种简单的绘图包（或许是一种“海龟图形”（turtle-graphics）系统）。这种语言由单字母命令组成。有些命令后跟单个数字。例如，下面的输入将会绘制出一个矩形：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">P 2 # select pen 2</span><br><span class="line">D   # pen down</span><br><span class="line">W 2 # draw west 2cm</span><br><span class="line">N 1 # then north 1</span><br><span class="line">E 2 # then east 2</span><br><span class="line">S 1 # then back south</span><br><span class="line">U   # pen up</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>　　请实现解析这种语言的代码。它应该被设计成能简单地增加新命令。</p>
+<ol start="2">
+<li><p>设计一种解析时间规范的BNF文法。应能接受下面的所有例子：（解答在282页）</p>
+<p> 4pm, 7:38pm, 23:42, 3:16, 3:16am</p>
+</li>
+<li><p>用yacc、bison或类似的解析器生成器为练习6中的BNF文法实现解析器。（解答在282页）</p>
+</li>
+<li><p>用Perl实现时间解析器（提示：正则表达式可带来好的解析器）。（解答在283页）</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="估算"><a href="#估算" class="headerlink" title="估算"></a>估算</h2><p>　　快！通过56k modem线发送《战争与和平》需要多少时间？存储一百万个姓名与地址需要多少磁盘空间？1 000字节的数据块通过路由器需要多少时间？交付你的项目需要多少个月？</p>
+<p>　　在某种程度上，这些都是没有意义的问题——它们都缺少信息。然而它们仍然可以得到回答，只要你习惯于进行估算。同时，在进行估算的过程中，你将会加深对你的程序所处的世界的理解。</p>
+<p>　　通过学习估算，并将此技能发展到你对事物的数量级有直觉的程度，你就能展现出一种魔法般的能力，确定它们的可行性。当有人说“我们将通过ISDN线路把备份发给中央站点”时，你将能够直觉地知道那是否实际。当你编码时，你将能够知道哪些子系统需要优化，哪些可以放在一边。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Estimate to Avoid Surprises  </span><br><span class="line">估算，以避免发生意外</span><br></pre></td></tr></table></figure> 
+<p>　　作为奖励，在这一节的末尾我们将透露一个总是正确的答案——无论什么时候有人要你进行估算，你都可以给出答案。</p>
+<h3 id="多准确才足够准确"><a href="#多准确才足够准确" class="headerlink" title="多准确才足够准确"></a>多准确才足够准确</h3><p>　　在某种程度上，所有的解答都是估算。只不过有一些要比其他的更准确。所以当有人要你进行估算时，你要问自己的第一个问题就是，你解答问题的语境是什么？他们是需要高度的准确性，还是在考虑棒球场的大小？</p>
+<ul>
+<li><p>如果你的奶奶问你何时抵达，她也许只是想知道该给你准备午餐还是晚餐。而一个困在水下、空气就快用光的潜水员很可能对精确到秒的答案更感兴趣。</p>
+</li>
+<li><p>‘Pai’的值是多少？如果你想知道的是要买多少饰边，才能把一个圆形花坛围起来，那么“3”很可能就足够好了。如果你在学校里，那么“22/7”也许就是一个好的近似值。如果你在NASA（美国国家航空航天管理局），那么也许要12个小数位。</p>
+</li>
+</ul>
+<p>关于估算，一件有趣的事情是，你使用的单位会对结果的解读造成影响。如果你说，某事需要130个工作日，那么大家会期望它在相当接近的时间里完成。但是，如果你说“哦，大概要六个月”，那么大家知道它会在从现在开始的五到七个月内完成。这两个数字表示相同的时长，但“130天”却可能暗含了比你的感觉更高的精确程度。我们建议你这样度量时间估算：</p>
+<table>
+<thead>
+<tr>
+<th>时长</th>
+<th>报出估算的单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-15天</td>
+<td>天</td>
+</tr>
+<tr>
+<td>3-8周</td>
+<td>周</td>
+</tr>
+<tr>
+<td>8-30周</td>
+<td>月</td>
+</tr>
+<tr>
+<td>30+周</td>
+<td>在给出估算前努力思考一下</td>
+</tr>
+</tbody>
+</table>
+<p>　　于是，在完成了所有必要的工作之后，你确定项目将需要125个工作日（25周），你可以给出“大约六个月”的估算。</p>
+<p>　　同样的概念适用于对任何数量的估算：要选择能反映你想要传达的精确度的单位。</p>
+<h3 id="估算来自哪里"><a href="#估算来自哪里" class="headerlink" title="估算来自哪里"></a>估算来自哪里</h3><p>　　所有的估算都以问题的模型为基础。但在我们过深地卷入建模技术之前，我们必须先提及一个基本的估算诀窍，它总能给出好的答案：去问已经做过这件事情的人。在你一头钻进建模之前，仔细在周围找找也曾处在类似情况下的人。</p>
+<p>　　看看他们的问题是怎么解决的。你不大可能找到完全相符的案例，但你会惊奇有多少次，你能够成功地借鉴他人的经验。</p>
+<h3 id="理解提问内容"><a href="#理解提问内容" class="headerlink" title="理解提问内容"></a>理解提问内容</h3><p>　　任何估算练习的第一步都是建立对提问内容的理解。除了上面讨论的精确度问题以外，你还需要把握问题域的范围。这常常隐含在问题中，但你需要养成在开始猜想之前先思考范围的习惯。常常，你选择的范围将形成你给出的解答的一部分：“假定没有交通意外，而且车里还有汽油，我会在20分钟内赶到那里。”</p>
+<h3 id="建立系统的模型"><a href="#建立系统的模型" class="headerlink" title="建立系统的模型"></a>建立系统的模型</h3><p>　　这是估算有趣的部分。根据你对所提问题的理解，建立粗略、就绪的思维模型骨架。如果你是在估算响应时间，你的模型也许要涉及服务器和某种到达流量（arriving traffic）。对于一个项目，模型可以是你的组织在开发过程中所用的步骤、以及系统的实现方式的非常粗略的图景。</p>
+<p>　　建模既可以是创造性的，又可以是长期有用的。在建模的过程中，你常常会发现一些在表面上不明显的底层模式与过程。你甚至可能会想要重新检查原来的问题：“你要求对做X所需的时间进行估算。但好像X的变种Y只需一半时间就能完成，而你只会损失一个特性。”</p>
+<p>　　建模把不精确性引入了估算过程中。这是不可避免的，而且也是有益的。你是在用模型的简单性与精确性做交易。使花在模型上的努力加倍也许只能带来精确性的轻微提高。你的经验将告诉你何时停止提炼。</p>
+<h3 id="把模型分解为组件"><a href="#把模型分解为组件" class="headerlink" title="把模型分解为组件"></a>把模型分解为组件</h3><p>　　一旦拥有了模型，你可以把它分解为组件。你须要找出描述这些组件怎样交互的数学规则。有时某个组件会提供一个值，加入到结果中。有些组件有着成倍的影响，而另一些可能会更为复杂（比如那些模拟某个节点上的到达流量的组件）。</p>
+<p>　　你将会发现，在典型情况下，每个组件都有一些参数，会对它给整个模型带来什么造成影响。在这一阶段，只要确定每个参数就行了。</p>
+<h3 id="给每个参数指定值"><a href="#给每个参数指定值" class="headerlink" title="给每个参数指定值"></a>给每个参数指定值</h3><p>　　一旦你分解出各个参数，你就可以逐一给每个参数赋值。在这个步骤中你可能会引入一些错误。诀窍是找出哪些参数对结果的影响最大，并致力于让它们大致正确。在典型情况下，其值被直接加入结果的参数，没有被乘或除的那些参数重要。让线路速度加倍可以让1小时内接收的数据量加倍，而增加5毫秒的传输延迟不会有显著的效果。</p>
+<p>　　你应该采用一种合理的方式计算这些关键参数。对于排队的例子，你可以测量现有系统的实际事务到达率，或是找一个类似的系统进行测量。与此类似，你可以测量现在服务1个请求所花的时间，或是使用这一节描述的技术进行估算。事实上，你常常会发现自己以其他子估算为基础进行估算。这是最大的错误伺机溜进来的地方。</p>
+<h3 id="计算答案"><a href="#计算答案" class="headerlink" title="计算答案"></a>计算答案</h3><p>　　只有在最简单的情况下估算才有单一的答案。你也许会高兴地说：“我能在15分钟内走完五个街区。”但是，当系统变得更为复杂时，你就会避免做出正面回答。进行多次计算，改变关键参数的值，直到你找出真正主导模型的那些参数。电子表格可以有很大帮助。然后根据这些参数表述你的答案。“如果系统拥有SCSI总线和64MB内存，响应时间约为四分之三秒；如果内存是48MB，则响应时间约为一秒。”（注意“四分之三秒”怎样给人以一种与750毫秒不同的精确感。）</p>
+<p>　　在计算阶段，你可能会得到看起来很奇怪的答案。不要太快放弃它们。如果你的运算是正确的，那你对问题或模型的理解就很可能是错的。这是非常宝贵的信息。</p>
+<h3 id="追踪你的估算能力"><a href="#追踪你的估算能力" class="headerlink" title="追踪你的估算能力"></a>追踪你的估算能力</h3><p>　　我们认为，记录你的估算，从而让你看到自己接近正确答案的程度，这是一个非常好的主意。如果总体估算涉及子估算的计算，那么也要追踪这些子估算。你常常会发现自己估算得非常好——事实上，一段时间之后，你就会开始期待这样的事情。</p>
+<p>　　如果结果证明估算错了，不要只是耸耸肩走开。找出事情为何与你的猜想不同的原因。也许你选择了与问题的实际情况不符的一些参数。也许你的模型是错的。不管原因是什么，花一点时间揭开所发生的事情。如果你这样做了，你的下一次估算就会更好。</p>
+<h3 id="估算项目进度"><a href="#估算项目进度" class="headerlink" title="估算项目进度"></a>估算项目进度</h3><p>　　在面对相当大的应用开发的各种复杂问题与反复无常的情况时，普通的估算规则可能会失效。我们发现，为项目确定进度表的惟一途径常常是在相同的项目上获取经验。如果你实行增量开发、重复下面的步骤，这不一定就是一个悖论：</p>
+<ul>
+<li>检查需求</li>
+<li>分析风险</li>
+<li>设计、实现、集成</li>
+<li>向用户确认</li>
+</ul>
+<p>一开始，你对需要多少次迭代、或是需要多少时间，也许只有模糊的概念。有些方法要求你把这个作为初始计划的一部分定下来，但除了最微不足道的项目，这是一个错误。除非你在开发与前一个应用类似的应用，拥有同样的团队和同样的技术，否则，你就只不过是在猜想。</p>
+<p>　　于是你完成了初始功能的编码与测试，并将此标记为第一轮增量开发的结束。基于这样的经验，你可以提炼你原来对迭代次数、以及在每次迭代中可以包含的内容的猜想。提炼会变得一次比一次好，对进度表的信心也将随之增长。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Iterate the Schedule with the Code  </span><br><span class="line">通过代码对进度表进行迭代</span><br></pre></td></tr></table></figure> 
+<p>　　这也许并不会受到管理部门的欢迎，在典型情况下，他们想要的是单一的、必须遵守的数字——甚至是在项目开始之前。你必须帮助他们了解团队、团队的生产率、还有环境将决定进度。通过使其形式化，并把改进进度表作为每次迭代的一部分，你将给予他们你所能给予的最精确的进度估算。</p>
+<h3 id="在被要求进行估算时说什么"><a href="#在被要求进行估算时说什么" class="headerlink" title="在被要求进行估算时说什么"></a>在被要求进行估算时说什么</h3><p>　　你说：“我等会儿回答你。”</p>
+<p>　　如果你放慢估算的速度，并花一点时间仔细检查我们在这一节描述的步骤，你几乎总能得到更好的结果。在咖啡机旁给出的估算将（像咖啡一样）回来纠缠你。</p>
+<h3 id="挑战-3"><a href="#挑战-3" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>开始写估算日志。追踪每一次估算的精确程度。如果你的错误率大于50%，设法找出你的估算误入歧途的地方。</li>
+</ul>
+<h3 id="练习-3"><a href="#练习-3" class="headerlink" title="练习"></a>练习</h3><ol>
+<li><p>有人问你：“1Mbps的通信线路和在口袋里装了4GB磁带、在两台计算机间步行的人，哪一个的带宽更高？”你要对你的答案附加什么约束，以确保你的答复的范围是正确的？（例如，你可以说，访问磁带所花时间忽略不计。)</p>
+</li>
+<li><p>那么，哪一个带宽更高？</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/书籍/" rel="tag"><i class="fa fa-tag"></i> 书籍</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/20/单词-04.20/" rel="next" title="4月20日-单词">
+                <i class="fa fa-chevron-left"></i> 4月20日-单词
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/04/20/程序员修炼之道-基本工具/" rel="prev" title="程序员修炼之道-基本工具">
+                程序员修炼之道-基本工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true"
+                alt="书葬" />
+            
+              <p class="site-author-name" itemprop="name">书葬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shuzang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nicelinks.site/" title="倾城之链" target="_blank">倾城之链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cupfox.com/" title="茶杯狐" target="_blank">茶杯狐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重复的危害"><span class="nav-number">1.</span> <span class="nav-text">重复的危害</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重复是怎样发生的"><span class="nav-number">1.1.</span> <span class="nav-text">重复是怎样发生的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强加的重复"><span class="nav-number">1.2.</span> <span class="nav-text">强加的重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无意的重复"><span class="nav-number">1.3.</span> <span class="nav-text">无意的重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无耐性的重复"><span class="nav-number">1.4.</span> <span class="nav-text">无耐性的重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发者之间的重复"><span class="nav-number">1.5.</span> <span class="nav-text">开发者之间的重复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正交性"><span class="nav-number">2.</span> <span class="nav-text">正交性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是正交性"><span class="nav-number">2.1.</span> <span class="nav-text">什么是正交性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非正交系统"><span class="nav-number">2.2.</span> <span class="nav-text">非正交系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正交的好处"><span class="nav-number">2.3.</span> <span class="nav-text">正交的好处</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提高生产率"><span class="nav-number">2.3.1.</span> <span class="nav-text">提高生产率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#降低风险"><span class="nav-number">2.3.2.</span> <span class="nav-text">降低风险</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目团队"><span class="nav-number">2.4.</span> <span class="nav-text">项目团队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计"><span class="nav-number">2.5.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具箱与库"><span class="nav-number">2.6.</span> <span class="nav-text">工具箱与库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码"><span class="nav-number">2.7.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">2.8.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档"><span class="nav-number">2.9.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认同正交性"><span class="nav-number">2.10.</span> <span class="nav-text">认同正交性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战"><span class="nav-number">2.11.</span> <span class="nav-text">挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">2.12.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可撤消性"><span class="nav-number">3.</span> <span class="nav-text">可撤消性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可撤消性-1"><span class="nav-number">3.1.</span> <span class="nav-text">可撤消性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#灵活的架构"><span class="nav-number">3.2.</span> <span class="nav-text">灵活的架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-1"><span class="nav-number">3.3.</span> <span class="nav-text">挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#曳光弹"><span class="nav-number">4.</span> <span class="nav-text">曳光弹</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在黑暗中发光的代码"><span class="nav-number">4.1.</span> <span class="nav-text">在黑暗中发光的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#曳光弹并非总能击中目标"><span class="nav-number">4.2.</span> <span class="nav-text">曳光弹并非总能击中目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#曳光代码-vs-原型制作"><span class="nav-number">4.3.</span> <span class="nav-text">曳光代码 vs. 原型制作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型与便笺"><span class="nav-number">5.</span> <span class="nav-text">原型与便笺</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应制作原型的事物"><span class="nav-number">5.1.</span> <span class="nav-text">应制作原型的事物</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样使用原型"><span class="nav-number">5.2.</span> <span class="nav-text">怎样使用原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作架构原型"><span class="nav-number">5.3.</span> <span class="nav-text">制作架构原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样“不”使用原型"><span class="nav-number">5.4.</span> <span class="nav-text">怎样“不”使用原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-1"><span class="nav-number">5.5.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#领域语言"><span class="nav-number">6.</span> <span class="nav-text">领域语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现小型语言"><span class="nav-number">6.1.</span> <span class="nav-text">实现小型语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据语言与命令语言"><span class="nav-number">6.2.</span> <span class="nav-text">数据语言与命令语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立语言与嵌入式语言"><span class="nav-number">6.3.</span> <span class="nav-text">独立语言与嵌入式语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#易于开发还是易于维护"><span class="nav-number">6.4.</span> <span class="nav-text">易于开发还是易于维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-2"><span class="nav-number">6.5.</span> <span class="nav-text">挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习-2"><span class="nav-number">7.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#估算"><span class="nav-number">8.</span> <span class="nav-text">估算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多准确才足够准确"><span class="nav-number">8.1.</span> <span class="nav-text">多准确才足够准确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估算来自哪里"><span class="nav-number">8.2.</span> <span class="nav-text">估算来自哪里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解提问内容"><span class="nav-number">8.3.</span> <span class="nav-text">理解提问内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立系统的模型"><span class="nav-number">8.4.</span> <span class="nav-text">建立系统的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把模型分解为组件"><span class="nav-number">8.5.</span> <span class="nav-text">把模型分解为组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给每个参数指定值"><span class="nav-number">8.6.</span> <span class="nav-text">给每个参数指定值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算答案"><span class="nav-number">8.7.</span> <span class="nav-text">计算答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追踪你的估算能力"><span class="nav-number">8.8.</span> <span class="nav-text">追踪你的估算能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估算项目进度"><span class="nav-number">8.9.</span> <span class="nav-text">估算项目进度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在被要求进行估算时说什么"><span class="nav-number">8.10.</span> <span class="nav-text">在被要求进行估算时说什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-3"><span class="nav-number">8.11.</span> <span class="nav-text">挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-3"><span class="nav-number">8.12.</span> <span class="nav-text">练习</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">书葬</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

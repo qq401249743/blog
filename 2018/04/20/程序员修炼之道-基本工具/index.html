@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="每个工匠在开始其职业生涯时，都会准备一套品质良好的基本工具。木匠可能需要尺、计量器、几把锯子、几把好刨子、精良的凿子、钻孔器和夹子、锤子还有钳子。这些工具将经过认真挑选、打造得坚固耐用、并用于完成很少与其他工具重合的特定工作，而且，也许最重要的是，刚刚出道的木匠把它们拿在手里会觉得很顺手。 　　随后学习与适应的过程就开始了。每样工具都有自身的特性和古怪之处，并且需要得到相应的特殊对待。每样工具">
+<meta name="keywords" content="书籍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员修炼之道-基本工具">
+<meta property="og:url" content="https://github.com/shuzang/2018/04/20/程序员修炼之道-基本工具/index.html">
+<meta property="og:site_name" content="捕风">
+<meta property="og:description" content="每个工匠在开始其职业生涯时，都会准备一套品质良好的基本工具。木匠可能需要尺、计量器、几把锯子、几把好刨子、精良的凿子、钻孔器和夹子、锤子还有钳子。这些工具将经过认真挑选、打造得坚固耐用、并用于完成很少与其他工具重合的特定工作，而且，也许最重要的是，刚刚出道的木匠把它们拿在手里会觉得很顺手。 　　随后学习与适应的过程就开始了。每样工具都有自身的特性和古怪之处，并且需要得到相应的特殊对待。每样工具">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-13T14:34:02.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员修炼之道-基本工具">
+<meta name="twitter:description" content="每个工匠在开始其职业生涯时，都会准备一套品质良好的基本工具。木匠可能需要尺、计量器、几把锯子、几把好刨子、精良的凿子、钻孔器和夹子、锤子还有钳子。这些工具将经过认真挑选、打造得坚固耐用、并用于完成很少与其他工具重合的特定工作，而且，也许最重要的是，刚刚出道的木匠把它们拿在手里会觉得很顺手。 　　随后学习与适应的过程就开始了。每样工具都有自身的特性和古怪之处，并且需要得到相应的特殊对待。每样工具">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/shuzang/2018/04/20/程序员修炼之道-基本工具/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>程序员修炼之道-基本工具 | 捕风</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">捕风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独的孩子爱寂寞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/04/20/程序员修炼之道-基本工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="书葬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="捕风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">程序员修炼之道-基本工具
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-20 15:09:23" itemprop="dateCreated datePublished" datetime="2018-04-20T15:09:23+08:00">2018-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 22:34:02" itemprop="dateModified" datetime="2018-05-13T22:34:02+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　每个工匠在开始其职业生涯时，都会准备一套品质良好的基本工具。木匠可能需要尺、计量器、几把锯子、几把好刨子、精良的凿子、钻孔器和夹子、锤子还有钳子。这些工具将经过认真挑选、打造得坚固耐用、并用于完成很少与其他工具重合的特定工作，而且，也许最重要的是，刚刚出道的木匠把它们拿在手里会觉得很顺手。</p>
+<p>　　随后学习与适应的过程就开始了。每样工具都有自身的特性和古怪之处，并且需要得到相应的特殊对待。每样工具都需要以独特的方式进行打磨，或者以独特的方式把持。随着时间的过去，每样工具都会因使用而磨损，直到手柄看上去就像是木匠双手的模子，而切割面与握持工具的角度完全吻合。到这时，工具变成了工匠的头脑与所完成的产品之间的通道——它们变成了工匠双手的延伸。木匠将不时增添新的工具，比如饼式切坯机、激光制导斜切锯、楔形模具——全都是奇妙的技术，但你可以肯定的是，当他把原来的某样工具拿在手里，当他听到刨子滑过木料发出的歌声时，那是他最高兴的时候。</p>
+<p>　　工具放大你的才干。你的工具越好，你越是能更好地掌握它们的用法，你的生产力就越高。从一套基本的通用工具开始，随着经验的获得，随着你遇到一些特殊需求，你将会在其中增添新的工具。要与工匠一样，想着定期增添工具。要总是寻找更好的做事方式。如果你遇到某种情况，你觉得现有的工具不能解决问题，记得去寻找可能会有帮助的其他工具或更强大的工具。让需要驱动你的采购。</p>
+<a id="more"></a>
+<p>　　许多新程序员都会犯下错误，采用单一的强力工具，比如特定的集成开发环境（IDE），而且再也不离开其舒适的界面。这实在是个错误。我们要乐于超越IDE所施加的各种限制。要做到这一点，惟一的途径是保持基本工具集的“锋利”与就绪。</p>
+<p>　　在本章我们将讨论怎样为你自己的基本工具箱投资。与关于工具的任何好的讨论一样，我们将从考察你的原材料——你将要制作的东西——开始（在“纯文本的威力”中）。然后我们将从那里转向工作台（workbench），在我们的工作范围也就是计算机。要怎样使用计算机，你才能最大限度地利用你所用的工具？我们将在shell游戏中讨论这一问题。现在我们有了工作所需的材料及工作台，我们将转向一样你可能用得最频繁的工具：你的编辑器。在强力编辑中，我们将提出多种让你更有效率的途径。</p>
+<p>　　为了确保不会丢失先前的任何工作成果，我们应该总是使用源码控制系统——即使是像我们的个人地址簿这样的东西！同时，因为Murphy先生实在是一个乐观主义者，如果你没有高超的调试技能，你就不可能成为了不起的程序员。</p>
+<p>　　你需要一些“胶合剂”，把大量魔术“粘”在一起。我们将在文本操纵中讨论一些可能的方案，比如awk、Perl以及Python。</p>
+<p>　　就如同木匠有时会制作模具，用以控制复杂工件的打造一样，程序员也可以编写自身能编写代码的代码。我们将在“代码生成器”中讨论这一问题。</p>
+<p>　　花时间学习使用这些工具，有一天你将会惊奇地发现，你的手指在键盘上移动，操纵文本，却不用进行有意识的思考。工具将变成你的双手的延伸。</p>
+<p><br></p>
+<h2 id="纯文本的威力"><a href="#纯文本的威力" class="headerlink" title="纯文本的威力"></a>纯文本的威力</h2><p>　　作为注重实效的程序员，我们的基本材料不是木头，不是铁，而是知识。我们搜集需求，将其变为知识，随后又在我们的设计、实现、测试、以及文档中表达这些知识。而且我们相信，持久地存储知识的最佳格式是纯文本。通过纯文本，我们给予了自己既能以手工方式、也能以程序方式操纵知识的能力——实际上可以随意使用每一样工具。</p>
+<h3 id="什么是纯文本"><a href="#什么是纯文本" class="headerlink" title="什么是纯文本"></a>什么是纯文本</h3><p>　　纯文本由可打印字符组成，人可以直接阅读和理解其形式。例如，尽管下面的片段由可打印字符组成，它却是无意义的：</p>
+<pre><code>Fieldl9=467abe
+</code></pre><p>　　阅读者不知道467abe的含义是什么。更好的选择是让其变得能让人理解：</p>
+<pre><code>DrawingType=UMLActivityDrawing
+</code></pre><p>　　纯文本并非意味着文本是无结构的；XML、SGML和HTML都是有良好定义的结构的纯文本的好例子。通过纯文本，你可以做你通过某种二进制格式所能做的每件事情，其中包括版本管理。</p>
+<p>　　与直接的二进制编码相比，纯文本所处的层面往往更高；前者通常直接源自实现。假定你想要存储叫做uses_menus的属性，其值既可为TRUE，也可为FALSE。使用纯文本，你可以将其写为：</p>
+<pre><code>myprop.uses_menus=FALSE
+</code></pre><p>　　把它与<code>0010010101110101</code>对比一下。</p>
+<p>　　大多数二进制格式的问题在于，理解数据所必需的语境与数据本身是分离的。你人为地使数据与其含义脱离开来。数据也可能加了密；没有应用逻辑对其进行解析，这些数据绝对没有意义。但是，通过纯文本，你可以获得自描述（self-describing）的、不依赖于创建它的应用的数据流。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Keep Knowledge in Plain Text</span><br><span class="line">用纯文本保存知识</span><br></pre></td></tr></table></figure> 
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>　　使用纯文本有两个主要缺点：（1）与压缩的二进制格式相比，存储纯文本所需空间更多，（2）要解释及处理纯文本文件，计算上的代价可能更昂贵。</p>
+<p>　　取决于你的应用，这两种情况或其中之一可能让人无法接受——例如，在存储卫星遥测数据时，或是用做关系数据库的内部格式时。</p>
+<p>　　但即使是在这些情况下，用纯文本存储关于原始数据的元数据也可能是可以接受的（参见“元程序设计”，144页）。</p>
+<p>　　有些开发者可能会担心，用纯文本存储元数据，是在把这些数据暴露给系统的用户。这种担心放错了地方。与纯文本相比，二进制数据也许更晦涩难懂，但却并非更安全。如果你担心用户看到密码，就进行加密。如果你不想让他们改变配置参数，就在文件中包含所有参数值的安全哈希值作作为校验和。</p>
+<h3 id="文本的威力"><a href="#文本的威力" class="headerlink" title="文本的威力"></a>文本的威力</h3><p>　　既然更大和更慢不是用户最想要的特性，为什么还要使用纯文本？好处是什么？</p>
+<ul>
+<li>保证不过时</li>
+<li>杠杆作用</li>
+<li>更易于测试</li>
+</ul>
+<h4 id="保证不过时"><a href="#保证不过时" class="headerlink" title="保证不过时"></a>保证不过时</h4><p>　　人能够阅读的数据形式，以及自描述的数据，将比所有其他的数据形式和创建它们的应用都活得更长久。句号。</p>
+<p>　　只要数据还存在，你就有机会使用它——也许是在原来创建它的应用已经不存在很久之后。</p>
+<p>　　只需部分地了解其格式，你就可以解析这样的文件；而对于大多数二进制文件，要成功地进行解析，你必须了解整个格式的所有细节。</p>
+<p>　　考虑一个来自某遗留系统的数据文件。关于原来的应用你的了解很少；对你来说最要紧的是它保存了客户的社会保障号列表，你需要找出这些保障号，并将其提取出来。在数据文件中，你看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;FIELD10&gt;123-45-6789&lt;/FIELD10&gt;</span><br><span class="line">...</span><br><span class="line">&lt;FIELD10&gt;567-89-0123&lt;/FIELD10&gt;</span><br><span class="line">...</span><br><span class="line">&lt;FIELD10&gt;901-23-4567&lt;/FIELD10&gt;</span><br></pre></td></tr></table></figure>
+<p>　　识别出了社会保障号的格式，你可以很快写一个小程序提取该数据——即使你没有关于文件中其他任何东西的信息。</p>
+<p>　　但设想一下，如果该文件的格式是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AC27123456789B11P</span><br><span class="line">...</span><br><span class="line">XY43567890123QTYL</span><br><span class="line">...</span><br><span class="line">6T2190123456788AM</span><br></pre></td></tr></table></figure></p>
+<p>　　你可能就不会那么轻松地识别出这些数字的含义了。这是人能够阅读（human readable）与人能够理解（human understandable）之间的区别。</p>
+<p>　　在我们进行解析时，FIELD10的帮助也不大。改成</p>
+<pre><code>&lt;SSNO&gt;123-45-6789&lt;/SSNO&gt;
+</code></pre><p>就会让这个练习变得一点也不费脑子——而且这些数据保证会比创建它的任何项目都活得更长久。</p>
+<h4 id="杠杆作用"><a href="#杠杆作用" class="headerlink" title="杠杆作用"></a>杠杆作用</h4><p>　　实际上，计算世界中的每一样工具，从源码管理系统到编译器环境，再到编辑器及独立的过滤器，都能够在纯文本上进行操作。</p>
+<blockquote>
+<p><strong>Unix哲学</strong><br>　　提供“锋利”的小工具、其中每一样都意在把一件事情做好——Unix因围绕这样的哲学进行设计而著称。这一哲学通过使用公共的底层格式得以实行：面向行的纯文本文件。用于系统管理（用户及密码、网络配置，等等）的数据库全都作为纯文本文件保存（有些系统，比如Solaris，为了优化性能，还维护有特定数据的二进制形式。纯文本版本保留用作通往二进制版本的接口）。</p>
+</blockquote>
+<blockquote>
+<p>　　当系统崩溃时，你可能需要通过最小限度的环境进行恢复（例如，你可能无法访问图形驱动程序）。像这样的情形，实在可以让你欣赏到纯文本的简单性。</p>
+</blockquote>
+<p>　　例如，假定你要对一个大型应用进行产品部署，该应用具有复杂的针对具体现场的配置文件（我们想到sendmail）。如果该文件是纯文本格式的，你可以把它置于源码控制系统的管理之下（参见源码控制，86页），这样你就可以自动保存所有改动的历史。像diff和fc这样的文件比较工具允许你查看做了哪些改动，而sum允许你生成校验和，用以监视文件是否受到了偶然的（或恶意的）修改。</p>
+<h4 id="更易于测试"><a href="#更易于测试" class="headerlink" title="更易于测试"></a>更易于测试</h4><p>　　如果你用纯文本创建用于驱动系统测试的合成数据，那么增加、更新、或是修改测试数据就是一件简单的事情，而且无须为此创建任何特殊工具。与此类似，你可以非常轻松地分析回归测试（regression test）输出的纯文本，或通过Perl、Python及其他脚本工具进行更为全面彻底的检查。</p>
+<h3 id="最小公分母"><a href="#最小公分母" class="headerlink" title="最小公分母"></a>最小公分母</h3><p>　　即使在未来，基于XML的智能代理已能自治地穿越混乱、危险的Internet、自行协商数据交换，无处不在的纯文本也仍然会存在。事实上，在异种环境中，纯文本的优点比其所有的缺点都重要。你需要确保所有各方能够使用公共标准进行通信。纯文本就是那个标准。</p>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>使用你喜欢的语言，用直接的二进制表示设计一个小地址簿数据库（姓名、电话号码，等等）。完成以后再继续往下读。</li>
+</ul>
+<ol>
+<li><p>把该格式转换成使用XML的纯文本格式。 </p>
+</li>
+<li><p>在这两个版本中，增加一个新的、叫做方向的变长字段，在其中你可以输入每个人的住宅所在的方向。 </p>
+<p>在版本管理与可扩展性方面会遇到什么问题？哪种形式更易于修改？转换已有的数据呢？</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="shell游戏"><a href="#shell游戏" class="headerlink" title="shell游戏"></a>shell游戏</h2><p>　　每个木匠都需要好用、坚固、可靠的工作台，用以在加工工件时把工件放置在方便的高度上。工作台成为木工房的中心，随着工件的成形，木匠会一次次回到工作台的近旁。</p>
+<p>　　对于操纵文本文件的程序员，工作台就是命令shell。在shell提示下，你可以调用你的全套工具，并使用管道、以这些工具原来的开发者从未想过的方式把它们组合在一起。在shell下，你可以启动应用、调试器、浏览器、编辑器以及各种实用程序。你可以搜索文件、查询系统状态、过滤输出。通过对shell进行编程，你可以构建复杂的宏命令，用来完成你经常进行的各种活动。</p>
+<p>　　对于在GUI界面和集成开发环境（IDE）上成长起来的程序员，这似乎显得很极端。毕竟，用鼠标指指点点，你不是也同样能把这些事情做好吗？</p>
+<p>　　简单的回答：“不能”。GUI界面很奇妙，对于某些简单操作，它们也可能更快、更方便。移动文件、阅读MIME编码的电子邮件以及写信，这都是你可能想要在图形环境中完成的事情。但如果你使用GUI完成所有的工作，你就会错过你的环境的某些能力。你将无法使常见任务自动化，或是利用各种可用工具的全部力量。同时，你也将无法组合你的各种工具，创建定制的宏工具。GUI的好处是WYSIWYG——所见即所得（what you see is what you get）。缺点是WYSIAYG——所见即全部所得（what you see is all you get）。</p>
+<p>　　GUI环境通常受限于它们的设计者想要提供的能力。如果你需要超越设计者提供的模型，你大概不会那么走运——而且很多时候，你确实需要超越这些模型。注重实效的程序员并非只是剪切代码、或是开发对象模型、或是撰写文档、或是使构建过程自动化——所有这些事情我们全都要做。通常，任何一样工具的适用范围都局限于该工具预期要完成的任务。例如，假定你需要把代码预处理器集成进你的IDE中（为了实现按合约设计、多处理编译指示，等等）。除非IDE的设计者明确地为这种能力提供了挂钩，否则，你无法做到这一点。</p>
+<p>　　你也许已经习惯于在命令提示下工作，在这种情况下，你可以放心地跳过这一节。否则，你也许还需要我们向你证明，shell是你的朋友。</p>
+<p>　　作为注重实效的程序员，你不断地想要执行特别的操作——GUI可能不支持的操作。当你想要快速地组合一些命令，以完成一次查询或某种其他的任务时，命令行要更为适宜。这里有一些例子：</p>
+<p>1.找出修改日期比你的Makefile的修改日期更近的全部.c文件。  </p>
+<blockquote>
+<p>Shell<br>　　<code>find . -name &#39; *.c&#39; –newer Makefile –print</code><br>GUI<br>　　打开资源管理器，转到正确的目录，点击Makefile，记下修改时间。然后调出 “工具／查找”，在指定文件处输入*.c。选择“日期”选项卡，在第一个日期字段中输入你记下的Makefile的日期。然后点击“确定”。</p>
+</blockquote>
+<p>2.构造我的源码的zip/tar存档文件。  </p>
+<blockquote>
+<p>Shell<br>　　<code>zip archive.zip *.h *.c</code>  或   <code>tar cvf archive.tar *.h *.c</code><br>GUI<br>　　调出ZIP实用程序（比如共享软件WinZip[URL 41]），选择[创建新存档文件]，输入它的名称，在“增加”对话框中选择源目录，把过滤器设置为“<em>.c”，点击“增加”，把过滤器设置为“</em>.h”，点击“增加”，然后关闭存档文件。</p>
+</blockquote>
+<p>3.在上周哪些Java文件没有改动过？  </p>
+<blockquote>
+<p>Shell<br>　　<code>find . -name &#39;*.java&#39; -mtime +7 –print</code><br>GUI<br>　　点击并转到“查找文件”，点击“文件名”字段，敲入“*.java”，选择“修改日期”选项卡。然后选择“介于”。点击“开始日期”，敲入项目开始的日期。点击“结束日期”，敲入1周以前的日期（确保手边有日历）。点击“开始查找”。</p>
+</blockquote>
+<p>4.上面的文件中，哪些使用了awt库？  </p>
+<blockquote>
+<p>Shell<br>　　<code>find . -name &#39;*.java&#39; -mtime +7 -print | xargs grep &#39;java.awt&#39;</code><br>GUI<br>　　把前面的例子列出的各个文件装入编辑器，搜索字符串“Java.awt”。把含有该字符串的文件的名字写下来。</p>
+</blockquote>
+<p>　　显然，这样的例子还可以一直举下去。shell命令可能很晦涩，或是太简略，但却很强大，也很简练。同时，因为shell命令可被组合进脚本文件（或是Windows下的命令文件）中，你可以构建命令序列，使你常做的事情自动化。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Use the Power of Command Shells</span><br><span class="line">利用命令shell的力量</span><br></pre></td></tr></table></figure> 
+<p>　　去熟悉shell，你会发现自己的生产率迅速提高。需要创建你的Java代码显式导入的全部软件包的列表（重复的只列出一次）？下面的命令将其存储在叫做“list”的文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;^import &apos; *.java |</span><br><span class="line">  sed -e&apos;s/.*import  *//&apos; -e&apos;s/;.*$//&apos; |</span><br><span class="line">  sort -u &gt;list</span><br></pre></td></tr></table></figure>
+<p>　　如果你没有花大量时间研究过你所用系统上的命令shell的各种能力，这样的命令会显得很吓人。但是，投入一些精力去熟悉你的shell，事情很快就会变得清楚起来。多使用你的命令shell，你会惊讶它能使你的生产率得到怎样的提高。</p>
+<h3 id="shell实用程序与Windows系统"><a href="#shell实用程序与Windows系统" class="headerlink" title="shell实用程序与Windows系统"></a>shell实用程序与Windows系统</h3><p>　　尽管随Windows系统提供的命令shell在逐步改进，Windows命令行实用程序仍然不如对应的Unix实用程序。但是，并非一切都已无可挽回。</p>
+<p>　　Cygnus Solutions公司有一个叫做Cygwin[URL 31]的软件包。除了为Windows提供Unix兼容层以外，Cygwin还带有120多个Unix实用程序，包括像ls、grep和find这样的很受欢迎的程序。你可以自由下载并使用这些实用程序和库，但一定要阅读它们的许可。随同Cygwin发布的还有Bash shell。</p>
+<blockquote>
+<p><strong>在Windows下使用Unix工具</strong><br>　　在Windows下有高质量的Unix工具可用，这让我们很高兴；我们每天都使用它们。但是，要注意存在一些集成问题。与对应的MS-DOS工具不同，这些实用程序对文件名的大小写敏感，所以ls a*.bat不会找到AUTOEXEC.BAT。你还可能遇到含有空格的文件名、或是路径分隔符不同所带来的问题。最后，在Unix shell下运行需要MS-DOS风格的参数的MS-DOS程序时，会发生一些有趣的问题。例如，在Unix下，来自JavaSoft的Java实用程序使用冒号作为CLASSPATH分隔符，而在MS-DOS下使用的却是分号。结果，运行在Unix机器上的Bash或ksh脚本在Windows下也同样能运行，但它传给Java的命令行却会被错误地解释。</p>
+</blockquote>
+<p>　　另外，David Korn（因Korn shell而闻名）制作了一个叫做UWIN的软件包。其目标与Cygwin相同——它是Windows下的Unix开发环境。UWIN带有Korn shell的一个版本。也可从Global Technologies, Ltd.[URL 30]获取商业版本。此外，AT&amp;T提供了该软件包的自由下载版本，用于评估和学术研究。再次说明，在使用之前要先阅读它们的许可。</p>
+<p>　　最后，Tom Christiansen（在本书撰写的同时）正在制作Perl Power Tools，尝试用Perl可移植地实现所有常见的Unix实用程序[URL 32]。</p>
+<p><br></p>
+<h2 id="强力编辑"><a href="#强力编辑" class="headerlink" title="强力编辑"></a>强力编辑</h2><p>　　先前我们说过，工具是手的延伸。噢，与任何其他软件工具相比，这都更适用于编辑器。你需要能尽可能不费力气地操纵文本，因为文本是编程的基本原材料。让我们来看一些能帮助你最大限度地利用编辑环境的一些常见特性和功能。</p>
+<h3 id="一种编辑器"><a href="#一种编辑器" class="headerlink" title="一种编辑器"></a>一种编辑器</h3><p>　　我们认为你最好是精通一种编辑器，并将其用于所有编辑任务：代码、文档、备忘录、系统管理，等等。如果不坚持使用一种编辑器，你就可能会面临现代的巴别塔大混乱。你可能必须用每种语言的IDE内建的编辑器进行编码，用“all-in-one”办公软件编辑文档，或是用另一种内建的编辑器发送电子邮件。甚至你用于在shell中编辑命令行的键击都有可能不同。如果你在每种环境中有不同的编辑约定和命令，要精通这些环境中的任何一种都会很困难。</p>
+<p>　　你需要的是精通。只是依次输入、并使用鼠标进行剪贴是不够的。那样，在你的手中有了一个强大的编辑器，你却无法发挥出它的效能。敲击十次<code>&lt;-</code>或<code>BACKSPACE</code>，把光标左移到行首，不会像敲击一次<code>^A</code>、<code>Home</code>或<code>0</code>那样高效。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Use a Single Editor Well  </span><br><span class="line">用好一种编辑器</span><br></pre></td></tr></table></figure> 
+<p>　　选一种编辑器，彻底了解它，并将其用于所有的编辑任务。如果你用一种编辑器（或一组键绑定）进行所有的文本编辑活动，你就不必停下来思考怎样完成文本操纵：必需的键击将成为本能反应。编辑器将成为你双手的延伸；键会在滑过文本和思想时歌唱起来。这就是我们的目标。</p>
+<p>　　确保你选择的编辑器能在你使用的所有平台上使用。Emacs、vi、CRiSP、Brief及其他一些编辑器可在多种平台上使用，并且常常既有GUI版本，也有非GUI（文本屏幕）版本。</p>
+<h3 id="编辑器特性"><a href="#编辑器特性" class="headerlink" title="编辑器特性"></a>编辑器特性</h3><p>　　除了你认为特别有用、使用时特别舒适的特性之外，还有一些基本能力，我们认为每个像样的编辑器都应该具备。如果你的编辑器缺少其中的任何能力，那么你或许就应该考虑换一种更高级的编辑器了。</p>
+<ul>
+<li><p>可配置。编辑器的所有方面都应该能按你的偏好（preference）配置，包括字体、颜色、窗口尺寸以及键击绑定（什么键执行什么命令）。对于常见的编辑操作，与鼠标或菜单驱动的命令相比，只使用键击效率更高，因为你的手无须离开键盘。</p>
+</li>
+<li><p>可扩展。编辑器不应该只因为出现了新的编程语言就变得过时。它应该能集成你在使用的任何编译器环境。你应该能把任何新语言或文本格式（XML、HTML第9版，等等）的各种细微差别“教”给它。</p>
+</li>
+<li><p>可编程。你应该能对编辑器编程，让它执行复杂的、多步骤的任务。可以通过宏或内建的脚本编程语言（例如，Emacs使用了Lisp的一个变种）进行这样的编程。</p>
+</li>
+</ul>
+<p>此外，许多编辑器支持针对特定编程语言的特性，比如：</p>
+<ul>
+<li>语法突显</li>
+<li>自动完成</li>
+<li>自动缩进</li>
+<li>初始代码或文档样板</li>
+<li>与帮助系统挂接</li>
+<li>类IDE特性（编译、调试，等等）</li>
+</ul>
+<p>像语法突显这样的特性听起来也许像是无关紧要的附加物，但实际上却可能非常有用，而且还能提高你的生产率。一旦你习惯了看到关键字以不同的颜色或字体出现，远在你启动编译器之前，没有以那样的方式出现的、敲错的关键字就会在你面前跳出来。</p>
+<p>　　对于大型项目，能够在编辑器环境中进行编译、并直接转到出错处非常方便。Emacs特别擅长进行这种方式的交互。</p>
+<h3 id="生产率"><a href="#生产率" class="headerlink" title="生产率"></a>生产率</h3><p>　　我们遇到的用Windows notepad编辑源码的人数量惊人。这就像是把茶匙当做铁锹——只是敲键和使用基本的基于鼠标的剪贴是不够的。</p>
+<p>　　有什么样的事情需要你做，你却无法以这样的方式做到呢？</p>
+<p>　　嗯，让我们以光标移动的例子作为开始。与重复击键、一个字符一个字符或一行一行移动相比，按一次键、就以词、行、块或函数为单位移动光标，效率要高得多。</p>
+<p>　　再假设你在编写Java代码。你想要按字母顺序排列import语句，而另外有人签入（check in）了一些文件，没有遵守这一标准（这听起来也许很极端，但在大型项目中，这可以让你节省大量时间，不用逐行检查一大堆import语句）。你想要快速地从头到尾检查一些文件，并对它们的一小部分区域进行排序。在像vi和Emacs这样的编辑器中，你可以很容易完成这样的任务（参见图3.1）。用notepad试试看！</p>
+<blockquote>
+<p>图3.1被吃了~</p>
+</blockquote>
+<p>　　有些编辑器能帮助你使常用操作流水线化。例如，当你创建特定语言的新文件时，编辑器可以为你提供模板。其中也许包括：</p>
+<ul>
+<li>填好的类名或模块名（根据文件名派生）</li>
+<li>你的姓名和/或版权声明</li>
+<li>该语言中的各种构造体（construct）的骨架（例如，构造器与析构器声明）</li>
+</ul>
+<p>　　自动缩进是另一种有用的特性。你不必（使用空格或tab）进行手工缩进，编辑器会自动在适当的时候（例如，在敲入左花括号时）为你进行缩进。这一特性让人愉快的地方是，你可以用编辑器为你的项目提供一致的缩进风格[20]。</p>
+<h3 id="然后做什么"><a href="#然后做什么" class="headerlink" title="然后做什么"></a>然后做什么</h3><p>　　这种建议特别难写，因为实际上每个读者对他们所用编辑器的熟悉程度和相关经验都有所不同。那么，作为总结，并为下一步该做什么提出一些指导方针，在下面的左边一栏中找到与你的情况相符的情况，然后看右边一栏，看你应该做什么。</p>
+<table>
+<thead>
+<tr>
+<th>如果这听起来像你……</th>
+<th>那么考虑……</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>我使用许多不同的编辑器，但只使用其基本特性。</td>
+<td>选一种强大的编辑器，好好学习它。</td>
+</tr>
+<tr>
+<td>我有最喜欢的编辑器，但不使用其全部特性。</td>
+<td>学习它们。减少你需要敲击的键数。</td>
+</tr>
+<tr>
+<td>我有最喜欢的编辑器，只要可能就使用它。</td>
+<td>设法扩展它，并将其用于比现在更多的任务。</td>
+</tr>
+<tr>
+<td>我认为你们在胡说。notepad就是有史以来最好的编辑器。</td>
+<td>只要你愿意，并且生产率很高，那就这样吧！但如果你发现自己在“羡慕”别人的编辑器，你可能就需要重新评估自己的位置了。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="有哪些编辑器可用"><a href="#有哪些编辑器可用" class="headerlink" title="有哪些编辑器可用"></a>有哪些编辑器可用</h3><p>　　此前我们建议你掌握一种像样的编辑器，那么我们推荐哪种编辑器呢？嗯，我们要回避这个问题；你对编辑器的选择是一个个人问题（有人甚至会说这是个“信仰问题”！）。但是，在附录A（266页）中，我们列出了许多流行的编辑器和获取它们的途径。<br><strong>注</strong>：其实主题就<code>Emacs</code>和<code>vi</code>两种</p>
+<h3 id="挑战-1"><a href="#挑战-1" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li><p>有些编辑器使用完备的语言进行定制和脚本编写。例如，Emacs采用了Lisp。作为本年度你将学习的新语言之一，学习你的编辑器使用的语言。如果你发现自己在重复做任何事情，开发一套宏（或等价的东西）加以处理。</p>
+</li>
+<li><p>你是否知道你的编辑器所能做的每一件事情？设法难倒使用同样的编辑器的同事。设法通过尽可能少的键击完成任何给定的编辑任务。</p>
+</li>
+</ul>
+<p><br></p>
+<h2 id="源码控制"><a href="#源码控制" class="headerlink" title="源码控制"></a>源码控制</h2><blockquote>
+<p>进步远非由变化组成，而是取决于好记性。不能记住过去的人，被判重复过去。<br>　　　　　　　　　　　　　　——George Santayana, Life of Reason</p>
+</blockquote>
+<p>　　我们在用户界面中找寻的一个重要的东西是<code>UNDO</code>键——一个能原谅我们的错误的按钮。如果环境支持多级撤消（undo）与重做（redo），那就更好了，这样你就可以回去，撤消几分钟前发生的事情。但如果错误发生在上周，而你那以后已经把计算机打开关闭了十次呢？噢，这是使用源码控制系统的诸多好处之一：它是一个巨大的<code>UNDO</code>键——一个项目级的时间机器，能够让你返回上周的那些太平日子，那时的代码还能够编译并运行。</p>
+<p>　　源码控制系统（或范围更宽泛的配置管理系统）追踪你在源码和文档中做出的每一项变动。</p>
+<p>　　更好的系统还能追踪编译器及OS版本。有了适当配置的源码控制系统，你就总能够返回你的软件的前一版本。</p>
+<p>　　但源码控制系统（SCCS）能做的远比撤消错误要多。好的SCCS让你追踪变动，回答这样的问题：谁改动了这一行代码？在当前版本与上周的版本之间有什么区别？在这次发布的版本中我们改动了多少行代码？哪个文件改动最频繁？对于bug追踪、审计、性能及质量等目的，这种信息非常宝贵。</p>
+<p>　　SCCS还能让你标识你的软件的各次发布。一经标识，你将总是能够返回并重新生成该版本，并且不受在其后发生的变动的影响。</p>
+<p>　　我们常常使用SCCS管理开发树中的分支。例如，一旦你发布了某个软件，你通常会想为下一次发布继续开发。与此同时，你也需要处理当前发布的版本中的bug，把修正后的版本发送给客户。（如果合适）你想要让这些bug修正合并进下一次发布中，但你不想把正在开发的代码发送给客户。通过SCCS，在每次生成一个发布版本时，你可以在开发树中生成分支。你把bug修正加到分支中的代码上，并在主干上继续开发。因为bug修正也可能与主干有关，有些系统允许你把选定的来自分支的变动自动合并回主干中。</p>
+<p>　　源码控制系统可能会把它们维护的文件保存在某个中央仓库（repository）中——这是进行存档的好候选地。</p>
+<p>　　最后，有些产品可能允许两个或更多用户同时在相同的文件集上工作，甚至在同一文件中同时做出改动。系统随后在文件被送回仓库时对这些改动进行合并。尽管看起来有风险，在实践中这样的系统在所有规模的项目上都工作良好。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Always Use Source Code Control  </span><br><span class="line">总是使用源码控制</span><br></pre></td></tr></table></figure> 
+<p>　　总是。即使你的团队只有你一个人，你的项目只需一周时间；即使那是“用过就扔”的原型；即使你的工作对象并非源码；确保每样东西都处在源码控制之下——文档、电话号码表、给供应商的备忘录、makefile、构建与发布流程、烧制CD母盘的shell小脚本——每样东西。我们例行公事地对我们敲入的每一样东西进行源码控制（包括本书的文本）。即使我们不是在开发项目，我们的日常工作也被安全地保存在仓库中。</p>
+<h3 id="源码控制与构建"><a href="#源码控制与构建" class="headerlink" title="源码控制与构建"></a>源码控制与构建</h3><p>　　把整个项目置于源码控制系统的保护之下具有一项很大的、隐蔽的好处：你可以进行自动的和可重复的产品构建。</p>
+<p>　　项目构建机制可以自动从仓库中取出最近的源码。它可以在午夜运行，在每个人都（很可能）回家之后。你可以运行自动的回归测试，确保当日的编码没有造成任何破坏。构建的自动化保证了一致性——没有手工过程，而你也不需要开发者记住把代码拷贝进特殊的构建区域。</p>
+<p>　　构建是可重复的，因为你总是可以按照源码将给定日期的内容重新进行构建。</p>
+<h3 id="但我们团队没有使用源码控制"><a href="#但我们团队没有使用源码控制" class="headerlink" title="但我们团队没有使用源码控制"></a>但我们团队没有使用源码控制</h3><p>　　他们应该感到羞耻！听起来这是个“布道”的机会！但是，在等待他们看到光明的同时，也许你应该实施自己私人的源码控制。使用我们在附录A中列出的可自由获取的工具，并确保把你个人的工作安全地保存进仓库中（并且完成你的项目所要求的无论什么事情）。尽管这看起来像是重复劳动，我们几乎可以向你担保，在你须要回答像“你对xyz模块做了什么？”和“是什么破坏了构建？”这样的问题时，它将使你免受困扰（并为你的项目节省金钱）。这一方法也许还能有助于使你们的管理部门确信，源码控制确实行之有效。</p>
+<p>　　不要忘了，SCCS也同样适用于你在工作之外所做的事情。</p>
+<h3 id="源码控制产品"><a href="#源码控制产品" class="headerlink" title="源码控制产品"></a>源码控制产品</h3><p>　　附录A（271页）给出了一些有代表性的源码控制系统的URL，有些是商业产品，有些可自由获取。还有许多其他的产品可用——你可以在配置管理FAQ中寻求建议。</p>
+<h3 id="挑战-2"><a href="#挑战-2" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li><p>即使你无法在工作中使用SCCS，也要在个人的系统上安装RCS或CVS。用它管理你的“宠物项目”、你撰写的文档、以及（可能的）应用于计算机系统自身的配置变动。</p>
+</li>
+<li><p>在Web上有些开放源码项目的存档对外公开（比如Mozilla[URL51]、KDE[URL54]、以及Gimp[URL55]），看一看这样的项目。你怎样获取源文件的更新？你怎样做出改动？——项目是否会对访问进行管制，或是对改动的并入进行裁决？</p>
+</li>
+</ul>
+<p><br></p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><blockquote>
+<p>这是痛苦的事：<br>看着你自己的烦忧，并且知道<br>不是别人、而是你自己一人所致<br>　　——索福克勒斯：《埃阿斯》</p>
+</blockquote>
+<p>　　自从14世纪以来，bug（虫子、臭虫）一词就一直被用于描述“恐怖的东西”。COBOL的发明者，海军少将Grace Hopper博士据信观察到了第一只计算机bug——真的是一只虫子，一只在早期计算机系统的继电器里抓到的蛾子。在被要求解释机器为何未按期望运转时，有一位技术人员报告说，“有一只虫子在系统里”，并且负责地把它——翅膀及其他所有部分——粘在了日志簿里。</p>
+<p>　　遗憾的是，在我们的系统里仍然有“bug”，虽然不是会飞的那种。但与以前相比，14世纪的含义——可怕的东西——现在也许更为适用。软件缺陷以各种各样的方式表现自己，从被误解的需求到编码错误。糟糕的是，现代计算机系统仍然局限于做你告诉它的事情，而不一定是你想要它做的事情。</p>
+<p>　　没有人能写出完美的软件，所以调试肯定要占用你大量时间。让我们来看一看调试所涉及的一些问题，以及一些用于找出难以捉摸的虫子的一般策略。</p>
+<h3 id="调试的心理学"><a href="#调试的心理学" class="headerlink" title="调试的心理学"></a>调试的心理学</h3><p>　　对于许多开发者，调试本身是一个敏感、感性的话题。你可能会遇到抵赖、推诿、蹩脚的借口、甚或是无动于衷，而不是把它当做要解决的难题发起进攻。</p>
+<p>　　要接受事实：调试就是解决问题，要据此发起进攻。</p>
+<p>　　发现了他人的bug之后，你可以花费时间和精力去指责让人厌恶的肇事者。在有些工作环境中，这是文化的一部分，并且可能是“疏通剂”。但是，在技术竞技场上，你应该专注于修正问题，而不是发出指责。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Fix the Problem, Not the Blame  </span><br><span class="line">要修正问题，而不是发出指责</span><br></pre></td></tr></table></figure> 
+<p>　　bug是你的过错还是别人的过错，并不是真的很有关系。它仍然是你的问题。</p>
+<h3 id="调试的思维方式"><a href="#调试的思维方式" class="headerlink" title="调试的思维方式"></a>调试的思维方式</h3><blockquote>
+<p>最容易欺骗的人是一个人自己。<br>　　——Edward Bulwer-Lytton, The Disowned</p>
+</blockquote>
+<p>　　在你开始调试之前，选择恰当的思维方式十分重要。你须要关闭每天用于保护自我（ego）的许多防卫措施，忘掉你可能面临的任何项目压力，并让自己放松下来。最重要的是，记住调试的第一准则：</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Don’t Panic  </span><br><span class="line">不要恐慌</span><br></pre></td></tr></table></figure> 
+<p>　　人很容易恐慌，特别是如果你正面临最后期限的到来、或是正在设法找出bug的原因，有一个神经质的老板或客户在你的脖子后面喘气。但非常重要的事情是，要后退一步，实际思考什么可能造成你认为表征了bug的那些症状。</p>
+<p>　　如果你目睹bug或见到bug报告时的第一反应是“那不可能”，你就完全错了。一个脑细胞都不要浪费在以“但那不可能发生”起头的思路上，因为很明显，那不仅可能，而且已经发生了。</p>
+<p>　　在调试时小心“近视”。要抵制只修正你看到的症状的急迫愿望：更有可能的情况是，实际的故障离你正在观察的地方可能还有几步远，并且可能涉及许多其他的相关事物。要总是设法找出问题的根源，而不只是问题的特定表现。</p>
+<h3 id="从何处开始"><a href="#从何处开始" class="headerlink" title="从何处开始"></a>从何处开始</h3><p>　　在开始查看bug之前，要确保你是在能够成功编译的代码上工作——没有警告。我们例行公事地把编译器警告级设得尽可能高。把时间浪费在设法找出编译器能够为你找出的问题上没有意义！我们需要专注于手上更困难的问题。</p>
+<p>　　在设法解决任何问题时，你需要搜集所有的相关数据。糟糕的是，bug报告不是精密科学。你很容易被巧合误导，而你不能承受把时间浪费在对巧合进行调试上。你首先需要在观察中做到准确。</p>
+<p>　　bug报告的准确性在经过第三方之手时会进一步降低——实际上你可能需要观察报告bug的用户的操作，以获取足够程度的细节。</p>
+<p>　　Andy曾经参与过一个大型图形应用的开发。快要发布时，测试人员报告说，每次他们用特定的画笔画线，应用都会崩溃。负责该应用的程序员争辩说，这个画笔没有任何问题；他试过用它绘图，它工作得很好。几天里这样的对话来回进行，大家的情绪急速上升。</p>
+<p>　　最后，我们让他们坐到同一个房间里。测试人员选了画笔工具，从右上角到左下角画了一条线。应用程序炸了。“噢”，程序员用很小的声音说。他随后像绵羊一样承认，他在测试时只测试了从左下角画到右上角的情况，没有暴露出这个bug。</p>
+<p>　　这个故事有两个要点：</p>
+<ul>
+<li>你也许需要与报告bug的用户面谈，以搜集比最初给你的数据更多的数据。</li>
+<li>人工合成的测试（比如那个程序员只从下画到上）不能足够地演练（exercise）应用。你必须既强硬地测试边界条件，又测试现实中的最终用户的使用模式。你需要系统地进行这样的测试（参见无情的测试，237页）。</li>
+</ul>
+<h3 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h3><p>　　一旦你认为你知道了在发生什么，就到了找出程序认为在发生什么的时候了。</p>
+<blockquote>
+<p><strong>再现bug（reproduction，亦有“繁殖”之意——译注）</strong><br>　　不，我们的bug不会真的繁殖（尽管其中有一些可能已经到了合法的生育年龄）。我们谈论的是另一种“再现”。<br>　　开始修正bug的最佳途径是让其可再现。毕竟，如果你不能再现它，你又怎么知道它已经被修正了呢？<br>　　但我们想要的不是能够通过长长的步骤再现的bug；我们要的是能够通过一条命令再现的bug。如果你必须通过15个步骤才能到达bug显露的地方，修正bug就会困难得多。有时候，强迫你自己隔离显示出bug的环境，你甚至会洞见到它的修正方法。<br>　　要了解沿着这些思路延伸的其他想法，参见无处不在的自动化</p>
+</blockquote>
+<h3 id="使你的数据可视化"><a href="#使你的数据可视化" class="headerlink" title="使你的数据可视化"></a>使你的数据可视化</h3><p>　　常常，要认识程序在做什么——或是要做什么——最容易的途径是好好看一看它操作的数据。最简单的例子是直截了当的“variable name = data value”方法，这可以作为打印文本、也可以作为GUI对话框或列表中的字段实现。</p>
+<p>　　但通过使用允许你“使数据及其所有的相互关系可视化”的调试器，你可以深入得多地获得对你的数据的洞察。有一些调试器能够通过虚拟现实场景把你的数据表示为3D立交图，或是表示为3D波形图，或是就表示为简单的结构图。在单步跟踪程序的过程中，当你一直在追猎的bug突然跳到你面前时，这样的图远胜于千言万语。</p>
+<p>　　即使你的调试器对可视化数据的支持有限，你仍然自己进行可视化——或是通过手工方式，用纸和笔，或是用外部的绘图程序。</p>
+<p>　　DDD调试器有一些可视化能力，并且可以自由获取（参见[URL 19]）。有趣的是，DDD能与多种语言一起工作，包括Ada、C、C++、Fortran、Java、Modula、Pascal、Perl以及Python（显然是正交的设计）。</p>
+<h3 id="跟踪"><a href="#跟踪" class="headerlink" title="跟踪"></a>跟踪</h3><p>　　调试器通常会聚焦于程序现在的状态。有时你需要更多的东西——你需要观察程序或数据结构随时间变化的状态。查看栈踪迹（stack trace）只能告诉你，你是怎样直接到达这里的。它无法告诉你，在此调用链之前你在做什么，特别是在基于事件的系统中。</p>
+<p>　　跟踪语句把小诊断消息打印到屏幕上或文件中，说明像“到了这里”和“x的值 = 2”这样的事情。与IDE风格的调试器相比，这是一种原始的技术，但在诊断调试器无法诊断的一些错误种类时却特别有效。在时间本身是一项因素的任何系统中，跟踪都具有难以估量的价值：并发进程、实时系统、还有基于事件的应用。</p>
+<p>　　你可以使用跟踪语句“钻入”代码。也就是，你可以在沿着调用树下降时增加跟踪语句。</p>
+<p>　　跟踪消息应该采用规范、一致的格式：你可能会想自动解析它们。例如，如果你需要跟踪资源泄漏（比如未配平（unbalanced）的open/close），你可以把每一次open和每一次close 记录在日志文件中。通过用Perl处理该日志文件，你可以轻松地确定</p>
+<blockquote>
+<p><strong>坏变量？检查它们的邻居</strong><br>　　有时你检查一个变量，希望看到一个小整数值，得到的却是像0x6e69614d这样的东西。在你卷起袖子、郑重其事地开始调试之前，先快速地查看一下这个坏变量周围的内存。这常常能带给你线索。在我们的例子中，把周边的内存作为字符进行检查得到的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">20333231 6e69614d 2c745320 746f4e0a</span><br><span class="line"> 1 2 3    M a i n      S t , \n N o t</span><br><span class="line">    2c6e776f 2058580a 31323433 00000a33</span><br><span class="line">     o w n , \n x x    3 4 2 1  3\n\0\0</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>　　看上去像是有人把街道地址“喷”到了我们的计数器上。现在我们知道该去查看什么地方了。</p>
+<p>有问题的open是在哪里发生的。</p>
+<h3 id="橡皮鸭"><a href="#橡皮鸭" class="headerlink" title="橡皮鸭"></a>橡皮鸭</h3><p>　　找到问题的原因的一种非常简单、却又特别有用的技术是向别人解释它。他应该越过你的肩膀看着屏幕，不断点头（像澡盆里上下晃动的橡皮鸭）。他们一个字也不需要说；你只是一步步解释代码要做什么，常常就能让问题从屏幕上跳出来，宣布自己的存在。</p>
+<p>　　这听起来很简单，但在向他人解释问题时，你必须明确地陈述那些你在自己检查代码时想当然的事情。因为必须详细描述这些假定中的一部分，你可能会突然获得对问题的新洞见。</p>
+<h3 id="消除过程"><a href="#消除过程" class="headerlink" title="消除过程"></a>消除过程</h3><p>　　在大多数项目中，你调试的代码可能是你和你们团队的其他成员编写的应用代码、第三方产品（数据库、连接性、图形库、专用通信或算法，等等）、以及平台环境（操作系统、系统库、编译器）的混合物。</p>
+<p>　　bug有可能存在于OS、编译器、或是第三方产品中——但这不应该是你的第一想法。有大得多的可能性的是，bug存在于正在开发的应用代码中。与假定库本身出了问题相比，假定应用代码对库的调用不正确通常更有好处。即使问题确实应归于第三方，在提交bug报告之前，你也必须先消除你的代码中的bug。</p>
+<p>　　我们参加过一个项目的开发，有位高级工程师确信select系统调用在Solaris上有问题。再多的劝说或逻辑也无法改变他的想法（这台机器上的所有其他网络应用都工作良好这一事实也一样无济于事）。他花了数周时间编写绕开这一问题的代码，因为某种奇怪的原因，却好像并没有解决问题。当最后被迫坐下来、阅读关于select的文档时，他在几分钟之内就发现并纠正了问题。现在每当有人开始因为很可能是我们自己的故障而抱怨系统时，我们就会使用“select没有问题”作为温和的提醒。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">“Select” Isn’t Broken  </span><br><span class="line">“Select”没有问题</span><br></pre></td></tr></table></figure> 
+<p>　　记住，如果你看到马蹄印，要想到马，而不是斑马。OS很可能没有问题。数据库也很可能情况良好。</p>
+<p>　　如果你“只改动了一样东西”，系统就停止了工作，那样东西很可能就需要对此负责——直接地或间接地，不管那看起来有多牵强。有时被改动的东西在你的控制之外：OS的新版本、编译器、数据库或是其他第三方软件都可能会毁坏先前的正确代码。可能会出现新的bug。你先前已绕开的bug得到了修正，却破坏了用于绕开它的代码。API变了，功能变了；简而言之，这是全新的球赛，你必须在这些新的条件下重新测试系统。所以在考虑升级时要紧盯着进度表；你可能会想等到下一次发布之后再升级。</p>
+<p>　　但是，如果没有显而易见的地方让你着手查看，你总是可以依靠好用的老式二分查找。看症状是否出现在代码中的两个远端之一，然后看中间。如果问题出现了，则臭虫位于起点与中点之间；否则，它就在中点与终点之间。以这种方式，你可以让范围越来越小，直到最终确定问题所在。</p>
+<h3 id="造成惊讶的要素"><a href="#造成惊讶的要素" class="headerlink" title="造成惊讶的要素"></a>造成惊讶的要素</h3><p>　　在发现某个bug让你吃惊时（也许你在用我们听不到的声音咕哝说：“那不可能。”），你必须重新评估你确信不疑的“事实”。在那个链表例程中——你知道它坚固耐用，不可能是这个bug的原因——你是否测试了所有边界条件？另外一段代码你已经用了好几年——它不可能还有bug。可能吗？</p>
+<p>　　当然可能。某样东西出错时，你感到吃惊的程度与你对正在运行的代码的信任及信心成正比。这就是为什么，在面对“让人吃惊”的故障时，你必须意识到你的一个或更多的假设是错的。不要因为你“知道”它能工作而轻易放过与bug有牵连的例程或代码。证明它。用这些数据、这些边界条件、在这个语境中证明它。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Don’t Assume it – Prove It</span><br><span class="line">不要假定，要证明</span><br></pre></td></tr></table></figure> 
+<p>　　当你遇到让人吃惊的bug时，除了只是修正它而外，你还需要确定先前为什么没有找出这个故障。考虑你是否需要改进单元测试或其他测试，以让它们有能力找出这个故障。</p>
+<p>　　还有，如果bug是一些坏数据的结果，这些数据在造成爆发之前传播通过了若干层面，看一看在这些例程中进行更好的参数检查是否能更早地隔离它（分别参见120页与122页的关于早崩溃及断言的讨论）。</p>
+<p>　　在你对其进行处理的同时，代码中是否有任何其他地方容易受这同一个bug的影响？现在就是找出并修正它们的时机。确保无论发生什么，你都知道它是否会再次发生。</p>
+<p>　　如果修正这个bug需要很长时间，问问你自己为什么。你是否可以做点什么，让下一次修正这个bug变得更容易？也许你可以内建更好的测试挂钩，或是编写日志文件分析器。</p>
+<p>　　最后，如果bug是某人的错误假定的结果，与整个团队一起讨论这个问题。如果一个人有误解，那么许多人可能也有。</p>
+<p>　　去做所有这些事情，下一次你就将很有希望不再吃惊。</p>
+<h3 id="调试检查列表"><a href="#调试检查列表" class="headerlink" title="调试检查列表"></a>调试检查列表</h3><ul>
+<li>正在报告的问题是底层bug的直接结果，还是只是症状？</li>
+<li>bug真的在编译器里？在OS里？或者是在你的代码里？</li>
+<li>如果你向同事详细解释这个问题，你会说什么？</li>
+<li>如果可疑代码通过了单元测试，测试是否足够完整？如果你用该数据运行单元测试，会发生什么？</li>
+<li>造成这个bug的条件是否存在于系统中的其他任何地方？</li>
+</ul>
+<h3 id="挑战-3"><a href="#挑战-3" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>调试已经够有挑战性了。</li>
+</ul>
+<p><br></p>
+<h2 id="文本操纵"><a href="#文本操纵" class="headerlink" title="文本操纵"></a>文本操纵</h2><p>　　注重实效的程序员用与木匠加工木料相同的方式操纵文本。在前面的部分里，我们讨论了我们所用的一些具体工具——shell、编辑器、调试器。这些工具与木匠的凿子、锯子、刨子类似——它们都是用于把一件或两件工作做好的专用工具。但是，我们不时也需要完成一些转换，这些转换不能由基本工具集直接完成。我们需要通用的文本操纵工具。</p>
+<p>　　文本操纵语言对于编程的意义，就像是刳刨机（router）对于木工活的意义。它们嘈杂、肮脏、而且有点用“蛮力”。如果使用有误，整个工件都可能毁坏。有人发誓说在工具箱里没有它们的位置。但在恰当的人的手中，刳刨机和文本操纵语言都可以让人难以置信地强大和用途广泛。你可以很快把某样东西加工成形、制作接头、并进行雕刻。如果适当使用，这些工具拥有让人惊讶的精微与巧妙。但你需要花时间才能掌握它们。</p>
+<p>　　好的文本操纵语言的数目正在增长。Unix开发者常常喜欢利用他们的命令shell的力量，并用像awk和sed这样的工具加以增强。偏爱更为结构化的工具的人喜欢Python[URL 9]的面向对象本质。有人把Tcl[URL 23]当作自己的首选工具。我们碰巧喜欢用Perl[URL 8]编写短小的脚本。</p>
+<p>　　这些语言是能赋予你能力的重要技术。使用它们，你可以快速地构建实用程序，为你的想法建立原型——使用传统语言，这些工作可能需要5倍或10倍的时间。对于我们所做的实验，这样的放大系数十分重要。与花费5小时相比，花费30分钟试验一个疯狂的想法要好得多。花费1天使项目的重要组件自动化是可以接受的；花费1周却不一定。在The Practice of Programming[KP99]一书中，Kernighan与Pike用5种不同的语言构建同一个程序。Perl版本是最短的（17行，而C要150行）。通过Perl你可以操纵文本、与程序交互、进行网络通信、驱动网页、进行任意精度的运算、以及编写看起来像史努比发誓的程序。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Learn a Text Manipulation Language  </span><br><span class="line">学习一种文本操纵语言</span><br></pre></td></tr></table></figure> 
+<p>　　为了说明文本操纵语言的广泛适用性，这里列出了我们过去几年开发的一些应用示例：</p>
+<ul>
+<li><p><strong>数据库schema维护</strong>。一组Perl脚本读取含有数据库schema定义的纯文本文件，根据它生成：</p>
+<ul>
+<li><p>用于创建数据库的SQL语句</p>
+</li>
+<li><p>用于填充数据词典的平板（flat）数据文件</p>
+</li>
+<li><p>用于访问数据库的C代码库</p>
+</li>
+<li><p>用于检查数据库完整性的脚本</p>
+</li>
+<li><p>含有schema描述及框图的网页</p>
+</li>
+<li><p>schema的XML版本</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Java属性（property）访问</strong>。限制对某个对象的属性的访问，迫使外部类通过方法获取和设置它们，这是一种良好的OO编程风格。但是，属性在类的内部由简单的成员变量表示是一种常见情况，在这样的情况下要为每个变量创建获取和设置方法既乏味，又机械。我们有一个Perl脚本，它修改源文件，为所有做了适当标记的变量插入正确的方法定义。</p>
+</li>
+<li><p><strong>测试数据生成</strong>。我们的测试数据有好几万记录，散布在若干不同的文件中，其格式也不同，它们需要汇合在一起，并转换为适于装载进关系数据库的某种形式。Perl用几小时就完成了这一工作（在此过程中还发现了初始数据的几处一致性错误）。</p>
+</li>
+<li><p><strong>写书</strong>。我们认为，出现在书籍中的任何代码都应首先进行测试，这十分重要。本书中的大多数代码都经过了测试。但是，按照DRY原则（参见“重复的危害”，26页），我们不想把代码从测试过的程序拷贝并粘贴到书里。那意味着代码是重复的，实际上我们肯定会在程序被改动时忘记更新相应的例子。对于有些例子，我们也不想用编译并运行例子所需的全部框架代码来烦扰你。我们转向了Perl。在我们对书进行格式化时，会调用一个相对简单的脚本——它提取源文件中指定的片段，进行语法突显，并把结果转换成我们使用的排版语言。</p>
+</li>
+<li><p><strong>C与Object Pascal的接口</strong>。某个客户有一个在PC上编写Object Pascal应用的开发团队。他们的代码需要与用C编写的一段代码接口。我们开发了一个短小的Perl脚本，解析C头文件，提取所有被导出函数的定义，以及它们使用的数据结构。随后我们生成Object Pascal单元：用Pascal记录对应所有的C结构，用导入的过程定义对应所有的C函数。这一生成过程变成了构建的一部分，这样无论何时C头文件发生变化，新的Object Pascal单元都会自动被构造。</p>
+</li>
+<li><p><strong>生成Web文档</strong>。许多项目团队都把文档发布在内部网站上。我们编写了许多Perl程序，分析数据库schema、C或C++源文件、makefile以及其他项目资源，以生成所需的HTML文档。我们还使用Perl，把文档用标准的页眉和页脚包装起来，并把它们传输到网站上。</p>
+</li>
+</ul>
+<p>我们几乎每天都使用文本操纵语言。与我们注意到的其他任何语言相比，本书中的许多想法都可以用这些语言更简单地实现。这些语言使我们能够轻松地编写代码生成器，我们将在下一节讨论这一主题。</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ol>
+<li>你的C程序使用枚举类型表示100种状态。为进行调试，你想要能把状态打印成（与数字对应的）字符串。编写一个脚本，从标准输入读取含有以下内容的文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name</span><br><span class="line">state_a</span><br><span class="line">state_b</span><br><span class="line"> :    :</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>生成文件name.h，其中含有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extern const char* NAME_names[];</span><br><span class="line">typedef enum &#123;</span><br><span class="line">   state_a,</span><br><span class="line">   state_b,</span><br><span class="line">    :    :</span><br><span class="line"> &#125; NAME;</span><br></pre></td></tr></table></figure></p>
+<p>　　以及文件name.c，其中含有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const char* NAME_names[] = &#123;</span><br><span class="line">   &quot;state_a&quot;,</span><br><span class="line">   &quot;state_b&quot;,</span><br><span class="line">     :    :</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>在本书撰写的中途，我们意识到我们没有把use strict指示放进我们的许多Perl例子。编写一个脚本，检查某个目录中的.pl文件，给没有use strict指示的所有文件在初始注释块的末尾加上该指示。要记住给你改动的所有文件保留备份。　</li>
+</ol>
+<p><br></p>
+<h2 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h2><p>　　当木匠面临一再地重复制作同一样东西的任务时，他们会取巧。他们给自己建造夹具或模板。一旦他们做好了夹具，他们就可以反复制作某样工件。夹具带走了复杂性，降低了出错的机会，从而让工匠能够自由地专注于质量问题。</p>
+<p>　　作为程序员，我们常常发现自己也处在同样的位置上。我们需要获得同一种功能，但却是在不同的语境中。我们需要在不同的地方重复信息。有时我们只是需要通过减少重复的打字，使自己免于患上腕部劳损综合症。</p>
+<p>　　以与木匠在夹具上投入时间相同的方式，程序员可以构建代码生成器。一旦构建好，在整个项目生命期内都可以使用它，实际上没有任何代价。</p>
+<figure class="highlight plain"><figcaption><span>提示</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Write Code That Writes Code  </span><br><span class="line">编写能编写代码的代码</span><br></pre></td></tr></table></figure> 
+<p>　　代码生成器有两种主要类型：</p>
+<ol>
+<li><p>被动代码生成器只运行一次来生成结果。然后结果就变成了独立的——它与代码生成器分离了。在198页的邪恶的向导中讨论的向导，还有某些CASE工具，都是被动代码生成器的例子。</p>
+</li>
+<li><p>主动代码生成器在每次需要其结果时被使用。结果是用过就扔的——它总是能由代码生成器重新生成。主动代码生成器为了生成其结果，常常要读取某种形式的脚本或控制文件。</p>
+</li>
+</ol>
+<h3 id="被动代码生成器"><a href="#被动代码生成器" class="headerlink" title="被动代码生成器"></a>被动代码生成器</h3><p>　　被动代码生成器减少敲键次数。它们本质上是参数化模板，根据一组输入生成给定的输出形式。结果一经产生，就变成了项目中有充分资格的源文件；它将像任何其他文件一样被编辑、编译、置于源码控制之下。其来源将被忘记。</p>
+<p>　　被动代码生成器有许多用途：</p>
+<ul>
+<li><p>创建新的源文件。被动代码生成器可以生成模板、源码控制指示、版权说明以及项目中每个新文件的标准注释块。我们设置我们的编辑器，让它在我们每次创建新文件时做这样的工作：编辑新的Java程序，新的编辑器缓冲区将自动包含注释块、包指示以及已经填好的概要的类声明。</p>
+</li>
+<li><p>在编程语言之间进行一次性转换。我们开始撰写本书时使用的是troff系统，但我们在完成了15节以后转向了LaTeX。我们编写了一个代码生成器，读取troff源，并将其转换到LaTeX。其准确率大约是90%，余下部分我们用手工完成。这是被动代码生成器的一个有趣的特性：它们不必完全准确。你需要在你投入生成器的努力和你花在修正其输出上的精力之间进行权衡。</p>
+</li>
+<li><p>生成查找表及其他在运行时计算很昂贵的资源。许多早期的图形系统都使用预先计算的正弦和余弦值表，而不是在运行时计算三角函数。在典型情况下，这些表由被动代码生成器生成，然后拷贝到源文件中。</p>
+</li>
+</ul>
+<h3 id="主动代码生成器"><a href="#主动代码生成器" class="headerlink" title="主动代码生成器"></a>主动代码生成器</h3><p>　　被动代码生成器只是一种便利手段，如果你想要遵循DRY原则，它们的“表亲”主动代码生成器却是必需品。通过主动代码生成器，你可以取某项知识的一种表示形式，将其转换为你的应用需要的所有形式。这不是重复，因为衍生出的形式可以用过就扔，并且是由代码生成器按需生成的（所以才会用主动这个词）。</p>
+<p>　　无论何时你发现自己在设法让两种完全不同的环境一起工作，你都应该考虑使用主动代码生成器。</p>
+<p>　　或许你在开发数据库应用。这里，你在处理两种环境——数据库和你用来访问它的编程语言。你有一个schema，你需要定义低级的结构，反映特定的数据库表的布局。你当然可以直接对其进行编码，但这违反了DRY原则：schema的知识就会在两个地方表示。当schema变化时，你需要记住改变相应的代码。如果某一列从表中被移走，而代码库却没有改变，甚至有可能连编译错误也没有。只有等你的测试开始失败时（或是用户打电话过来），你才会知道它。</p>
+<p>　　另一种办法是使用主动代码生成器读取schema，使用它生成结构的源码。现在，无论何时schema发生变化，用于访问它的代码也会自动变化。如果某一列被移走，那么它在结构中相应的字段也将消失，任何使用该列的更高级的代码就将无法通过编译。</p>
+<p>　　你在编译时就能抓住错误，不用等到投入实际运行时。当然，只有在你让代码生成成为构建过程自身的一部分的情况下，这个方案才能工作。</p>
+<p>　　使用代码生成器融合环境的另一个例子发生在不同的编程语言被用于同一个应用时。为了进行通信，每个代码库将需要某些公共信息——例如，数据结构、消息格式、以及字段名。要使用代码生成器，而不是重复这些信息。有时你可以从一种语言的源文件中解析出信息，并将其用于生成第二种语言的代码。但如下一页的图3.4所示，用更简单、语言中立的表示形式来表示它，并为两种语言生成代码，常常更简单。再看一看268页上练习13的解答，里面有怎样把对平板文件表示的解析与代码生成分离开来的例子。</p>
+<h3 id="代码生成不一定要很复杂"><a href="#代码生成不一定要很复杂" class="headerlink" title="代码生成不一定要很复杂"></a>代码生成不一定要很复杂</h3><p>　　所有这些关于“主动这个”和“被动那个”的谈论可能会给你留下这样的印象：代码生成器是复杂的东西。它们不一定要很复杂。最复杂的部分通常是负责分析输入文件的解析器。让输入格式保持简单，代码生成器就会变得简单。看一看练习13的解答（286页）：实际的代码生成基本上是print语句。</p>
+<h3 id="代码生成器不一定要生成代码"><a href="#代码生成器不一定要生成代码" class="headerlink" title="代码生成器不一定要生成代码"></a>代码生成器不一定要生成代码</h3><p>　　尽管本节的许多例子给出的是生成程序源码的代码生成器，事情并不是非如此不可。你可以用代码生成器生成几乎任何输出：HTML、XML、纯文本——可能成为你的项目中别处输入的任何文本。</p>
+<h3 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h3><ol>
+<li>编写一个代码生成器，读取图3.4中的输入文件，以你选择的两种语言生成输出。设法使它容易增加新语言。</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/书籍/" rel="tag"><i class="fa fa-tag"></i> 书籍</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/04/20/程序员修炼之道-注重实效的途径/" rel="next" title="程序员修炼之道-注重实效的途径">
+                <i class="fa fa-chevron-left"></i> 程序员修炼之道-注重实效的途径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/04/20/程序员修炼之道-注重实效的偏执/" rel="prev" title="程序员修炼之道-注重实效的偏执">
+                程序员修炼之道-注重实效的偏执 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true"
+                alt="书葬" />
+            
+              <p class="site-author-name" itemprop="name">书葬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shuzang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nicelinks.site/" title="倾城之链" target="_blank">倾城之链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cupfox.com/" title="茶杯狐" target="_blank">茶杯狐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#纯文本的威力"><span class="nav-number">1.</span> <span class="nav-text">纯文本的威力</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是纯文本"><span class="nav-number">1.1.</span> <span class="nav-text">什么是纯文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本的威力"><span class="nav-number">1.3.</span> <span class="nav-text">文本的威力</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#保证不过时"><span class="nav-number">1.3.1.</span> <span class="nav-text">保证不过时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#杠杆作用"><span class="nav-number">1.3.2.</span> <span class="nav-text">杠杆作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更易于测试"><span class="nav-number">1.3.3.</span> <span class="nav-text">更易于测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小公分母"><span class="nav-number">1.4.</span> <span class="nav-text">最小公分母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战"><span class="nav-number">1.5.</span> <span class="nav-text">挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell游戏"><span class="nav-number">2.</span> <span class="nav-text">shell游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell实用程序与Windows系统"><span class="nav-number">2.1.</span> <span class="nav-text">shell实用程序与Windows系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强力编辑"><span class="nav-number">3.</span> <span class="nav-text">强力编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一种编辑器"><span class="nav-number">3.1.</span> <span class="nav-text">一种编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器特性"><span class="nav-number">3.2.</span> <span class="nav-text">编辑器特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生产率"><span class="nav-number">3.3.</span> <span class="nav-text">生产率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后做什么"><span class="nav-number">3.4.</span> <span class="nav-text">然后做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有哪些编辑器可用"><span class="nav-number">3.5.</span> <span class="nav-text">有哪些编辑器可用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-1"><span class="nav-number">3.6.</span> <span class="nav-text">挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码控制"><span class="nav-number">4.</span> <span class="nav-text">源码控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码控制与构建"><span class="nav-number">4.1.</span> <span class="nav-text">源码控制与构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#但我们团队没有使用源码控制"><span class="nav-number">4.2.</span> <span class="nav-text">但我们团队没有使用源码控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码控制产品"><span class="nav-number">4.3.</span> <span class="nav-text">源码控制产品</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-2"><span class="nav-number">4.4.</span> <span class="nav-text">挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">5.</span> <span class="nav-text">调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调试的心理学"><span class="nav-number">5.1.</span> <span class="nav-text">调试的心理学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试的思维方式"><span class="nav-number">5.2.</span> <span class="nav-text">调试的思维方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从何处开始"><span class="nav-number">5.3.</span> <span class="nav-text">从何处开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试策略"><span class="nav-number">5.4.</span> <span class="nav-text">测试策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使你的数据可视化"><span class="nav-number">5.5.</span> <span class="nav-text">使你的数据可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪"><span class="nav-number">5.6.</span> <span class="nav-text">跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#橡皮鸭"><span class="nav-number">5.7.</span> <span class="nav-text">橡皮鸭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除过程"><span class="nav-number">5.8.</span> <span class="nav-text">消除过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#造成惊讶的要素"><span class="nav-number">5.9.</span> <span class="nav-text">造成惊讶的要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试检查列表"><span class="nav-number">5.10.</span> <span class="nav-text">调试检查列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战-3"><span class="nav-number">5.11.</span> <span class="nav-text">挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本操纵"><span class="nav-number">6.</span> <span class="nav-text">文本操纵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">6.1.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码生成器"><span class="nav-number">7.</span> <span class="nav-text">代码生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#被动代码生成器"><span class="nav-number">7.1.</span> <span class="nav-text">被动代码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主动代码生成器"><span class="nav-number">7.2.</span> <span class="nav-text">主动代码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码生成不一定要很复杂"><span class="nav-number">7.3.</span> <span class="nav-text">代码生成不一定要很复杂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码生成器不一定要生成代码"><span class="nav-number">7.4.</span> <span class="nav-text">代码生成器不一定要生成代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习-1"><span class="nav-number">7.5.</span> <span class="nav-text">练习</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">书葬</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
