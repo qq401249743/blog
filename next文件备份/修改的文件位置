@@ -1,0 +1,7 @@
+##修改头像为圆形并使其旋转
+\themes\next\source\css\_common\components\sidebar\sidebar-author.styl
+
+##修改文章底部标签样式
+原标签样式为#
+/themes/next/layout/_macro/post.swig
+搜索 rel="tag">#，将#换成<i class="fa fa-tag"></i>
