@@ -102,27 +102,25 @@
 
 
 
-  <meta name="description" content="git与githubgithub是一个网站，git是一个分布式版本控制系统">
-<meta name="keywords" content="git">
+  <meta name="description" content="面向对象的核心是程序是对象的集合，每个对象可以接收并处理其它对象的消息，程序的执行就是一系列消息在各个对象之间的传递。 面向过程的核心是程序是命令的集合，即一组函数的顺序执行，可以通过切分函数为小的子函数简化程序设计 1. 类(Class)和实例(Instance)123456789class Student(object):	def __init__(self, name, score):">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git学习-背景">
-<meta property="og:url" content="https://github.com/shuzang/2018/04/20/git学习-背景/index.html">
+<meta property="og:title" content="面向对象编程_1(python)">
+<meta property="og:url" content="https://github.com/shuzang/2018/09/05/面向对象编程_1(python)/index.html">
 <meta property="og:site_name" content="捕风">
-<meta property="og:description" content="git与githubgithub是一个网站，git是一个分布式版本控制系统">
+<meta property="og:description" content="面向对象的核心是程序是对象的集合，每个对象可以接收并处理其它对象的消息，程序的执行就是一系列消息在各个对象之间的传递。 面向过程的核心是程序是命令的集合，即一组函数的顺序执行，可以通过切分函数为小的子函数简化程序设计 1. 类(Class)和实例(Instance)123456789class Student(object):	def __init__(self, name, score):">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/shuzang/image/raw/master/git+github.png?raw=true">
-<meta property="og:updated_time" content="2018-05-13T14:34:02.210Z">
+<meta property="og:updated_time" content="2018-09-06T06:56:45.909Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git学习-背景">
-<meta name="twitter:description" content="git与githubgithub是一个网站，git是一个分布式版本控制系统">
-<meta name="twitter:image" content="https://github.com/shuzang/image/raw/master/git+github.png?raw=true">
+<meta name="twitter:title" content="面向对象编程_1(python)">
+<meta name="twitter:description" content="面向对象的核心是程序是对象的集合，每个对象可以接收并处理其它对象的消息，程序的执行就是一系列消息在各个对象之间的传递。 面向过程的核心是程序是命令的集合，即一组函数的顺序执行，可以通过切分函数为小的子函数简化程序设计 1. 类(Class)和实例(Instance)123456789class Student(object):	def __init__(self, name, score):">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github.com/shuzang/2018/04/20/git学习-背景/"/>
+  <link rel="canonical" href="https://github.com/shuzang/2018/09/05/面向对象编程_1(python)/"/>
 
 
 
@@ -132,7 +130,7 @@
   };
 </script>
 
-  <title>git学习-背景 | 捕风</title>
+  <title>面向对象编程_1(python) | 捕风</title>
   
 
 
@@ -296,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/04/20/git学习-背景/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/09/05/面向对象编程_1(python)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="书葬">
@@ -313,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git学习-背景
+          <h1 class="post-title" itemprop="name headline">面向对象编程_1(python)
               
             
           </h1>
@@ -338,7 +336,7 @@
                 
               
 
-              <time title="创建时间：2018-04-20 19:06:20" itemprop="dateCreated datePublished" datetime="2018-04-20T19:06:20+08:00">2018-04-20</time>
+              <time title="创建时间：2018-09-05 19:31:00" itemprop="dateCreated datePublished" datetime="2018-09-05T19:31:00+08:00">2018-09-05</time>
             
 
             
@@ -355,7 +353,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-13 22:34:02" itemprop="dateModified" datetime="2018-05-13T22:34:02+08:00">2018-05-13</time>
+                <time title="修改时间：2018-09-06 14:56:45" itemprop="dateModified" datetime="2018-09-06T14:56:45+08:00">2018-09-06</time>
               
             
           </span>
@@ -388,42 +386,51 @@
       
 
       
-        <p><img src="https://github.com/shuzang/image/raw/master/git+github.png?raw=true" alt="git_github"></p>
-<h2 id="git与github"><a href="#git与github" class="headerlink" title="git与github"></a>git与github</h2><div class="note default"><p>github是一个网站，git是一个分布式版本控制系统</p></div>
-<a id="more"></a>
-<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>生活中可能会出现两种情况</p>
-<ol>
-<li><p>你写了一篇文章，过了一天做了一定的修改，但是觉得之前的版本可能有用，于是改了一下名字重新保存，后来又重复修改保存了多次，这样电脑里就可能出现像  </p>
-<blockquote>
-<p>版本1.doc<br>版本2.doc<br>最终版本.doc<br>最终版本改.doc<br>真的是最终版本了.doc</p>
-</blockquote>
-<p>等等众多重命名文件，头疼不已。</p>
+        <p>面向对象的核心是<strong>程序是对象的集合</strong>，每个对象可以接收并处理其它对象的消息，程序的执行就是一系列消息在各个对象之间的传递。</p>
+<p>面向过程的核心是<strong>程序是命令的集合</strong>，即一组函数的顺序执行，可以通过切分函数为小的子函数简化程序设计<br><br></p>
+<h2 id="1-类-Class-和实例-Instance"><a href="#1-类-Class-和实例-Instance" class="headerlink" title="1. 类(Class)和实例(Instance)"></a>1. 类(Class)和实例(Instance)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">    	self.name = name</span><br><span class="line">        self.score = score</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">    	print(<span class="string">'%s'</span> % self.score)</span><br><span class="line">        </span><br><span class="line">bart = Student(<span class="string">'Bart Simpson'</span>, <span class="number">59</span>)</span><br><span class="line">print(bart.name, bart.print_score)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>类名首字母通常大写</p>
 </li>
-<li>多个人合作写文档，相互发送完自己的版本得校对对方的改动，然后进行合并,会花费大量不必要的精力</li>
-</ol>
-<p>而在编程领域，修改命名和合作更加广泛，这个问题也就更加突出  </p>
-<blockquote>
-<p>版本控制的作用就是记录每次文件的改动</p>
-</blockquote>
-<h3 id="集中式和分布式版本控制"><a href="#集中式和分布式版本控制" class="headerlink" title="集中式和分布式版本控制"></a>集中式和分布式版本控制</h3><ul>
-<li><strong>集中式</strong>就是有一个服务器放所有的东西，要工作的时候下载回来，改动完上传回去，记录和不同人的改动合并都由服务器端完成，然而这种形式极度依赖于服务器性能和网速  </li>
-<li><strong>分布式</strong>和torrent差不多，每个人的电脑都是服务器，修改完直接把修改的部分推送给所用拥有这个项目的人。分布式版本控制也有服务器，但主要是负责做备份，并方便大家的交换用的，并不是必要</li>
+<li><p><code>(object)</code>是父类名称</p>
+</li>
+<li><p>实例创建通过类名调用完成，<code>bart</code>变量指向实例的内存地址</p>
+</li>
+<li><p><code>__init__</code>前后分别有两个下划线，是特殊方法中的一种</p>
+</li>
+<li><p>类中定义的函数第一个参数永远是<code>self</code>，表示创建的实例本身，调用时不需要传入该参数</p>
+</li>
+<li><p>存在<code>__init__</code>方法时，创建实例必须传入与该方法匹配的参数</p>
+</li>
 </ul>
-<h3 id="git与github-1"><a href="#git与github-1" class="headerlink" title="git与github"></a>git与github</h3><ul>
-<li><strong>git</strong>是Linux的开创者为了管理Linux源码写的分布式版本控制软件  </li>
-<li><strong>github</strong>是为开源项目免费提供git存储的网站，2008年上线<br>其实现在称呼的话这两个都已经快混了，提到git一般第一反应也是github</li>
+<p> 通过数据封装，我们可以隐藏类内的方法实现细节，使用时直接调用类及其方法即可。</p>
+<a id="more"></a> 
+<p><br></p>
+<h2 id="2-访问限制"><a href="#2-访问限制" class="headerlink" title="2. 访问限制"></a>2. 访问限制</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">        self.__name = name</span><br><span class="line">        self.__score = score</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s: %s'</span> % (self.__name, self.__score))</span><br></pre></td></tr></table></figure>
+<p>将属性名<code>name</code>,<code>score</code>名称前加两个下划线，可以使其变为私有变量，阻止其被外部访问。</p>
+<p>此时如果仍想访问类内属性，可以增加<code>get_name</code>,<code>get_score</code>,<code>set_score</code>这样的方法。</p>
+<p>双下划线开头结尾的特殊变量可以直接访问，不受限制</p>
+<p><br></p>
+<h2 id="3-继承和多态"><a href="#3-继承和多态" class="headerlink" title="3. 继承和多态"></a>3. 继承和多态</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Animal is running...'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Dog is running...'</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Eating meat...'</span>)</span><br><span class="line">        </span><br><span class="line">c = Dog()</span><br><span class="line">isinstance(c, Dog)  <span class="comment"># True</span></span><br><span class="line">isinstance(c, Animal)  <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Animal继承了object类，Dog继承了Animal类</li>
+<li>继承可以使子类获得父类的全部功能</li>
+<li>子类Dog的run()方法覆盖了父类Animal的run()方法，覆盖就是一种多态</li>
+<li>多态是接口的多种不同实现方式</li>
+</ul>
+<p>python作为动态语言，其继承体系不是严格的，参见<a href="https://baike.baidu.com/item/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B/10845665?fr=aladdin" target="_blank" rel="noopener">鸭子类型</a></p>
+<p><br></p>
+<h2 id="4-获取对象信息"><a href="#4-获取对象信息" class="headerlink" title="4. 获取对象信息"></a>4. 获取对象信息</h2><p>用于获取对象信息的主要有以下几个函数：</p>
+<ul>
+<li>type()</li>
+<li>isinstance()</li>
+<li>dir()：返回一个包含判断对象所有属性和方法的list</li>
 </ul>
 <p><br></p>
-<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><p>一般情况都是在Linux上用的，但后来也移植到了windows，现在windows上甚至有了GUI版本</p>
-<h3 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h3><p>查看有没有安装：</p>
-<pre><code>$ git
-</code></pre><p>未安装则在ubuntu和debian系统的命令行直接输入以下命令安装</p>
-<pre><code>$ sudo apt-get install git
-</code></pre><p>安装完成后还要设置自己的名字和Email地址</p>
-<pre><code>$ git config --global  user.name   &quot;your name&quot;
-$ git config --global  user.email  &quot;email@example.com&quot;
-</code></pre><p><code>--global</code>参数的意思是这个名字和邮箱应用于所有git仓库</p>
-<h3 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h3><p>Windows下已经有GUI版适配了，而且很好用<br>下载地址为：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><strong>注</strong>：个人看法，不管是下载地址的网页还是软件都做的很舒服</p>
+<h2 id="5-实例属性和类属性"><a href="#5-实例属性和类属性" class="headerlink" title="5. 实例属性和类属性"></a>5. 实例属性和类属性</h2><p>通过实例变量或<code>self</code>变量给实例绑定属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        </span><br><span class="line">s = Student(<span class="string">'Bob'</span>)</span><br><span class="line">s.score = <span class="number">90</span></span><br></pre></td></tr></table></figure>
+<p>直接在类中定义的属性是类属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    name = <span class="string">'Student'</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -444,7 +451,7 @@ $ git config --global  user.email  &quot;email@example.com&quot;
       
         <div class="post-tags">
           
-            <a href="/blog/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/blog/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -457,8 +464,8 @@ $ git config --global  user.email  &quot;email@example.com&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/04/20/程序员修炼之道-注重实效的偏执/" rel="next" title="程序员修炼之道-注重实效的偏执">
-                <i class="fa fa-chevron-left"></i> 程序员修炼之道-注重实效的偏执
+              <a href="/blog/2018/08/22/1692年镌刻于巴尔的摩圣保罗教堂/" rel="next" title="1692年镌刻于巴尔的摩圣保罗教堂">
+                <i class="fa fa-chevron-left"></i> 1692年镌刻于巴尔的摩圣保罗教堂
               </a>
             
           </div>
@@ -466,10 +473,6 @@ $ git config --global  user.email  &quot;email@example.com&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/04/21/git学习-基础/" rel="prev" title="git学习-基础">
-                git学习-基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +651,7 @@ $ git config --global  user.email  &quot;email@example.com&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git与github"><span class="nav-number">1.</span> <span class="nav-text">git与github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制"><span class="nav-number">1.1.</span> <span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集中式和分布式版本控制"><span class="nav-number">1.2.</span> <span class="nav-text">集中式和分布式版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git与github-1"><span class="nav-number">1.3.</span> <span class="nav-text">git与github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git安装"><span class="nav-number">2.</span> <span class="nav-text">git安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装"><span class="nav-number">2.1.</span> <span class="nav-text">Linux安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows安装"><span class="nav-number">2.2.</span> <span class="nav-text">windows安装</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-类-Class-和实例-Instance"><span class="nav-number">1.</span> <span class="nav-text">1. 类(Class)和实例(Instance)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-访问限制"><span class="nav-number">2.</span> <span class="nav-text">2. 访问限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-继承和多态"><span class="nav-number">3.</span> <span class="nav-text">3. 继承和多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-获取对象信息"><span class="nav-number">4.</span> <span class="nav-text">4. 获取对象信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-实例属性和类属性"><span class="nav-number">5.</span> <span class="nav-text">5. 实例属性和类属性</span></a></li></ol></div>
             
 
           </div>
