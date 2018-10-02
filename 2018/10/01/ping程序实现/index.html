@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 设计要求基于Raw Socket编程实现Ping的客户端程序，并分析所实现的Ping的网络攻击性。 注：程序已给出，只需要调试使其正常运行即可，应能完全理解程序内容 2. 设计思路​    Ping程序的作用是测试网络的连通性，其实现主要基于ICMP的回送请求和回送应答。而且我们知道，ICMP是基于IP的一个协议，ICMP包封装在IP数据包的数据部分进行传输。 ​    为了实现直接对IP和">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ping程序实现">
+<meta property="og:url" content="https://github.com/shuzang/2018/10/01/ping程序实现/index.html">
+<meta property="og:site_name" content="捕风">
+<meta property="og:description" content="1. 设计要求基于Raw Socket编程实现Ping的客户端程序，并分析所实现的Ping的网络攻击性。 注：程序已给出，只需要调试使其正常运行即可，应能完全理解程序内容 2. 设计思路​    Ping程序的作用是测试网络的连通性，其实现主要基于ICMP的回送请求和回送应答。而且我们知道，ICMP是基于IP的一个协议，ICMP包封装在IP数据包的数据部分进行传输。 ​    为了实现直接对IP和">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/shuzang/image/blob/master/%E7%BD%91%E7%BB%9C/ping%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%B5%81%E7%A8%8B%20.png?raw=true">
+<meta property="og:updated_time" content="2018-10-02T00:14:28.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ping程序实现">
+<meta name="twitter:description" content="1. 设计要求基于Raw Socket编程实现Ping的客户端程序，并分析所实现的Ping的网络攻击性。 注：程序已给出，只需要调试使其正常运行即可，应能完全理解程序内容 2. 设计思路​    Ping程序的作用是测试网络的连通性，其实现主要基于ICMP的回送请求和回送应答。而且我们知道，ICMP是基于IP的一个协议，ICMP包封装在IP数据包的数据部分进行传输。 ​    为了实现直接对IP和">
+<meta name="twitter:image" content="https://github.com/shuzang/image/blob/master/%E7%BD%91%E7%BB%9C/ping%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%B5%81%E7%A8%8B%20.png?raw=true">
+
+
+
+
+
+
+  <link rel="canonical" href="https://github.com/shuzang/2018/10/01/ping程序实现/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ping程序实现 | 捕风</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">捕风</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">孤独的孩子爱寂寞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shuzang/blog/2018/10/01/ping程序实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="书葬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="捕风">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ping程序实现
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-01 08:13:00" itemprop="dateCreated datePublished" datetime="2018-10-01T08:13:00+08:00">2018-10-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-02 08:14:28" itemprop="dateModified" datetime="2018-10-02T08:14:28+08:00">2018-10-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-设计要求"><a href="#1-设计要求" class="headerlink" title="1. 设计要求"></a>1. 设计要求</h2><p>基于Raw Socket编程实现Ping的客户端程序，并分析所实现的Ping的网络攻击性。</p>
+<p><strong>注：</strong>程序已给出，只需要调试使其正常运行即可，应能完全理解程序内容</p>
+<h2 id="2-设计思路"><a href="#2-设计思路" class="headerlink" title="2. 设计思路"></a>2. 设计思路</h2><p>​    Ping程序的作用是测试网络的连通性，其实现主要基于ICMP的回送请求和回送应答。而且我们知道，ICMP是基于IP的一个协议，ICMP包封装在IP数据包的数据部分进行传输。</p>
+<p>​    为了实现直接对IP和ICMP包进行操作，实验中使用RAW模式的SOCKET编程。因为基于UDP的socket编程和基于TCP的socket编程都无法对下一层（网络层）的数据包进行操作。</p>
+<h4 id="1-1-所用的API函数"><a href="#1-1-所用的API函数" class="headerlink" title="1.1 所用的API函数"></a>1.1 所用的API函数</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建socket</td>
+<td>socket(af, type, protocol)</td>
+</tr>
+<tr>
+<td>关闭socket</td>
+<td>closesocket(socket)</td>
+</tr>
+<tr>
+<td>发送数据</td>
+<td>sendto(s, buf, len, flags, to, tolen)</td>
+</tr>
+<tr>
+<td>接收数据</td>
+<td>recvfrom(s, buf, len, flags, from, fromlen)</td>
+</tr>
+<tr>
+<td>将域名翻译为IP</td>
+<td>gethostbyname(name)</td>
+</tr>
+<tr>
+<td>将IP转换为点分十进制格式</td>
+<td>Inet_ntoa(ip)</td>
+</tr>
+<tr>
+<td>WSAStartupWSACleanup</td>
+<td>其它socket函数使用前和使用后用这两个</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h4 id="1-2-数据结构"><a href="#1-2-数据结构" class="headerlink" title="1.2 数据结构"></a>1.2 数据结构</h4><p>ICMP数据头结构： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">ihdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   BYTE i_type;      <span class="comment">//类型</span></span><br><span class="line">   BYTE i_code;      <span class="comment">//代码</span></span><br><span class="line">   USHORT i_cksum;      <span class="comment">//校验和</span></span><br><span class="line">   USHORT i_id;      <span class="comment">//标识符</span></span><br><span class="line">   USHORT i_seq;      <span class="comment">//序号</span></span><br><span class="line">   <span class="comment">/* 下面的时间戳不是标准ICMP头部，这个程序里是为了容易计算世界定义的 */</span></span><br><span class="line">   ULONG timestamp;</span><br><span class="line">&#125; IcmpHeader;</span><br></pre></td></tr></table></figure>
+<p>IP数据包头结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">iphdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> h_len : <span class="number">4</span>;     <span class="comment">// 首部长度</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> version : <span class="number">4</span>;    <span class="comment">// 版本号</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> tos;        <span class="comment">// 服务类型</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">short</span> total_len;     <span class="comment">// 总长度</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">short</span> ident;       <span class="comment">// 标识</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">short</span> frag_and_flags;    <span class="comment">// 标志和片偏移</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> ttl;        <span class="comment">//跳数</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> proto;       <span class="comment">// 协议</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">short</span> checksum;     <span class="comment">// 校验和</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">int</span> sourceIP;      <span class="comment">//源地址</span></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">int</span> destIP;        <span class="comment">//目的地址</span></span><br><span class="line">&#125; IpHeader;</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-程序功能"><a href="#1-3-程序功能" class="headerlink" title="1.3 程序功能"></a>1.3 程序功能</h4><p>A. ping ip 地址</p>
+<p>如 ping 192.168.1.1</p>
+<p>B. ping 域名</p>
+<p>如 ping <a href="http://www.neu.edu.cn" target="_blank" rel="noopener">www.neu.edu.cn</a></p>
+<p><strong>注：</strong>参数输入时只需要输入域名或IP地址，不需要字符<code>ping</code></p>
+<h4 id="1-4-平台、语言和IDE"><a href="#1-4-平台、语言和IDE" class="headerlink" title="1.4 平台、语言和IDE"></a>1.4 平台、语言和IDE</h4><ul>
+<li>平台：windows    </li>
+<li>语言：C语言</li>
+<li>IDE：VS    </li>
+</ul>
+<h2 id="3-流程介绍"><a href="#3-流程介绍" class="headerlink" title="3. 流程介绍"></a>3. 流程介绍</h2><p><img src="https://github.com/shuzang/image/blob/master/%E7%BD%91%E7%BB%9C/ping%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%B5%81%E7%A8%8B%20.png?raw=true" alt="img"></p>
+<h2 id="4-代码"><a href="#4-代码" class="headerlink" title="4. 代码"></a>4. 代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;windows.h&gt;  //Sleep函数所需</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span>  comment(lib,<span class="meta-string">"ws2_32.lib"</span>) <span class="comment">//套接字编程需要的库文件</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ICMP_ECHO 8      <span class="comment">// 请求回显 ping请求 请求回显8</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ICMP_ECHOREPLY 0 <span class="comment">// 回显应答0</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ICMP_MIN 12      <span class="comment">// minimum 12 byte icmp message(just header)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* IP头部  20bytes*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">iphdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> h_len : <span class="number">4</span>;       <span class="comment">// 首部长度</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> version : <span class="number">4</span>;     <span class="comment">// 版本号</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> tos;             <span class="comment">// 服务类型</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> total_len;      <span class="comment">// 总长度</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> ident;          <span class="comment">// 标识</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> frag_and_flags; <span class="comment">// 标志和片偏移</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ttl;             <span class="comment">//跳数</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> proto;           <span class="comment">// 协议</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> checksum;       <span class="comment">// 校验和</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> sourceIP;         <span class="comment">//源地址</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> destIP;           <span class="comment">//目的地址</span></span><br><span class="line">&#125; IpHeader;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ICMP头部  12 bytes */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">ihdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	BYTE i_type;      <span class="comment">//类型</span></span><br><span class="line">	BYTE i_code;      <span class="comment">//代码</span></span><br><span class="line">	USHORT i_cksum;   <span class="comment">//校验和</span></span><br><span class="line">	USHORT i_id;      <span class="comment">//标识符</span></span><br><span class="line">	USHORT i_seq;     <span class="comment">//序号</span></span><br><span class="line">	<span class="comment">/* 下面的时间戳不是标准ICMP头部，是为了容易计算时间定义的，</span></span><br><span class="line"><span class="comment">	整个头部大小因此从8字节扩大到了12字节*/</span></span><br><span class="line">	ULONG timestamp;</span><br><span class="line">&#125; IcmpHeader;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STATUS_FAILED 0xFFFF</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_PACKET 1024</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> xmalloc(s) HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, (s))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> xfree(p) HeapFree(GetProcessHeap(), 0, (p))</span></span><br><span class="line"></span><br><span class="line"><span class="function">USHORT <span class="title">checksum</span><span class="params">(USHORT *, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill_icmp_head</span><span class="params">(<span class="keyword">char</span> *)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode_resp</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">int</span>, struct sockaddr_in *)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//参数过少就会调用该函数输出argv[0]</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Usage</span><span class="params">(<span class="keyword">char</span> *progname)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage:\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%s &lt;host&gt;\n"</span>, progname);</span><br><span class="line">	ExitProcess(STATUS_FAILED);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	WSADATA wsaData;</span><br><span class="line">	SOCKET sockRaw;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">dest</span>, <span class="title">from</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">hostent</span> *<span class="title">hp</span>;</span></span><br><span class="line">	<span class="keyword">int</span> bread, datasize;</span><br><span class="line">	<span class="keyword">int</span> fromlen = <span class="keyword">sizeof</span>(from);</span><br><span class="line">	<span class="keyword">char</span> *dest_ip;</span><br><span class="line">	<span class="keyword">char</span> *icmp_data;</span><br><span class="line">	<span class="keyword">char</span> *recvbuf;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> addr = <span class="number">0</span>;</span><br><span class="line">	USHORT seq_no = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (WSAStartup(<span class="number">0x0101</span>, &amp;wsaData) != <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"WSAStartup failed: %d\n"</span>, GetLastError());  <span class="comment">//错误提示输出到指定设备</span></span><br><span class="line">		ExitProcess(STATUS_FAILED);  <span class="comment">//结束调用的进程和它的线程</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//如果命令参数小于两个，结束，因为argv[0]肯定是路径和文件名，</span></span><br><span class="line">	<span class="comment">//只有argv[1]及以后才是真正的参数，只有1个参数就相当于没参数</span></span><br><span class="line">	<span class="keyword">if</span> (argc &lt; <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		Usage(argv[<span class="number">0</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//创建套接字</span></span><br><span class="line">	<span class="keyword">if</span> ((sockRaw = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP)) == INVALID_SOCKET) <span class="comment">//ipv4，原始套接字，ICMP协议</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"WSAStartup failed: %d\n"</span>, GetLastError());</span><br><span class="line">		ExitProcess(STATUS_FAILED);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(&amp;dest, <span class="number">0</span>, <span class="keyword">sizeof</span>(dest));  <span class="comment">//目标地址缓存置0</span></span><br><span class="line">	hp = gethostbyname(argv[<span class="number">1</span>]);   <span class="comment">//获取要ping的域名或ip地址</span></span><br><span class="line">	<span class="keyword">if</span> (hp != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memcpy</span>(&amp;(dest.sin_addr), hp-&gt;h_addr, hp-&gt;h_length);  <span class="comment">//域名解析过来的ip地址给目的地址缓存</span></span><br><span class="line">		dest.sin_family = AF_INET;  <span class="comment">//设置为IPv4协议</span></span><br><span class="line">		dest_ip = inet_ntoa(dest.sin_addr);  <span class="comment">//将缓存里的ip地址转换成点分十进制格式</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unable to resolve %s\n"</span>, argv[<span class="number">1</span>]);  <span class="comment">//输出无法识别参数的错误</span></span><br><span class="line">		ExitProcess(STATUS_FAILED);  </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	datasize = <span class="keyword">sizeof</span>(IcmpHeader);   <span class="comment">//ICMP报文设置为12个字节</span></span><br><span class="line">	icmp_data = (<span class="keyword">char</span>*)xmalloc(MAX_PACKET); <span class="comment">//为ICMP报文申请了1024字节，最大可以定义65535-20-8</span></span><br><span class="line">	recvbuf = (<span class="keyword">char</span>*)xmalloc(MAX_PACKET);   <span class="comment">//申请接收缓冲区，大小和上面的一样，1024</span></span><br><span class="line">	<span class="keyword">if</span> (!icmp_data)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"HeapAlloc failed %d\n"</span>, GetLastError());</span><br><span class="line">		ExitProcess(STATUS_FAILED);</span><br><span class="line">	&#125;<span class="comment">//申请不成功就输出这个错误咯</span></span><br><span class="line">	<span class="built_in">memset</span>(icmp_data, <span class="number">0</span>, MAX_PACKET);  <span class="comment">//刚申请的ICMP缓存置0</span></span><br><span class="line">	fill_icmp_head(icmp_data);  <span class="comment">//填充ICMP数据报</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//无限ping循环</span></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> bwrote;</span><br><span class="line">		<span class="comment">//以下四行是每次发送请求对ICMP报文的相关字段做修改</span></span><br><span class="line">		((IcmpHeader *)icmp_data)-&gt;i_cksum = <span class="number">0</span>;  <span class="comment">//校验和置0</span></span><br><span class="line">		((IcmpHeader *)icmp_data)-&gt;timestamp = GetTickCount();  <span class="comment">//GetTickCount函数的作用是返回从操作系统启动所经过的毫秒数</span></span><br><span class="line">		((IcmpHeader *)icmp_data)-&gt;i_seq = seq_no++;  <span class="comment">//序列号加一</span></span><br><span class="line">		((IcmpHeader *)icmp_data)-&gt;i_cksum = checksum((USHORT *)icmp_data, <span class="keyword">sizeof</span>(IcmpHeader));  <span class="comment">//计算校验和并填充</span></span><br><span class="line">		</span><br><span class="line">		bwrote = sendto(sockRaw, icmp_data, datasize, <span class="number">0</span>, (struct sockaddr *)&amp;dest, <span class="keyword">sizeof</span>(dest));  <span class="comment">//发送报文</span></span><br><span class="line">		<span class="keyword">if</span> (bwrote == SOCKET_ERROR)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"sendto failed: %d\n"</span>, WSAGetLastError());</span><br><span class="line">			ExitProcess(STATUS_FAILED);</span><br><span class="line">		&#125;<span class="comment">//发送失败的错误</span></span><br><span class="line">		<span class="keyword">if</span> (bwrote &lt; datasize)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"Wrote %d bytes\n"</span>, bwrote);</span><br><span class="line">		&#125;<span class="comment">//发送的报文长小于ICMP报文长的话就有问题了</span></span><br><span class="line"></span><br><span class="line">		bread = recvfrom(sockRaw, recvbuf, MAX_PACKET, <span class="number">0</span>, (struct sockaddr *)&amp;from, &amp;fromlen);  <span class="comment">//接收应答报文</span></span><br><span class="line">		<span class="keyword">if</span> (bread == SOCKET_ERROR)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (WSAGetLastError() == WSAETIMEDOUT)  <span class="comment">//WSAGetLastError返回windows socket操作的最后一个错误状态</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"timed out\n"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;<span class="comment">//超时错误</span></span><br><span class="line">			<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"recvfrom failed: %d\n"</span>, WSAGetLastError());</span><br><span class="line">			perror(<span class="string">"revffrom failed."</span>);  <span class="comment">//其它接收失败错误</span></span><br><span class="line">			ExitProcess(STATUS_FAILED);</span><br><span class="line">		&#125;</span><br><span class="line">		decode_resp(recvbuf, bread, &amp;from);  <span class="comment">//对收到的报文做解析</span></span><br><span class="line">		Sleep(<span class="number">1000</span>);  <span class="comment">//每次请求停个1000微秒</span></span><br><span class="line">	&#125;</span><br><span class="line">	closesocket(sockRaw);  <span class="comment">//关闭socket</span></span><br><span class="line">	xfree(icmp_data);  <span class="comment">//释放icmp报文缓存，和前面的xmalloc对应</span></span><br><span class="line">	xfree(recvbuf);  <span class="comment">//释放接收缓存</span></span><br><span class="line">	WSACleanup(); <span class="comment">/* 清除ws2_32.dll */</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill_icmp_head</span><span class="params">(<span class="keyword">char</span> *icmp_data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	IcmpHeader *icmp_hdr;</span><br><span class="line"></span><br><span class="line">	icmp_hdr = (IcmpHeader *)icmp_data;</span><br><span class="line">	icmp_hdr-&gt;i_type = ICMP_ECHO;  <span class="comment">//类型字段置8，标识回送请求</span></span><br><span class="line">	icmp_hdr-&gt;i_code = <span class="number">0</span>;  <span class="comment">//代码字段填0</span></span><br><span class="line">	icmp_hdr-&gt;i_cksum = <span class="number">0</span>;  <span class="comment">//校验和置0</span></span><br><span class="line">	icmp_hdr-&gt;i_id = (USHORT)GetCurrentProcessId();  <span class="comment">//标识符字段填写当前进程ID</span></span><br><span class="line">	icmp_hdr-&gt;i_seq = <span class="number">0</span>;  <span class="comment">//序列号初始为0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 	收到的应答数据包是IP包，我们需要对其进行解析，</span></span><br><span class="line"><span class="comment">    然后才能获得想要的信息                     */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode_resp</span><span class="params">(<span class="keyword">char</span> *buf, <span class="keyword">int</span> bytes, struct sockaddr_in *from)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	IpHeader *iphdr;</span><br><span class="line">	IcmpHeader *icmphdr;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> iphdrlen;</span><br><span class="line">	iphdr = (IpHeader *)buf;</span><br><span class="line">	iphdrlen = iphdr-&gt;h_len * <span class="number">4</span>; <span class="comment">// 首部长度字段的单位是4字节</span></span><br><span class="line">	<span class="keyword">if</span> (bytes &lt; iphdrlen + ICMP_MIN)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Too few bytes from %s\n"</span>, inet_ntoa(from-&gt;sin_addr));</span><br><span class="line">	&#125;<span class="comment">//收到的报文总长小于IP头部+ICMP头部的长度，说明没什么数据。。。</span></span><br><span class="line">	icmphdr = (IcmpHeader *)(buf + iphdrlen);  <span class="comment">//指针移动到ICMP头部</span></span><br><span class="line">	<span class="keyword">if</span> (icmphdr-&gt;i_type != ICMP_ECHOREPLY)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"non-echo type %d recvd\n"</span>, icmphdr-&gt;i_type);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;<span class="comment">//ICMP的类型字段应为0，回送应答</span></span><br><span class="line">	<span class="keyword">if</span> (icmphdr-&gt;i_id != (USHORT)GetCurrentProcessId())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"someone else's packet!\n"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;<span class="comment">//Id应为当前进程Id</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d bytes from %s:"</span>, bytes, inet_ntoa(from-&gt;sin_addr));  <span class="comment">//包长和地址输出</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" icmp_seq = %d. "</span>, icmphdr-&gt;i_seq);  <span class="comment">//包序号</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" time: %d ms "</span>, GetTickCount() - icmphdr-&gt;timestamp);  <span class="comment">//经历的时间，这就是头部多定义的时间戳字段的作用了</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//校验和计算</span></span><br><span class="line"><span class="function">USHORT <span class="title">checksum</span><span class="params">(USHORT *buffer, <span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">long</span> cksum = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//下面要注意的是之所以定为USHORT类型，是因为这个类型刚好16位</span></span><br><span class="line">	<span class="keyword">while</span> (size &gt; <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		cksum += *buffer++;  <span class="comment">//指针以十六位一组移动加到校验和</span></span><br><span class="line">		size -= <span class="keyword">sizeof</span>(USHORT);  <span class="comment">//计算过的部分把长度减掉</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (size)</span><br><span class="line">	&#123;</span><br><span class="line">		cksum += *(UCHAR *)buffer;  <span class="comment">//最后有剩余，强制类型转换并加到校验和</span></span><br><span class="line">	&#125;</span><br><span class="line">	cksum = (cksum &gt;&gt; <span class="number">16</span>) + (cksum &amp; <span class="number">0xffff</span>);  <span class="comment">//右移16位的值加上和全一与运算的值</span></span><br><span class="line">	cksum += (cksum &gt;&gt; <span class="number">16</span>);  <span class="comment">//再加上右移十六位的值</span></span><br><span class="line">	<span class="keyword">return</span> (USHORT)(~cksum);  <span class="comment">//返回非运算结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-参数及输出结果"><a href="#5-参数及输出结果" class="headerlink" title="5. 参数及输出结果"></a>5. 参数及输出结果</h2><p>参数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.neu.edu.cn</span><br></pre></td></tr></table></figure>
+<p>结果（在输出一些后停止）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">0.</span>  time: <span class="number">15</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">1.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">2.</span>  time: <span class="number">32</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">3.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">4.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">5.</span>  time: <span class="number">16</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">6.</span>  time: <span class="number">15</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">7.</span>  time: <span class="number">16</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">8.</span>  time: <span class="number">16</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">9.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">10.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">11.</span>  time: <span class="number">16</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">12.</span>  time: <span class="number">16</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">13.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">14.</span>  time: <span class="number">31</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">15.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">16.</span>  time: <span class="number">0</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">17.</span>  time: <span class="number">16</span> ms</span><br><span class="line"><span class="number">32</span> bytes from <span class="number">202.118</span><span class="number">.1</span><span class="number">.7</span>: icmp_seq = <span class="number">18.</span>  time: <span class="number">1188</span> ms</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+<h2 id="6-安全性分析"><a href="#6-安全性分析" class="headerlink" title="6. 安全性分析"></a>6. 安全性分析</h2><ul>
+<li><p>Sleep(1000)，删除会使被ping的目的机非常繁忙</p>
+</li>
+<li><p>发送的ICMP报文中的数据部分最大可以设置为65535-20-8个字节，这将使网络拥堵</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/网络/" rel="tag"><i class="fa fa-tag"></i> 网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/09/06/面向对象编程_2(python)/" rel="next" title="面向对象编程_2(python)">
+                <i class="fa fa-chevron-left"></i> 面向对象编程_2(python)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://github.com/shuzang/image/raw/master/shuzang.jpeg?raw=true"
+                alt="书葬" />
+            
+              <p class="site-author-name" itemprop="name">书葬</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shuzang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nicelinks.site/" title="倾城之链" target="_blank">倾城之链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cupfox.com/" title="茶杯狐" target="_blank">茶杯狐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-设计要求"><span class="nav-number">1.</span> <span class="nav-text">1. 设计要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-设计思路"><span class="nav-number">2.</span> <span class="nav-text">2. 设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-所用的API函数"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.1 所用的API函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-数据结构"><span class="nav-number">2.0.2.</span> <span class="nav-text">1.2 数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-程序功能"><span class="nav-number">2.0.3.</span> <span class="nav-text">1.3 程序功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-平台、语言和IDE"><span class="nav-number">2.0.4.</span> <span class="nav-text">1.4 平台、语言和IDE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-流程介绍"><span class="nav-number">3.</span> <span class="nav-text">3. 流程介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-代码"><span class="nav-number">4.</span> <span class="nav-text">4. 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-参数及输出结果"><span class="nav-number">5.</span> <span class="nav-text">5. 参数及输出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-安全性分析"><span class="nav-number">6.</span> <span class="nav-text">6. 安全性分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">书葬</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
